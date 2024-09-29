@@ -3,6 +3,7 @@ import Sidebar from "../../components/Sidebar"; // Import the sidebar
 import GeneralSettings from "../../components/settings/General"; // Import GeneralSettings
 import StaffSettings from "../../components/settings/Staff"; // Import StaffSettings
 import BrandSettings from "../../components/settings/Brand"; // Import BrandSettings
+import { IoIosHelpCircleOutline } from "react-icons/io";
 
 const Settings = () => {
   const [activeTab, setActiveTab] = useState("General");
@@ -20,8 +21,9 @@ const Settings = () => {
       {/* Main Content */}
       <div className="flex-grow p-8">
         <div className="flex justify-between items-center">
-          <h2 className="text-[24px] font-semibold">Settings</h2>
-          <button className="text-sm text-gray-500 hover:underline">
+          <h2 className="text-[24px] font-[500]">Settings</h2>
+          <button className="text-[16px] flex gap-2 items-center text-gray-500 hover:underline">
+            <IoIosHelpCircleOutline size={20} />
             Help and Feedback
           </button>
         </div>
@@ -31,9 +33,9 @@ const Settings = () => {
           <nav className="-mb-px flex space-x-8">
             <button
               onClick={() => handleTabChange("General")}
-              className={`text-sm font-medium ${
+              className={`text-[16px] font-medium ${
                 activeTab === "General"
-                  ? "border-b-2 border-[#7A4DF5] text-black"
+                  ? "border-b-2 border-[#A3E635] text-black"
                   : "text-gray-500"
               } py-4 px-1`}
             >
@@ -41,9 +43,9 @@ const Settings = () => {
             </button>
             <button
               onClick={() => handleTabChange("Staff")}
-              className={`text-sm font-medium ${
+              className={`text-[16px] font-medium ${
                 activeTab === "Staff"
-                  ? "border-b-2 border-[#7A4DF5] text-black"
+                  ? "border-b-2 border-[#A3E635] text-black"
                   : "text-gray-500"
               } py-4 px-1`}
             >
@@ -51,9 +53,9 @@ const Settings = () => {
             </button>
             <button
               onClick={() => handleTabChange("Brand")}
-              className={`text-sm font-medium ${
+              className={`text-[16px] font-medium ${
                 activeTab === "Brand"
-                  ? "border-b-2 border-[#7A4DF5] text-black"
+                  ? "border-b-2 border-[#A3E635] text-black"
                   : "text-gray-500"
               } py-4 px-1`}
             >

@@ -14,6 +14,7 @@ import Dashboard from "./pages/home/Dashboard";
 import Settings from "./pages/settings/Settings";
 import Wallet from "./pages/finance/Wallet";
 import Orders from "./pages/catalog/Orders";
+import Collections from "./pages/catalog/Collections";
 
 function App() {
   return (
@@ -24,6 +25,7 @@ function App() {
           <Route path="/settings" element={<Settings />} />
           <Route path="/wallet" element={<Wallet />} />
           <Route path="/orders" element={<Orders />} />
+          <Route path="/collections" element={<Collections />} />
           <Route path="/signup" element={<SignUp />} />
           <Route path="/signup/create-password" element={<CreatePassword />} />
           <Route path="/signup/otp" element={<OTP />} />

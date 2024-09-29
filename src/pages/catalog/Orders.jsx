@@ -47,7 +47,7 @@ export default function Orders() {
       {/* Main Content */}
       <main className="flex-1 overflow-y-auto px-[32px] py-[27px]">
         <div className="flex flex-col bg-white">
-          <div className="flex justify-between pb-[32px]">
+          <div className="flex items-center justify-between pb-[32px]">
             <h1 className="text-[24px] leading-[36px] font-[500]">Orders</h1>
             <div className="flex items-center gap-[8px] text-[16px] tracking-[-2%] font-[400] text-[#0A0A0A]">
               <RiQuestionLine size={20} color="#0A0A0A" />

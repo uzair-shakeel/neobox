@@ -10,13 +10,17 @@ import Preferences from "./pages/store/Preference";
 import StoreName from "./pages/store/StoreName";
 import SetupPayout from "./pages/store/Payout";
 import SetupSecurity from "./pages/store/Security";
+import Dashboard from "./pages/home/Dashboard";
+import Settings from "./pages/settings/Settings";
 
 function App() {
   return (
     <Router>
       <div>
         <Routes>
-          <Route path="/" element={<SignUp />} />
+          <Route path="/" element={<Dashboard />} />
+          <Route path="/settings" element={<Settings />} />
+          <Route path="/signup" element={<SignUp />} />
           <Route path="/signup/create-password" element={<CreatePassword />} />
           <Route path="/signup/otp" element={<OTP />} />
           <Route path="/signup/verify" element={<Verify />} />

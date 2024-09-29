@@ -1,12 +1,44 @@
 "use client";
-import React from "react";
+import React, { useState } from "react";
 import Sidebar from "../../components/Sidebar";
 import { RiFilterLine, RiQuestionLine } from "react-icons/ri";
 import { LuSearch } from "react-icons/lu";
 import ChatButton from "../../components/ChatButton";
 import { IoFilterSharp } from "react-icons/io5";
+import { BiChevronLeft, BiChevronRight } from "react-icons/bi";
+import { IoIosArrowDown } from "react-icons/io";
 
 export default function Orders() {
+  // State for pagination
+  const [currentPage, setCurrentPage] = useState(1);
+  const [rowsPerPage, setRowsPerPage] = useState(6);
+
+  // Calculate total pages
+  const totalPages = Math.ceil(orders.length / rowsPerPage);
+
+  // Slice orders based on pagination
+  const currentOrders = orders.slice(
+    (currentPage - 1) * rowsPerPage,
+    currentPage * rowsPerPage
+  );
+
+  // Handle page navigation
+  const handlePrevPage = () => {
+    if (currentPage > 1) setCurrentPage(currentPage - 1);
+  };
+
+  const handleNextPage = () => {
+    if (currentPage < totalPages) setCurrentPage(currentPage + 1);
+  };
+
+  const handlePageClick = (pageNumber) => {
+    setCurrentPage(pageNumber);
+  };
+
+  const handleRowsChange = (e) => {
+    setRowsPerPage(parseInt(e.target.value));
+    setCurrentPage(1); // Reset to the first page
+  };
   return (
     <div className="flex h-screen bg-white">
       {/* Sidebar */}
@@ -78,7 +110,7 @@ export default function Orders() {
                   </tr>
                 </thead>
                 <tbody>
-                  {orders.map((order) => (
+                  {currentOrders.map((order) => (
                     <tr key={order.id}>
                       <td className="px-[16px] py-[14px] text-[#09090B] text-[16px] font-[400] border-b border-b-[#0A0A0A] border-opacity-[0.1] text-gray-700">
                         {order.id}
@@ -135,6 +167,80 @@ export default function Orders() {
             </p>
           </div>
         )}
+
+        {/* Pagination Section */}
+        <div className="flex justify-between items-center mt-[24px]">
+          {/* Page Info */}
+          <div className="text-[16px] font-[400] text-[#3F3F46]">
+            Page {currentPage} of {totalPages}
+          </div>
+
+          {/* Pagination Buttons */}
+          <div className="flex items-center space-x-2">
+            <button
+              onClick={handlePrevPage}
+              className={`w-[40px] h-[40px] flex items-center justify-center rounded-full border border-[#E4E4E7] ${
+                currentPage === 1
+                  ? "text-[#A3A3A3] cursor-not-allowed"
+                  : "text-[#09090B] cursor-pointer"
+              }`}
+              disabled={currentPage === 1}
+            >
+              <BiChevronLeft size={24} />
+            </button>
+
+            {/* Display page numbers */}
+            {Array.from({ length: totalPages }, (_, index) => (
+              <button
+                key={index}
+                onClick={() => handlePageClick(index + 1)}
+                className={`w-[40px] h-[40px] flex items-center justify-center rounded-full border ${
+                  currentPage === index + 1
+                    ? "bg-[#151515] text-[#FFFFFF] font-[500] "
+                    : "hover:bg-gray-200 border-[#E4E4E7] text-[16px] font-[400] text-[#3F3F46]"
+                }`}
+              >
+                {index + 1}
+              </button>
+            ))}
+
+            <button
+              onClick={handleNextPage}
+              className={`w-[40px] h-[40px] flex items-center justify-center rounded-full border border-[#E4E4E7] ${
+                currentPage === totalPages
+                  ? "text-[#A3A3A3] cursor-not-allowed"
+                  : "text-[#09090B] cursor-pointer"
+              }`}
+              disabled={currentPage === totalPages}
+            >
+              <BiChevronRight size={24} />
+            </button>
+          </div>
+
+          {/* Rows Per Page Section */}
+          <div className="relative text-sm text-gray-600 flex items-center">
+            {/* Dropdown Icon on the Left */}
+            <span className="absolute left-2 text-gray-600">
+              <IoIosArrowDown size={20} />{" "}
+              {/* Replace with your desired dropdown icon */}
+            </span>
+
+            <select
+              value={rowsPerPage}
+              onChange={handleRowsChange}
+              className="pl-8 pr-2 border-none text-gray-800 appearance-none bg-transparent"
+              style={{
+                backgroundImage: "none", // Hide the default arrow
+              }}
+            >
+              {[6, 10, 15].map((size) => (
+                <option key={size} value={size}>
+                  {size} Rows per page
+                </option>
+              ))}
+            </select>
+          </div>
+        </div>
       </main>
 
       {/* Chat Button */}
@@ -223,5 +329,69 @@ const orders = [
     paymentStatus: "Paid",
     deliveryStatus: "Delivered",
     total: "$1,233,970",
+  },
+  {
+    id: 1001,
+    date: "09 May 2024",
+    customer: "Iva Ryan",
+    paymentStatus: "Paid",
+    deliveryStatus: "Processing",
+    total: "$800,740",
+  },
+  {
+    id: 1002,
+    date: "22 Apr 2024",
+    customer: "Ricky Smith",
+    paymentStatus: "Paid",
+    deliveryStatus: "Processing",
+    total: "$1,053,099",
+  },
+  {
+    id: 1003,
+    date: "12 Feb 2024",
+    customer: "Patricia Sanders",
+    paymentStatus: "Paid",
+    deliveryStatus: "Processing",
+    total: "$393,730",
+  },
+  {
+    id: 1004,
+    date: "04 Apr 2024",
+    customer: "Rhonda Rhodes",
+    paymentStatus: "Paid",
+    deliveryStatus: "Delivered",
+    total: "$85,832",
+  },
+  {
+    id: 1005,
+    date: "13 Apr 2024",
+    customer: "Jerry Helfer",
+    paymentStatus: "Paid",
+    deliveryStatus: "Processing",
+    total: "$352,480",
+  },
+  {
+    id: 1006,
+    date: "18 Feb 2024",
+    customer: "Eddie Lake",
+    paymentStatus: "Paid",
+    deliveryStatus: "Processing",
+    total: "$483,971",
+  },
+  {
+    id: 1007,
+    date: "08 Apr 2024",
+    customer: "Rodger Struck",
+    paymentStatus: "Paid",
+    deliveryStatus: "Delivered",
+    total: "$573,360",
+  },
+  {
+    id: 1008,
+    date: "11 Apr 2024",
+    customer: "Judith Rodriguez",
+    paymentStatus: "Failed",
+    deliveryStatus: "Failed",
+    total: "$531,703",
   },
 ];

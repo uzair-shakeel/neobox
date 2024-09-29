@@ -41,3 +41,7 @@ body {
   border-radius: 50%;
   transform: translate(-50%, -50%);
 }
+
+.order-table {
+  padding: 8px !important;
+}

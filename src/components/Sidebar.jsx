@@ -115,7 +115,7 @@ const Sidebar = () => {
           <ul className="space-y-[2px] mt-[8px]">
             <li>
               <NavLink
-                to="/home" // Change this to the correct path
+                to="/" // Change this to the correct path
                 className={({ isActive }) =>
                   `flex items-center gap-[12px] font-[500] text-[14px] leading-[21.7px] ${
                     isActive ? "bg-white text-[#0D0D12]" : "text-[#52525B]"
@@ -128,10 +128,18 @@ const Sidebar = () => {
             <li ref={catalogRef} className="transition">
               <button
                 onClick={() => toggleDropdown("catalog")}
-                className="flex items-center justify-between w-full text-[#0D0D12] font-[500] text-[14px] leading-[21.7px] hover:bg-white rounded-[8px] py-[8px] px-[12px]"
+                className="flex items-center justify-between w-full text-[#0D0D12] font-[500] text-[14px] leading-[21.7px] hover:bg-[#FAFAFA] rounded-[8px] py-[8px] px-[12px]"
               >
                 <span className="flex items-center gap-[12px]">
-                  <RiApps2Line size={20} /> Catalog
+                  <RiApps2Line
+                    className={`${
+                      openDropdown === "catalog"
+                        ? "text-[#A3E635]"
+                        : "text-[#52525B]"
+                    }`}
+                    size={20}
+                  />{" "}
+                  Catalog
                 </span>
                 <span>
                   <MdArrowBackIos
@@ -148,31 +156,48 @@ const Sidebar = () => {
 
               {/* Dropdown content for Catalog */}
               {openDropdown === "catalog" && (
-                <div className="mt-[2px] p-[12px] bg-white shadow rounded-[8px] flex flex-col">
+                <div
+                  className="px-[12px] pb-[8px] bg-[#FAFAFA] rounded-[6px] flex flex-col"
+                  style={{
+                    boxShadow: "0px -3px 0px 0px #00000014 inset",
+                  }}
+                >
                   {/* Dropdown items */}
                   <NavLink
-                    to="/catalog-item-1" // Change this to the correct path
+                    to="/products" // Change this to the correct path
                     className={({ isActive }) =>
-                      `px-1 py-1 ${
+                      `px-[32px] py-[8px] font-[500] text-[14px] rounded-[6px] leading-[21.7px] ${
                         isActive
-                          ? "bg-gray-100 text-[#0D0D12]"
+                          ? "bg-[#FFFFFF] border border-[#E4E4E7] text-[#09090B] shadow"
                           : "text-[#52525B]"
-                      } rounded-[8px]`
+                      } rounded-[6px]`
                     }
                   >
-                    Catalog Item 1
+                    Products
                   </NavLink>
                   <NavLink
-                    to="/catalog-item-2" // Change this to the correct path
+                    to="/collections" // Change this to the correct path
                     className={({ isActive }) =>
-                      `px-1 py-1 ${
+                      `px-[32px] py-[8px] font-[500] text-[14px] rounded-[6px] leading-[21.7px] ${
                         isActive
-                          ? "bg-gray-100 text-[#0D0D12]"
+                          ? "bg-[#FFFFFF] border border-[#E4E4E7] text-[#09090B] shadow"
                           : "text-[#52525B]"
-                      } rounded-[8px]`
+                      } rounded-[6px]`
                     }
                   >
-                    Catalog Item 2
+                    Collections
+                  </NavLink>
+                  <NavLink
+                    to="/orders" // Change this to the correct path
+                    className={({ isActive }) =>
+                      `px-[32px] py-[8px] font-[500] text-[14px] rounded-[6px] leading-[21.7px] ${
+                        isActive
+                          ? "bg-[#FFFFFF] border border-[#E4E4E7] text-[#09090B] shadow"
+                          : "text-[#52525B]"
+                      } rounded-[6px]`
+                    }
+                  >
+                    Orders
                   </NavLink>
                 </div>
               )}
@@ -185,7 +210,15 @@ const Sidebar = () => {
                 className="flex items-center justify-between w-full text-[#0D0D12] font-[500] text-[14px] leading-[21.7px] hover:bg-white rounded-[8px] py-[8px] px-[12px]"
               >
                 <span className="flex items-center gap-[12px]">
-                  <RiMoneyDollarCircleLine size={20} /> Finances
+                  <RiMoneyDollarCircleLine
+                    className={`${
+                      openDropdown === "finances"
+                        ? "text-[#A3E635]"
+                        : "text-[#52525B]"
+                    }`}
+                    size={20}
+                  />{" "}
+                  Finances
                 </span>
                 <span>
                   <MdArrowBackIos
@@ -202,31 +235,36 @@ const Sidebar = () => {
 
               {/* Dropdown content for Finances */}
               {openDropdown === "finances" && (
-                <div className="mt-[2px] p-[12px] bg-white shadow rounded-[8px] flex flex-col">
+                <div
+                  className="px-[12px] pb-[8px] bg-[#FAFAFA] rounded-[6px] flex flex-col"
+                  style={{
+                    boxShadow: "0px -3px 0px 0px #00000014 inset",
+                  }}
+                >
                   {/* Dropdown items */}
                   <NavLink
-                    to="/catalog-item-1" // Change this to the correct path
+                    to="/wallet" // Change this to the correct path
                     className={({ isActive }) =>
-                      `px-1 py-1 ${
+                      `px-[32px] py-[8px] font-[500] text-[14px] rounded-[6px] leading-[21.7px] ${
                         isActive
-                          ? "bg-gray-100 text-[#0D0D12]"
+                          ? "bg-[#FFFFFF] border border-[#E4E4E7] text-[#09090B] shadow"
                           : "text-[#52525B]"
-                      } rounded-[8px]`
+                      } rounded-[6px]`
                     }
                   >
-                    Finance Item A
+                    Wallet
                   </NavLink>
                   <NavLink
-                    to="/catalog-item-2" // Change this to the correct path
+                    to="/withdrawal-methods" // Change this to the correct path
                     className={({ isActive }) =>
-                      `px-1 py-1 ${
+                      `px-[32px] py-[8px] font-[500] text-[14px] rounded-[6px] leading-[21.7px] ${
                         isActive
-                          ? "bg-gray-100 text-[#0D0D12]"
+                          ? "bg-[#FFFFFF] border border-[#E4E4E7] text-[#09090B] shadow"
                           : "text-[#52525B]"
-                      } rounded-[8px]`
+                      } rounded-[6px]`
                     }
                   >
-                    Finance Item B
+                    Withdrawal Methods
                   </NavLink>
                 </div>
               )}

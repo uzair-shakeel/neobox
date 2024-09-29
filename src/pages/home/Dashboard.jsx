@@ -5,13 +5,10 @@ import { BiBook } from "react-icons/bi";
 import { CiGlobe } from "react-icons/ci";
 import { IoMdClose } from "react-icons/io";
 import { LuArrowUpRight } from "react-icons/lu";
-import {
-  RiArchiveStackLine,
-  RiInboxUnarchiveLine,
-  RiMessage2Line,
-} from "react-icons/ri";
+import { RiArchiveStackLine, RiInboxUnarchiveLine } from "react-icons/ri";
 import { IoArrowForwardOutline } from "react-icons/io5";
 import Revenue from "../../components/Revenue";
+import ChatButton from "../../components/ChatButton";
 
 export default function Dashboard() {
   const [activeTab, setActiveTab] = useState("week");
@@ -331,9 +328,7 @@ export default function Dashboard() {
       </main>
 
       {/* Chat Button */}
-      <button className="fixed bottom-4 right-4 bg-gray-800 text-white p-3 rounded-full shadow-lg">
-        <RiMessage2Line size={24} />
-      </button>
+      <ChatButton />
     </div>
   );
 }

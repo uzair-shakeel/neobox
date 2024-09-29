@@ -13,6 +13,7 @@ import SetupSecurity from "./pages/store/Security";
 import Dashboard from "./pages/home/Dashboard";
 import Settings from "./pages/settings/Settings";
 import Wallet from "./pages/finance/Wallet";
+import Orders from "./pages/catalog/Orders";
 
 function App() {
   return (
@@ -22,6 +23,7 @@ function App() {
           <Route path="/" element={<Dashboard />} />
           <Route path="/settings" element={<Settings />} />
           <Route path="/wallet" element={<Wallet />} />
+          <Route path="/orders" element={<Orders />} />
           <Route path="/signup" element={<SignUp />} />
           <Route path="/signup/create-password" element={<CreatePassword />} />
           <Route path="/signup/otp" element={<OTP />} />

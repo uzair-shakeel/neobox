@@ -7,6 +7,7 @@ import OTP from "./pages/authentication/OTP";
 import Verify from "./pages/authentication/Verify";
 import Success from "./pages/authentication/Success";
 import Preferences from "./pages/set-up-store/Preference";
+import Dashboard from "./pages/home/Dashboard";
 
 function App() {
   return (
@@ -18,6 +19,7 @@ function App() {
           <Route path="/otp" element={<OTP />} />
           <Route path="/verify" element={<Verify />} />
           <Route path="/success" element={<Success />} />
+          <Route path="/home" element={<Dashboard />} />
           <Route path="/store/preference" element={<Preferences />} />
           {/* You can add more routes here */}
         </Routes>

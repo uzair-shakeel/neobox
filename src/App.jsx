@@ -6,7 +6,10 @@ import CreatePassword from "./pages/authentication/CreatePassword";
 import OTP from "./pages/authentication/OTP";
 import Verify from "./pages/authentication/Verify";
 import Success from "./pages/authentication/Success";
-import Preferences from "./pages/set-up-store/Preference";
+import Preferences from "./pages/store/Preference";
+import StoreName from "./pages/store/StoreName";
+import SetupPayout from "./pages/store/Payout";
+import SetupSecurity from "./pages/store/Security";
 
 function App() {
   return (
@@ -14,11 +17,14 @@ function App() {
       <div>
         <Routes>
           <Route path="/" element={<SignUp />} />
-          <Route path="/create-password" element={<CreatePassword />} />
-          <Route path="/otp" element={<OTP />} />
-          <Route path="/verify" element={<Verify />} />
-          <Route path="/success" element={<Success />} />
+          <Route path="/signup/create-password" element={<CreatePassword />} />
+          <Route path="/signup/otp" element={<OTP />} />
+          <Route path="/signup/verify" element={<Verify />} />
+          <Route path="/signup/success" element={<Success />} />
           <Route path="/store/preference" element={<Preferences />} />
+          <Route path="/store/name" element={<StoreName />} />
+          <Route path="/store/payout" element={<SetupPayout />} />
+          <Route path="/store/security" element={<SetupSecurity />} />
           {/* You can add more routes here */}
         </Routes>
       </div>

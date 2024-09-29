@@ -1,74 +1,20 @@
 "use client";
 import React, { useState } from "react";
 import Sidebar from "../../components/Sidebar";
-import { BiBell, BiBook, BiChevronDown } from "react-icons/bi";
+import { BiBook } from "react-icons/bi";
 import { CiGlobe } from "react-icons/ci";
 import { IoMdClose } from "react-icons/io";
 import { LuArrowUpRight } from "react-icons/lu";
-import { RiArchiveStackLine, RiInboxUnarchiveLine } from "react-icons/ri";
+import {
+  RiArchiveStackLine,
+  RiInboxUnarchiveLine,
+  RiMessage2Line,
+} from "react-icons/ri";
+import { IoArrowForwardOutline } from "react-icons/io5";
+import Revenue from "../../components/Revenue";
 
 export default function Dashboard() {
   const [activeTab, setActiveTab] = useState("week");
-
-  const data = {
-    day: {
-      totalViews: 100,
-      visits: 80,
-      orders: 10,
-      conversionRate: "12%",
-      totalViewsDiff: "432",
-      visitsDiff: "345",
-      ordersDiff: "345",
-      conversionRateDiff: "0.6%",
-      totalViewsDiffColor: "green",
-      visitsDiffColor: "green",
-      ordersDiffColor: "green",
-      conversionRateDiffColor: "red",
-    },
-    week: {
-      totalViews: 732,
-      visits: 600,
-      orders: 124,
-      conversionRate: "17%",
-      totalViewsDiff: "372",
-      visitsDiff: "465",
-      ordersDiff: "115",
-      conversionRateDiff: "0.3%",
-      totalViewsDiffColor: "green",
-      visitsDiffColor: "green",
-      ordersDiffColor: "green",
-      conversionRateDiffColor: "red",
-    },
-    month: {
-      totalViews: 3000,
-      visits: 2400,
-      orders: 500,
-      conversionRate: "20%",
-      totalViewsDiff: "572",
-      visitsDiff: "565",
-      ordersDiff: "115",
-      conversionRateDiff: "0.3%",
-      totalViewsDiffColor: "green",
-      visitsDiffColor: "green",
-      ordersDiffColor: "red",
-      conversionRateDiffColor: "green",
-    },
-    year: {
-      totalViews: 40000,
-      visits: 32000,
-      orders: 6000,
-      conversionRate: "22%",
-      totalViewsDiff: "432",
-      visitsDiff: "515",
-      ordersDiff: "315",
-      conversionRateDiff: "0.7%",
-      totalViewsDiffColor: "green",
-      visitsDiffColor: "red",
-      ordersDiffColor: "green",
-      conversionRateDiffColor: "green",
-    },
-  };
-
   const activeData = data[activeTab];
 
   return (
@@ -159,8 +105,8 @@ export default function Dashboard() {
           </div>
         </div>
 
-        <div className="flex items-start w-full gap-[24px]">
-          <div className="flex-grow">
+        <div className="flex lg:flex-row flex-col items-start w-full gap-[24px]">
+          <div className="lg:w-[70%]">
             <div className="flex items-start justify-between mb-[16px]">
               <h2 className="text-[20px] leading-[28px] font-[500]">
                 Overview performance
@@ -185,7 +131,10 @@ export default function Dashboard() {
             </div>
 
             {/* Performance Summary */}
-            <div className="grid grid-cols-1 md:grid-cols-2">
+            <div
+              className="grid grid-cols-1 md:grid-cols-2 rounded-[8px] overflow-hidden border border-[#F4F4F5]"
+              style={{ boxShadow: "0px 1px 2px 0px #1018280F" }}
+            >
               <div className="py-[16px] px-[24px] border border-[#F4F4F5] flex items-center justify-between gap-1">
                 <div className="flex flex-col gap-[8px]">
                   <h3 className="text-[18px] text-[#3F3F46] leading-[25.2px] font-[400]">
@@ -275,56 +224,202 @@ export default function Dashboard() {
                 </span>
               </div>
             </div>
+
+            <Revenue />
           </div>
 
-          <div>
+          <div className="lg:w-[30%]">
             {/* Products Section */}
-            <div className="w-[352px]">
-              <h3 className="text-lg font-semibold">Products</h3>
-              <div className="p-4 border rounded-lg">
-                <div className="flex justify-between items-center mb-2">
-                  <span>Active listings</span>
-                  <span className="text-2xl font-medium">6</span>
+            <div className="">
+              <div className="flex items-center justify-between mb-[16px]">
+                <h3 className="text-[20px] text-[#09090B] font-[500] leading-[28px]">
+                  Products
+                </h3>
+                <a
+                  href="#"
+                  className="px-[8px] py-[5px] text-[#0A0A0A] text-[14px] leading-[21.7px] font-[500] flex items-center justify-center gap-[4px]"
+                >
+                  See All <IoArrowForwardOutline size={15} />
+                </a>
+              </div>
+              <div
+                className="px-[20px] py-[16px] border border-[#E4E4E7] rounded-[8px] flex flex-col gap-[16px]"
+                style={{ boxShadow: "0px 1px 2px 0px #1018280F" }}
+              >
+                <div className="flex justify-between items-center text-[#09090B]">
+                  <span className="font-[400] text-[18px] leading-[25.2px]">
+                    Active listings
+                  </span>
+                  <span className="text-[24px] leading-[36px] font-[500]">
+                    6
+                  </span>
                 </div>
-                <div className="flex justify-between items-center mb-2">
-                  <span>Hidden listings</span>
-                  <span className="text-2xl font-medium">12</span>
+                <div className="flex justify-between items-center text-[#09090B]">
+                  <span className="font-[400] text-[18px] leading-[25.2px]">
+                    Hidden listings
+                  </span>
+                  <span className="text-[24px] leading-[36px] font-[500]">
+                    12
+                  </span>
                 </div>
-                <div className="flex justify-between items-center">
-                  <span>Sold out</span>
-                  <span className="text-2xl font-medium">5</span>
+                <div className="flex justify-between items-center text-[#09090B]">
+                  <span className="font-[400] text-[18px] leading-[25.2px]">
+                    Sold out
+                  </span>
+                  <span className="text-[24px] leading-[36px] font-[500]">
+                    5
+                  </span>
                 </div>
               </div>
             </div>
 
             {/* Top Products Placeholder */}
-            <div className="mt-6">
-              <h3 className="text-lg font-semibold">Top products</h3>
-              <div className="p-4 border rounded-lg">
-                <p className="text-gray-400">No data available</p>
-              </div>
+            <div className="mt-[24px]">
+              <h3 className="text-[20px] text-[#09090B] font-[500] leading-[28px] mb-[16px]">
+                Products
+              </h3>
+
+              {products.length > 0 ? (
+                <div
+                  className="px-[24px] py-[16px] border border-[#E4E4E7] rounded-[8px] flex flex-col items-center justify-center gap-[8px]"
+                  style={{ boxShadow: "0px 1px 2px 0px #1018280F" }}
+                >
+                  {products.map((product) => (
+                    <div
+                      key={product.id}
+                      className="flex gap-[16px] items-center py-[8px] border-b border-[#F4F4F5] w-full"
+                    >
+                      <div
+                        className="rounded-full w-[40px] h-[40px] bg-white border border-[#E4E4E7] flex items-center justify-center"
+                        style={{ boxShadow: "0px 1px 1px 0px #0D0D120D" }}
+                      >
+                        <img
+                          src={product.imageSrc}
+                          className="w-[40px] h-[40px]"
+                        />
+                      </div>
+                      <div className="flex flex-col gap-[4px]">
+                        <h4 className="font-[500] text-[#0A0A0A] text-[14px] leading-[21.7px]">
+                          {product.name}
+                        </h4>
+                        <p className="text-[#71717A] text-[12px] font-[400] leading-[18.6px]">
+                          Quantity: {product.quantity}
+                        </p>
+                      </div>
+                    </div>
+                  ))}
+                </div>
+              ) : (
+                <div
+                  className="px-[24px] py-[60px] border border-[#E4E4E7] rounded-[8px] flex flex-col items-center justify-center gap-[8px]"
+                  style={{ boxShadow: "0px 1px 2px 0px #1018280F" }}
+                >
+                  <span className="min-h-[56px] min-w-[56px] mx-auto">
+                    <img
+                      src="/no-product-icon.svg"
+                      className="h-[56px] w-[56px]"
+                    />
+                  </span>
+                  <p className="text-[#3F3F46] text-center text-[16px] font-[400] leading-[25.6px]">
+                    No data available
+                  </p>
+                </div>
+              )}
             </div>
           </div>
-        </div>
-
-        <div className="flex justify-between items-center mb-4">
-          <h3 className="text-xl font-semibold">Revenue</h3>
-          <div className="flex items-center">
-            <span className="mr-2">Last Year</span>
-            <BiChevronDown size={16} />
-          </div>
-        </div>
-
-        <div className="bg-white p-6 rounded-md shadow-sm mb-6">
-          <h4 className="text-gray-500 mb-2">Total Revenue</h4>
-          <p className="text-3xl font-bold">$0</p>
         </div>
       </main>
 
       {/* Chat Button */}
       <button className="fixed bottom-4 right-4 bg-gray-800 text-white p-3 rounded-full shadow-lg">
-        <BiBell size={24} />
+        <RiMessage2Line size={24} />
       </button>
     </div>
   );
 }
+
+const data = {
+  day: {
+    totalViews: 100,
+    visits: 80,
+    orders: 10,
+    conversionRate: "12%",
+    totalViewsDiff: "432",
+    visitsDiff: "345",
+    ordersDiff: "345",
+    conversionRateDiff: "0.6%",
+    totalViewsDiffColor: "green",
+    visitsDiffColor: "green",
+    ordersDiffColor: "green",
+    conversionRateDiffColor: "red",
+  },
+  week: {
+    totalViews: 732,
+    visits: 600,
+    orders: 124,
+    conversionRate: "17%",
+    totalViewsDiff: "372",
+    visitsDiff: "465",
+    ordersDiff: "115",
+    conversionRateDiff: "0.3%",
+    totalViewsDiffColor: "green",
+    visitsDiffColor: "green",
+    ordersDiffColor: "green",
+    conversionRateDiffColor: "red",
+  },
+  month: {
+    totalViews: 3000,
+    visits: 2400,
+    orders: 500,
+    conversionRate: "20%",
+    totalViewsDiff: "572",
+    visitsDiff: "565",
+    ordersDiff: "115",
+    conversionRateDiff: "0.3%",
+    totalViewsDiffColor: "green",
+    visitsDiffColor: "green",
+    ordersDiffColor: "red",
+    conversionRateDiffColor: "green",
+  },
+  year: {
+    totalViews: 40000,
+    visits: 32000,
+    orders: 6000,
+    conversionRate: "22%",
+    totalViewsDiff: "432",
+    visitsDiff: "515",
+    ordersDiff: "315",
+    conversionRateDiff: "0.7%",
+    totalViewsDiffColor: "green",
+    visitsDiffColor: "red",
+    ordersDiffColor: "green",
+    conversionRateDiffColor: "green",
+  },
+};
+
+const products = [
+  {
+    id: 1,
+    name: "Nestle fiteness",
+    quantity: 14434,
+    imageSrc: "/product-img-1.png",
+  },
+  {
+    id: 2,
+    name: "Flirt Drink Straberyy",
+    quantity: 12,
+    imageSrc: "/product-img-2.png",
+  },
+  {
+    id: 3,
+    name: "BBQ Sauces",
+    quantity: 15,
+    imageSrc: "/product-img-3.png",
+  },
+  {
+    id: 4,
+    name: "Nestle fitness",
+    quantity: 20,
+    imageSrc: "/product-img-1.png",
+  },
+];

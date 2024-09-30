@@ -1,25 +1,26 @@
 "use client";
 import React, { useState } from "react";
 import Sidebar from "../../components/Sidebar";
-import { RiFilterLine, RiQuestionLine } from "react-icons/ri";
+import { RiFilterLine } from "react-icons/ri";
 import { LuSearch } from "react-icons/lu";
 import ChatButton from "../../components/ChatButton";
 import { IoFilterSharp } from "react-icons/io5";
 import { BiChevronLeft, BiChevronRight } from "react-icons/bi";
 import { IoIosArrowDown } from "react-icons/io";
-import orders from "../../assets/OrdersData";
 import { Link } from "react-router-dom";
+import products from "../../assets/ProductsData";
+import { AiOutlinePlus } from "react-icons/ai";
 
-export default function Orders() {
+export default function Products() {
   // State for pagination
   const [currentPage, setCurrentPage] = useState(1);
   const [rowsPerPage, setRowsPerPage] = useState(6);
 
   // Calculate total pages
-  const totalPages = Math.ceil(orders.length / rowsPerPage);
+  const totalPages = Math.ceil(products.length / rowsPerPage);
 
   // Slice orders based on pagination
-  const currentOrders = orders.slice(
+  const currentproducts = products.slice(
     (currentPage - 1) * rowsPerPage,
     currentPage * rowsPerPage
   );
@@ -49,21 +50,23 @@ export default function Orders() {
       {/* Main Content */}
       <main className="flex-1 overflow-y-auto px-[32px] py-[27px]">
         <div className="flex flex-col bg-white">
-          <div className="flex items-center justify-between pb-[32px]">
-            <h1 className="text-[24px] leading-[36px] font-[500]">Orders</h1>
-            <div className="flex items-center gap-[8px] text-[16px] tracking-[-2%] font-[400] text-[#0A0A0A]">
-              <RiQuestionLine size={20} color="#0A0A0A" />
-              <span>Help and Feedback</span>
-            </div>
+          <div className="flex items-center justify-between pt-[5px] pb-[32px]">
+            <h1 className="text-[24px] leading-[36px] font-[500]">Products</h1>
+            <Link to="/add-product">
+              <button className="flex items-center gap-[8px] rounded-[10px] text-[16px] tracking-[-2%] font-[400] bg-black text-white p-[16px]">
+                <AiOutlinePlus stroke="0.1px" size={18} />
+                <span>Add Product</span>
+              </button>
+            </Link>
           </div>
 
-          <div className="flex justify-between gap-[48px] pt-[8px]">
+          <div className="flex justify-between flex-wrap xl:gap-[48px] gap-[24px] pt-[8px]">
             {/* Search Bar */}
             <div className="flex flex-grow items-center bg-[#F4F4F5] rounded-[10px] ps-[12px] py-[14px]">
               <LuSearch color="#374151" size={20} className="mr-[8px]" />
               <input
                 type="text"
-                placeholder="Search Orders"
+                placeholder="Search products"
                 className="bg-transparent outline-none w-full h-full pe-[12px] placeholder:text-[#52525B]"
               />
             </div>
@@ -73,86 +76,80 @@ export default function Orders() {
               {/* Show All Orders Button */}
               <button className="flex items-center border border-[#E4E4E7] rounded-[10px] px-[16px] py-[14px] text-[16px] text-[#09090B] font-[500]">
                 <IoFilterSharp size={20} className="mr-[8px]" />
-                Show All Orders
+                Show All Products
               </button>
 
               {/* Sort Button */}
               <button className="flex items-center border border-[#E4E4E7] rounded-[10px] px-[16px] py-[14px] text-[16px] text-[#09090B] font-[500]">
                 <RiFilterLine size={20} className="mr-[8px]" />
-                Sort by last created
+                Sort by name A-Z
               </button>
             </div>
           </div>
         </div>
 
-        {orders.length > 0 ? (
+        {products.length > 0 ? (
           <div className="overflow-x-auto py-[24px]">
             <div className="border border-[#E4E4E7] rounded-[8px] p-[8px]">
               <table className="min-w-full bg-[#FFFFFF]">
-                <thead className="">
-                  <tr className="bg-[#FAFAFA]">
-                    <th className="px-[16px] py-[14px] text-left text-[#09090B] font-[500] text-[16px] border-b border-b-[#0A0A0A] border-opacity-[0.1]">
-                      Name
+                <thead className="bg-[#FAFAFA] text-left">
+                  <tr>
+                    <th className="px-[16px] py-[18px]">
+                      <input
+                        type="checkbox"
+                        className="w-[20px] h-[20px] cursor-pointer rounded-[6px] border border-gray-300 checked:bg-indigo-600 focus:ring-indigo-500"
+                      />
                     </th>
-                    <th className="px-[16px] py-[14px] text-left text-[#09090B] font-[500] text-[16px] border-b border-b-[#0A0A0A] border-opacity-[0.1]">
-                      Date
+                    <th className="px-[16px] py-[14px] text-[#09090B] font-[500] text-[18px] tracking-[-1%]">
+                      Product
                     </th>
-                    <th className="px-[16px] py-[14px] text-left text-[#09090B] font-[500] text-[16px] border-b border-b-[#0A0A0A] border-opacity-[0.1]">
-                      Customer
+                    <th className="px-[16px] py-[14px] text-[#09090B] font-[500] text-[18px] tracking-[-1%]">
+                      Status
                     </th>
-                    <th className="px-[16px] py-[14px] text-left text-[#09090B] font-[500] text-[16px] border-b border-b-[#0A0A0A] border-opacity-[0.1]">
-                      Payment
+                    <th className="px-[16px] py-[14px] text-[#09090B] font-[500] text-[18px] tracking-[-1%]">
+                      Price
                     </th>
-                    <th className="px-[16px] py-[14px] text-left text-[#09090B] font-[500] text-[16px] border-b border-b-[#0A0A0A] border-opacity-[0.1]">
-                      Delivery
-                    </th>
-                    <th className="px-[16px] py-[14px] text-left text-[#09090B] font-[500] text-[16px] border-b border-b-[#0A0A0A] border-opacity-[0.1]">
-                      Total
+                    <th className="px-[16px] py-[14px] text-[#09090B] font-[500] text-[18px] tracking-[-1%]">
+                      Inventory
                     </th>
                   </tr>
                 </thead>
-                <tbody>
-                  {currentOrders.map((order) => (
-                    <tr key={order.id}>
-                      <td className="px-[16px] py-[14px] text-[#09090B] text-[16px] font-[400] border-b border-b-[#0A0A0A] border-opacity-[0.1] text-gray-700">
-                        <Link to={`/order/${order.id}`}>{order.id}</Link>
+                <tbody className="divide-y">
+                  {currentproducts.map((product) => (
+                    <tr key={product.id} className="hover:bg-gray-50">
+                      <td className="px-[16px] py-[18px]">
+                        <input
+                          type="checkbox"
+                          className="w-[20px] h-[20px] cursor-pointer rounded-[6px] border border-gray-300 checked:bg-indigo-600 focus:ring-indigo-500"
+                        />
                       </td>
-                      <td className="px-[16px] py-[14px] text-[#09090B] text-[16px] font-[400] border-b border-b-[#0A0A0A] border-opacity-[0.1] text-gray-700">
-                        <Link to={`/order/${order.id}`}>{order.date}</Link>
+                      <td className="px-[16px] py-[14px] text-[#09090B] font-[500] text-[16px]">
+                        <div className="flex items-center gap-[16px]">
+                          <div className="w-[64px] h-[64px] min-w-[64px] min-h-[64px] rounded-[8px] overflow-hidden">
+                            <img
+                              src={product.imageSrc}
+                              className="w-full h-full object-cover"
+                            />
+                          </div>
+                          {product.name}
+                        </div>
                       </td>
-                      <td className="px-[16px] py-[14px] text-[#09090B] text-[16px] font-[500] border-b border-b-[#0A0A0A] border-opacity-[0.1] text-gray-700">
-                        <Link to={`/order/${order.id}`}>{order.customer}</Link>
+                      <td className="px-[16px] py-[14px]  text-[#09090B] font-[400] text-[14px]">
+                        <span
+                          className={`px-[12px] py-[4px] rounded-full text-[14px] ${
+                            product.status === "Published"
+                              ? "bg-[#F0FDF4] text-[#22C55E]"
+                              : "bg-[#E4E4E7] text-[#18181B]"
+                          }`}
+                        >
+                          {product.status}
+                        </span>
                       </td>
-                      <td className="px-[16px] py-[14px] text-[#09090B] font-[500] border-b border-b-[#0A0A0A] border-opacity-[0.1]">
-                        <Link to={`/order/${order.id}`}>
-                          <span
-                            className={`px-[12px] py-[4px] rounded-full text-[14px] ${
-                              order.paymentStatus === "Paid"
-                                ? "bg-[#F0FDF4] text-[#22C55E]"
-                                : "bg-[#FCE8EC] text-[#EF4444]"
-                            }`}
-                          >
-                            {order.paymentStatus}
-                          </span>
-                        </Link>
+                      <td className="px-[16px] py-[14px]  text-[#09090B] font-[400] text-[14px]">
+                        {product.price}
                       </td>
-                      <td className="px-[16px] py-[14px] text-[#09090B] border-b border-b-[#0A0A0A] border-opacity-[0.1]">
-                        <Link to={`/order/${order.id}`}>
-                          <span
-                            className={`px-[12px] py-[4px] rounded-full text-[14px] ${
-                              order.deliveryStatus === "Delivered"
-                                ? "bg-[#F0FDF4] text-[#22C55E]"
-                                : order.deliveryStatus === "Processing"
-                                ? "bg-[#FEF9C3] text-[#CA8A04]"
-                                : "bg-[#FCE8EC] text-[#EF4444]"
-                            }`}
-                          >
-                            {order.deliveryStatus}
-                          </span>
-                        </Link>
-                      </td>
-                      <td className="px-[16px] py-[14px] text-[#09090B] text-right text-[14px] font-[500] border-b border-b-[#0A0A0A] border-opacity-[0.1] text-gray-700">
-                        <Link to={`/order/${order.id}`}>{order.total}</Link>
+                      <td className="px-[16px] py-[14px] text-[#09090B] font-[400] text-[14px]">
+                        {product.quantity} stock for 1 variants
                       </td>
                     </tr>
                   ))}
@@ -166,10 +163,10 @@ export default function Orders() {
               <img src="/space-ship.svg" alt="No Orders" />
             </span>
             <h3 className="text-[24px] font-[500] leading-[36px] text-[#09090B] mt-[24px]">
-              You have no orders yet
+              Let’s add a new product!
             </h3>
             <p className="text-[#3F3F46] text-[16px] font-[400] mt-[4px]">
-              This is where you’ll see orders.
+              Simple flow to make your new card.
             </p>
           </div>
         )}

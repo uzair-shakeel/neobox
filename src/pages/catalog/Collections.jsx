@@ -35,7 +35,7 @@ export default function Collections() {
             </NavLink>
           </div>
 
-          <div className="flex justify-between gap-[48px] pt-[8px]">
+          <div className="flex justify-between flex-wrap xl:gap-[48px] gap-[24px] pt-[8px]">
             {/* Search Bar */}
             <div className="flex flex-grow items-center bg-[#F4F4F5] rounded-[10px] ps-[12px] py-[14px]">
               <LuSearch color="#374151" size={20} className="mr-[8px]" />

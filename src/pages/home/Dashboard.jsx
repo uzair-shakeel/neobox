@@ -9,6 +9,7 @@ import { RiArchiveStackLine, RiInboxUnarchiveLine } from "react-icons/ri";
 import { IoArrowForwardOutline } from "react-icons/io5";
 import Revenue from "../../components/Revenue";
 import ChatButton from "../../components/ChatButton";
+import products from "../../assets/ProductsData";
 
 export default function Dashboard() {
   const [activeTab, setActiveTab] = useState("week");
@@ -391,30 +392,3 @@ const data = {
     conversionRateDiffColor: "green",
   },
 };
-
-const products = [
-  {
-    id: 1,
-    name: "Nestle fiteness",
-    quantity: 14434,
-    imageSrc: "/product-img-1.png",
-  },
-  {
-    id: 2,
-    name: "Flirt Drink Straberyy",
-    quantity: 12,
-    imageSrc: "/product-img-2.png",
-  },
-  {
-    id: 3,
-    name: "BBQ Sauces",
-    quantity: 15,
-    imageSrc: "/product-img-3.png",
-  },
-  {
-    id: 4,
-    name: "Nestle fitness",
-    quantity: 20,
-    imageSrc: "/product-img-1.png",
-  },
-];

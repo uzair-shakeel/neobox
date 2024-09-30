@@ -8,6 +8,7 @@ import { IoFilterSharp } from "react-icons/io5";
 import { BiChevronLeft, BiChevronRight } from "react-icons/bi";
 import { IoIosArrowDown } from "react-icons/io";
 import orders from "../../assets/OrdersData";
+import { Link } from "react-router-dom";
 
 export default function Orders() {
   // State for pagination
@@ -114,40 +115,44 @@ export default function Orders() {
                   {currentOrders.map((order) => (
                     <tr key={order.id}>
                       <td className="px-[16px] py-[14px] text-[#09090B] text-[16px] font-[400] border-b border-b-[#0A0A0A] border-opacity-[0.1] text-gray-700">
-                        {order.id}
+                        <Link to={`/order/${order.id}`}>{order.id}</Link>
                       </td>
                       <td className="px-[16px] py-[14px] text-[#09090B] text-[16px] font-[400] border-b border-b-[#0A0A0A] border-opacity-[0.1] text-gray-700">
-                        {order.date}
+                        <Link to={`/order/${order.id}`}>{order.date}</Link>
                       </td>
                       <td className="px-[16px] py-[14px] text-[#09090B] text-[16px] font-[500] border-b border-b-[#0A0A0A] border-opacity-[0.1] text-gray-700">
-                        {order.customer}
+                        <Link to={`/order/${order.id}`}>{order.customer}</Link>
                       </td>
                       <td className="px-[16px] py-[14px] text-[#09090B] font-[500] border-b border-b-[#0A0A0A] border-opacity-[0.1]">
-                        <span
-                          className={`px-[12px] py-[4px] rounded-full text-[14px] ${
-                            order.paymentStatus === "Paid"
-                              ? "bg-[#F0FDF4] text-[#22C55E]"
-                              : "bg-[#FCE8EC] text-[#EF4444]"
-                          }`}
-                        >
-                          {order.paymentStatus}
-                        </span>
+                        <Link to={`/order/${order.id}`}>
+                          <span
+                            className={`px-[12px] py-[4px] rounded-full text-[14px] ${
+                              order.paymentStatus === "Paid"
+                                ? "bg-[#F0FDF4] text-[#22C55E]"
+                                : "bg-[#FCE8EC] text-[#EF4444]"
+                            }`}
+                          >
+                            {order.paymentStatus}
+                          </span>
+                        </Link>
                       </td>
                       <td className="px-[16px] py-[14px] text-[#09090B] border-b border-b-[#0A0A0A] border-opacity-[0.1]">
-                        <span
-                          className={`px-[12px] py-[4px] rounded-full text-[14px] ${
-                            order.deliveryStatus === "Delivered"
-                              ? "bg-[#F0FDF4] text-[#22C55E]"
-                              : order.deliveryStatus === "Processing"
-                              ? "bg-[#FEF9C3] text-[#CA8A04]"
-                              : "bg-[#FCE8EC] text-[#EF4444]"
-                          }`}
-                        >
-                          {order.deliveryStatus}
-                        </span>
+                        <Link to={`/order/${order.id}`}>
+                          <span
+                            className={`px-[12px] py-[4px] rounded-full text-[14px] ${
+                              order.deliveryStatus === "Delivered"
+                                ? "bg-[#F0FDF4] text-[#22C55E]"
+                                : order.deliveryStatus === "Processing"
+                                ? "bg-[#FEF9C3] text-[#CA8A04]"
+                                : "bg-[#FCE8EC] text-[#EF4444]"
+                            }`}
+                          >
+                            {order.deliveryStatus}
+                          </span>
+                        </Link>
                       </td>
                       <td className="px-[16px] py-[14px] text-[#09090B] text-right text-[14px] font-[500] border-b border-b-[#0A0A0A] border-opacity-[0.1] text-gray-700">
-                        {order.total}
+                        <Link to={`/order/${order.id}`}>{order.total}</Link>
                       </td>
                     </tr>
                   ))}

@@ -1,9 +1,24 @@
 import React from "react";
-import { FaBox, FaTruck, FaHome, FaCheckCircle } from "react-icons/fa";
 import Sidebar from "../../components/Sidebar";
-import { RiArrowLeftLine } from "react-icons/ri";
+import { useParams } from "react-router-dom";
+import {
+  RiArrowLeftLine,
+  RiCaravanLine,
+  RiHomeSmile2Line,
+  RiInboxFill,
+  RiOpenArmLine,
+} from "react-icons/ri";
+import { HiOutlineInbox } from "react-icons/hi";
+import orders from "../../assets/OrdersData";
 
 export default function Order() {
+  const { id } = useParams();
+  const orderId = parseInt(id, 10);
+  const order = orders.find((order) => order.id === orderId);
+
+  if (!order) {
+    return <div>Order not found</div>;
+  }
   return (
     <div className="flex h-screen bg-white">
       {/* Sidebar */}
@@ -15,22 +30,22 @@ export default function Order() {
           <span className="min-h-[20px] min-w-[20px]">
             <RiArrowLeftLine size={20} />
           </span>
-          Order 1001
+          Order {order.id}
         </h1>
         <div className="flex flex-col md:flex-row gap-[24px] pt-[15px]">
-          <div className="md:w-[65%] w-full">
+          <div className="md:w-[65%] w-full flex flex-col gap-[24px]">
             <div
               className="bg-white p-[24px] rounded-[8px] border border-[#E4E4E7]"
               style={{
                 boxShadow: "0px 1px 2px 0px #1018280F",
               }}
             >
-              <h2 className="text-2xl font-bold mb-[32px]">Shipping</h2>
+              <h2 className="text-[20px] font-[500] mb-[32px]">Shipping</h2>
               <div className="flex justify-between items-start mb-[16px]">
                 <div className="flex flex-col items-center">
-                  <div className="w-[40px] h-[40px] rounded-full flex items-center justify-center text-white border border-dashed border-[#151515]">
+                  <div className="w-[40px] h-[40px] rounded-full flex items-center justify-center border border-dashed border-[#151515]">
                     <div className="w-[33.6px] h-[33.6px] bg-[#151515] rounded-full flex items-center justify-center text-white">
-                      <FaBox size={20} />
+                      <HiOutlineInbox size={20} />
                     </div>
                   </div>
                   <p className="text-[#3F3F46] text-[14px] font-[400] mt-[8px] mb-[4px]">
@@ -42,8 +57,10 @@ export default function Order() {
                 </div>
                 <div className="flex-1 h-[4px] rounded-[8px] bg-[#151515] mx-2 my-[18px]"></div>
                 <div className="flex flex-col items-center">
-                  <div className="w-10 h-10 bg-gray-300 rounded-full flex items-center justify-center text-gray-600">
-                    <FaTruck size={20} />
+                  <div className="w-[40px] h-[40px] rounded-full flex items-center justify-center border border-[#E4E4E7] bg-white">
+                    <div className="flex items-center justify-center text-[#71717A]">
+                      <RiCaravanLine size={20} />
+                    </div>
                   </div>
                   <p className="text-[#3F3F46] text-[14px] font-[400] mt-[8px] mb-[4px]">
                     Step 2
@@ -54,8 +71,10 @@ export default function Order() {
                 </div>
                 <div className="flex-1 h-[4px] rounded-[8px] bg-[#E4E4E7] mx-2 my-[18px]"></div>
                 <div className="flex flex-col items-center">
-                  <div className="w-10 h-10 bg-gray-300 rounded-full flex items-center justify-center text-gray-600">
-                    <FaHome size={20} />
+                  <div className="w-[40px] h-[40px] rounded-full flex items-center justify-center border border-[#E4E4E7] bg-white">
+                    <div className="flex items-center justify-center text-[#71717A]">
+                      <RiHomeSmile2Line size={20} />
+                    </div>
                   </div>
                   <p className="text-[#3F3F46] text-[14px] font-[400] mt-[8px] mb-[4px]">
                     Step 3
@@ -66,8 +85,10 @@ export default function Order() {
                 </div>
                 <div className="flex-1 h-[4px] rounded-[8px] bg-[#E4E4E7] mx-2 my-[18px]"></div>
                 <div className="flex flex-col items-center">
-                  <div className="w-10 h-10 bg-gray-300 rounded-full flex items-center justify-center text-gray-600">
-                    <FaCheckCircle size={20} />
+                  <div className="w-[40px] h-[40px] rounded-full flex items-center justify-center border border-[#E4E4E7] bg-white">
+                    <div className="flex items-center justify-center text-[#71717A]">
+                      <RiOpenArmLine size={20} />
+                    </div>
                   </div>
                   <p className="text-[#3F3F46] text-[14px] font-[400] mt-[8px] mb-[4px]">
                     Step 4
@@ -77,53 +98,87 @@ export default function Order() {
                   </p>
                 </div>
               </div>
-              <div className="bg-purple-100 text-purple-800 p-3 rounded-lg text-center">
+              <div className="bg-[#F5F3FF] text-[#09090B] py-[8px] px-[12px] rounded-[8px] text-center w-full font-[500] text-[14px]">
                 Package still on processing
               </div>
             </div>
 
-            <div className="bg-white p-6 rounded-lg shadow">
-              <div className="flex justify-between items-center mb-4">
+            <div
+              className="bg-white p-[24px] rounded-[8px] border border-[#E4E4E7]"
+              style={{ boxShadow: "0px 1px 2px 0px #1018280F" }}
+            >
+              <div className="flex justify-between items-center border-b border-b-[#F4F4F5] mb-[16px] pb-[16px] gap-1">
                 <div>
-                  <h2 className="text-2xl font-bold">Order 1001</h2>
-                  <p className="text-gray-600">09 May 2024</p>
+                  <h2 className="text-[20px] font-[500] text-[#09090B] pb-[4px]">
+                    Order {order.id}
+                  </h2>
+                  <p className="text-[#3F3F46] text-[14px] font-[400]">
+                    {order.date}
+                  </p>
                 </div>
-                <div className="flex gap-2">
-                  <span className="px-2 py-1 bg-green-100 text-green-800 rounded-full text-sm">
-                    Paid
+                <div className="flex gap-[16px]">
+                  <span
+                    className={`px-[12px] py-[4px] rounded-full text-[14px] ${
+                      order.paymentStatus === "Paid"
+                        ? "bg-[#F0FDF4] text-[#22C55E]"
+                        : "bg-[#FCE8EC] text-[#EF4444]"
+                    }`}
+                  >
+                    {order.paymentStatus}
                   </span>
-                  <span className="px-2 py-1 bg-yellow-100 text-yellow-800 rounded-full text-sm">
-                    Processing
+                  <span
+                    className={`px-[12px] py-[4px] rounded-full text-[14px] ${
+                      order.deliveryStatus === "Delivered"
+                        ? "bg-[#F0FDF4] text-[#22C55E]"
+                        : order.deliveryStatus === "Processing"
+                        ? "bg-[#FEF9C3] text-[#CA8A04]"
+                        : "bg-[#FCE8EC] text-[#EF4444]"
+                    }`}
+                  >
+                    {order.deliveryStatus}
                   </span>
                 </div>
               </div>
               <div>
-                <h3 className="text-xl font-semibold">Iva Ryan</h3>
-                <p className="text-gray-600">Customer ID : 121231</p>
+                <h3 className="text-[20px] font-[500] text-[#09090B] pb-[4px]">
+                  {order.customer}
+                </h3>
+                <p className="text-[#3F3F46] text-[14px] font-[400]">
+                  Customer ID : 121231
+                </p>
               </div>
             </div>
 
-            <div className="bg-white p-6 rounded-lg shadow">
-              <h2 className="text-2xl font-bold mb-4">Order Items</h2>
-              <div className="flex items-center justify-between">
-                <div className="flex items-center gap-4">
+            <div
+              className="bg-white p-[24px] rounded-[8px] border border-[#E4E4E7]"
+              style={{ boxShadow: "0px 1px 2px 0px #1018280F" }}
+            >
+              <h2 className="text-[20px] font-[500] text-[#09090B] border-b border-b-[#F4F4F5] mb-[16px] pb-[16px]">
+                Order Items
+              </h2>
+              <div className="flex items-center justify-between border-b border-b-[#F4F4F5] mb-[16px] pb-[16px]">
+                <div className="flex items-center gap-[16px]">
                   <img
-                    src="/placeholder.svg?height=80&width=80"
+                    src="/product-img-3.png"
                     alt="BBQ Sauce"
-                    className="w-20 h-20 object-cover rounded"
+                    className="w-[64px] h-[64px] "
                   />
-                  <div>
-                    <h3 className="font-semibold">BBQ Sauces</h3>
-                    <p className="text-gray-600">$800,740</p>
-                  </div>
+                  <h3 className="font-[500] text-[20px] text-[#09090B]">
+                    BBQ Sauces
+                  </h3>
                 </div>
-                <div className="flex items-center gap-4">
-                  <p>1x</p>
-                  <p className="font-semibold">$800,740</p>
+                <div className="flex items-center gap-[40px]">
+                  <p className="text-[#09090B] text-[14px] font-[500]">
+                    {order.total}
+                  </p>
+                  <p className="text-[#09090B] text-[16px] font-[500]">1x</p>
+                  <p className="text-[#09090B] text-[14px] font-[500]">
+                    {order.total}
+                  </p>
                 </div>
               </div>
-              <button className="mt-6 bg-black text-white px-4 py-2 rounded-lg flex items-center gap-2">
-                <FaBox /> Mark as shipped
+              <button className="bg-[#151515] text-white text-[16px] font-[500] px-[16px] py-[11px] rounded-[10px] flex items-center ms-auto gap-[8px]">
+                <RiInboxFill size={20} /> Mark as shipped
               </button>
             </div>
           </div>

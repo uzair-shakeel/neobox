@@ -106,7 +106,7 @@ export default function AddCategory() {
                     id="hideCategory"
                     checked={hidden}
                     onChange={(e) => setHidden(e.target.checked)}
-                    className="w-[18px] h-[18px] cursor-pointer rounded-[6px] border border-gray-300 checked:bg-indigo-600 focus:ring-indigo-500"
+                    className="cursor-pointer rounded-[6px] custom-checkbox focus:ring-indigo-500"
                   />
                   <label
                     htmlFor="hideCategory"

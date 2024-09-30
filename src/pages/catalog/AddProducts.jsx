@@ -211,7 +211,7 @@ export default function AddProduct() {
                     type="checkbox"
                     checked={isVariableProduct}
                     onChange={(e) => setIsVariableProduct(e.target.checked)}
-                    className="w-[18px] h-[18px] cursor-pointer rounded-[6px] border border-[#D4D4D8] custom-checkbox focus:ring-indigo-500"
+                    className="cursor-pointer rounded-[6px] custom-checkbox focus:ring-indigo-500"
                   />
                   <label
                     htmlFor="isVariable"
@@ -254,7 +254,7 @@ export default function AddProduct() {
                     id="hideProduct"
                     checked={hidden}
                     onChange={(e) => setHidden(e.target.checked)}
-                    className="w-[18px] h-[18px] cursor-pointer rounded-[6px] border border-gray-300 checked:bg-indigo-600 focus:ring-indigo-500"
+                    className="cursor-pointer rounded-[6px] custom-checkbox focus:ring-indigo-500"
                   />
                   <label
                     htmlFor="hideProduct"

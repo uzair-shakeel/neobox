@@ -86,7 +86,7 @@ export default function AddCategory() {
                   Status
                 </label>
                 <select
-                  className="w-full py-[11px] px-[12px] pr-[40px] bg-[#F4F4F5] rounded-[10px] appearance-none relative"
+                  className="w-full py-[11px] px-[12px] pr-[40px] bg-[#F4F4F5] rounded-[10px] appearance-none relative cursor-pointer"
                   value={status}
                   onChange={(e) => setStatus(e.target.value)}
                   style={{
@@ -97,7 +97,7 @@ export default function AddCategory() {
                   }}
                 >
                   <option>Published</option>
-                  <option>Draft</option>
+                  <option>Hidden</option>
                 </select>
 
                 <div className="flex items-center gap-[8px] my-[16px]">

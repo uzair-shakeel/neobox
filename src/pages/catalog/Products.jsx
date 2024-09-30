@@ -6,7 +6,11 @@ import { LuSearch } from "react-icons/lu";
 import ChatButton from "../../components/ChatButton";
 import { IoFilterSharp } from "react-icons/io5";
 import { BiChevronLeft, BiChevronRight } from "react-icons/bi";
-import { IoIosArrowDown } from "react-icons/io";
+import {
+  IoIosArrowDown,
+  IoIosCheckmarkCircleOutline,
+  IoMdClose,
+} from "react-icons/io";
 import { Link } from "react-router-dom";
 import products from "../../assets/ProductsData";
 import { AiOutlinePlus } from "react-icons/ai";
@@ -86,6 +90,21 @@ export default function Products() {
               </button>
             </div>
           </div>
+        </div>
+
+        <div className="flex justify-between items-center py-[8px] px-[10px] gap-1 mt-[24px] border border-[#E4E4E7] rounded-[8px] mb-[10px]">
+          <div className="flex items-center gap-[8px]">
+            <span className="min-h-[20px] min-h-[20px]">
+              <IoIosCheckmarkCircleOutline color="#22C55E" size={20} />
+            </span>
+            <p className="text-[#09090B] font-[500] text-[16px]">
+              Product added successfully. It will be approved by the Neobox team
+              within 2 days
+            </p>
+          </div>
+          <button className="min-h-[24px] min-w-[24px] cursor-pointer">
+            <IoMdClose size={24} />
+          </button>
         </div>
 
         {products.length > 0 ? (

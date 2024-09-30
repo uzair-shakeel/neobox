@@ -72,3 +72,33 @@ body {
   font-weight: 500 !important;
   size: 14px !important;
 }
+
+/* custom checkbox */
+.custom-checkbox {
+  appearance: none;
+  background-color: white;
+  border: 1px solid #d4d4d8;
+  width: 20px;
+  height: 20px;
+  border-radius: 6px;
+  cursor: pointer;
+  position: relative;
+}
+
+.custom-checkbox:checked {
+  background-color: #151515 !important;
+  border-color: #151515 !important;
+}
+
+.custom-checkbox:checked::before {
+  content: "";
+  display: block;
+  position: absolute;
+  top: 2.5px;
+  left: 6px;
+  width: 5.5px;
+  height: 10px;
+  border: solid white;
+  border-width: 0 2px 2px 0;
+  transform: rotate(45deg);
+}

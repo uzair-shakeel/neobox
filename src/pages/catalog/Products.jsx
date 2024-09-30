@@ -19,6 +19,7 @@ export default function Products() {
   // State for pagination
   const [currentPage, setCurrentPage] = useState(1);
   const [rowsPerPage, setRowsPerPage] = useState(6);
+  const [note, setNote] = useState(true);
 
   // Calculate total pages
   const totalPages = Math.ceil(products.length / rowsPerPage);
@@ -92,7 +93,11 @@ export default function Products() {
           </div>
         </div>
 
-        <div className="flex justify-between items-center py-[8px] px-[10px] gap-1 mt-[24px] border border-[#E4E4E7] rounded-[8px] mb-[10px]">
+        <div
+          className={` ${
+            note ? "flex" : "hidden"
+          }  justify-between items-center py-[8px] px-[10px] gap-1 mt-[24px] border border-[#E4E4E7] rounded-[8px] mb-[10px]`}
+        >
           <div className="flex items-center gap-[8px]">
             <span className="min-h-[20px] min-h-[20px]">
               <IoIosCheckmarkCircleOutline color="#22C55E" size={20} />
@@ -102,7 +107,10 @@ export default function Products() {
               within 2 days
             </p>
           </div>
-          <button className="min-h-[24px] min-w-[24px] cursor-pointer">
+          <button
+            onClick={() => setNote(false)}
+            className="min-h-[24px] min-w-[24px] cursor-pointer"
+          >
             <IoMdClose size={24} />
           </button>
         </div>

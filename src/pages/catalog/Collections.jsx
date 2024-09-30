@@ -7,6 +7,7 @@ import ChatButton from "../../components/ChatButton";
 import { IoFilterSharp } from "react-icons/io5";
 import { AiOutlinePlus } from "react-icons/ai";
 import { PiDotsThree } from "react-icons/pi";
+import { NavLink } from "react-router-dom";
 
 export default function Collections() {
   const collections = [
@@ -26,10 +27,12 @@ export default function Collections() {
             <h1 className="text-[24px] leading-[36px] font-[500]">
               Collections
             </h1>
-            <button className="flex items-center gap-[8px] rounded-[10px] text-[16px] tracking-[-2%] font-[400] bg-black text-white p-[16px]">
-              <AiOutlinePlus stroke="0.1px" size={18} />
-              <span>Add Collections</span>
-            </button>
+            <NavLink to="/add-category">
+              <button className="flex items-center gap-[8px] rounded-[10px] text-[16px] tracking-[-2%] font-[400] bg-black text-white p-[16px]">
+                <AiOutlinePlus stroke="0.1px" size={18} />
+                <span>Add Collections</span>
+              </button>
+            </NavLink>
           </div>
 
           <div className="flex justify-between gap-[48px] pt-[8px]">

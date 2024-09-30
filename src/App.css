@@ -14,7 +14,7 @@ body {
   font-family: "Poppins", sans-serif;
 }
 
-/* Increase the size of the radio and add custom colors */
+/* Custom Input Radio */
 .custom-radio {
   appearance: none;
   width: 16px;
@@ -42,6 +42,33 @@ body {
   transform: translate(-50%, -50%);
 }
 
-.order-table {
-  padding: 8px !important;
+/* Custom Editor */
+.ql-toolbar {
+  background-color: #e4e4e7; /* Light background for toolbar */
+  border-radius: 8px 8px 0 0; /* Rounded corners on top */
+  padding: 14px 12px;
+}
+
+.ql-container {
+  background-color: #f4f4f5; /* Light background for editor */
+  border-radius: 0 0 8px 8px; /* Rounded corners at the bottom */
+  border: 1px solid #e5e7eb;
+  padding: 8px 12px;
+}
+
+.ql-editor {
+  min-height: 200px;
+  padding: 0px !important;
+  font-size: 16px;
+}
+
+.text-style .ql-picker-label svg {
+  display: none !important;
+}
+
+.text-style .ql-picker-label {
+  width: 100px !important;
+  color: #0a0a0a !important;
+  font-weight: 500 !important;
+  size: 14px !important;
 }

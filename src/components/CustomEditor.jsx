@@ -3,22 +3,23 @@ import ReactQuill from "react-quill";
 import "react-quill/dist/quill.snow.css"; // Import Quill theme
 
 // Import React Icons
-import { FaUndo, FaRedo } from "react-icons/fa";
 import {
   RiAlignCenter,
   RiAlignRight,
   RiAlignJustify,
-  RiArrowDownSLine, // Custom down arrow
+  RiArrowDownSLine,
+  RiArrowGoBackFill,
+  RiArrowGoForwardFill,
+  RiLinkM,
+  RiStrikethrough,
+  RiImageLine,
 } from "react-icons/ri";
 import {
   AiOutlineBold,
   AiOutlineItalic,
   AiOutlineUnderline,
-  AiOutlineStrikethrough,
 } from "react-icons/ai";
-import { BiListOl, BiListUl } from "react-icons/bi";
-import { FiLink, FiImage } from "react-icons/fi";
-import { ImQuotesLeft } from "react-icons/im";
+import { BiListOl, BiListUl, BiSolidQuoteAltRight } from "react-icons/bi";
 
 // Define some colors to choose from
 const colorOptions = [
@@ -104,14 +105,16 @@ const CustomEditor = () => {
       {/* Custom Toolbar */}
       <div
         id="toolbar"
-        className="bg-[#E4E4E7] p-2 rounded-t-lg flex items-center gap-2"
+        className="bg-[#E4E4E7] p-2 rounded-t-lg flex items-center gap-[12px] flex-wrap"
       >
-        <button className="ql-undo">
-          <FaUndo color="#09090B" />
-        </button>
-        <button className="ql-redo">
-          <FaRedo color="#09090B" />
-        </button>
+        <div>
+          <button className="ql-undo">
+            <RiArrowGoBackFill size={22} color="#09090B" />
+          </button>
+          <button className="ql-redo">
+            <RiArrowGoForwardFill size={22} color="#09090B" />
+          </button>
+        </div>
 
         {/* Text Style Dropdown with Custom Arrow */}
         <div className="relative text-[#09090B]">
@@ -131,7 +134,7 @@ const CustomEditor = () => {
         </div>
 
         {/* Align Dropdown */}
-        <select className="ql-align">
+        <select className="ql-align ms-[10px]">
           <option defaultValue="" />
           <option value="center">
             <RiAlignCenter />
@@ -147,8 +150,12 @@ const CustomEditor = () => {
         {/* Custom Color Picker */}
         <div className="relative color-picker">
           <button
-            className="w-[20px] h-[20px] rounded-[4px] border"
-            style={{ backgroundColor: selectedColor }}
+            className="rounded-[4px]"
+            style={{
+              backgroundColor: selectedColor,
+              width: "20px !important",
+              height: "20px !important",
+            }}
             onClick={() => setShowColorPicker(!showColorPicker)}
           ></button>
           {showColorPicker && (
@@ -167,36 +174,37 @@ const CustomEditor = () => {
           )}
         </div>
 
-        <button className="ql-bold">
-          <AiOutlineBold />
-        </button>
-        <button className="ql-italic">
-          <AiOutlineItalic />
-        </button>
-        <button className="ql-underline">
-          <AiOutlineUnderline />
-        </button>
-        <button className="ql-strike">
-          <AiOutlineStrikethrough />
-        </button>
+        <div>
+          <button className="ql-bold">
+            <AiOutlineBold size={22} />
+          </button>
+          <button className="ql-italic">
+            <AiOutlineItalic size={22} />
+          </button>
+          <button className="ql-underline">
+            <AiOutlineUnderline size={22} />
+          </button>
+          <button className="ql-strike">
+            <RiStrikethrough size={22} />
+          </button>
 
-        <button className="ql-blockquote">
-          <ImQuotesLeft />
-        </button>
+          <button className="ql-list" value="ordered">
+            <BiListOl size={22} />
+          </button>
+          <button className="ql-list" value="bullet">
+            <BiListUl size={22} />
+          </button>
 
-        <button className="ql-list" value="ordered">
-          <BiListOl />
-        </button>
-        <button className="ql-list" value="bullet">
-          <BiListUl />
-        </button>
-
-        <button className="ql-link">
-          <FiLink />
-        </button>
-        <button className="ql-image">
-          <FiImage />
-        </button>
+          <button className="ql-link">
+            <RiLinkM size={22} />
+          </button>
+          <button className="ql-image">
+            <RiImageLine size={22} />
+          </button>
+          <button className="ql-blockquote">
+            <BiSolidQuoteAltRight size={22} />
+          </button>
+        </div>
       </div>
 
       {/* Rich Text Editor */}

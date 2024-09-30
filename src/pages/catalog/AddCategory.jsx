@@ -1,33 +1,34 @@
 "use client";
 
 import { useState } from "react";
-import { BiChevronDown } from "react-icons/bi";
 import Sidebar from "../../components/Sidebar";
 import CustomEditor from "../../components/CustomEditor";
+import { LuPlus } from "react-icons/lu";
+import { IoMdClose } from "react-icons/io";
 
 export default function AddCategory() {
   const [title, setTitle] = useState("");
-  const [description, setDescription] = useState("");
   const [status, setStatus] = useState("Published");
   const [hidden, setHidden] = useState(false);
-  const [tags, setTags] = useState(["Modern", "Classic", "Trendy"]);
-  const [selectedTags, setSelectedTags] = useState([
-    "Trendy",
-    "Sneaker",
-    "Classic",
-    "Sporty",
-  ]);
+  const [tagInput, setTagInput] = useState(""); // To hold input value
+  const [selectedTags, setSelectedTags] = useState([]); // To hold selected tags
 
   const handleAddTag = () => {
-    if (tags.length > 0) {
-      setSelectedTags([...selectedTags, tags[0]]);
-      setTags(tags.slice(1));
+    if (tagInput.trim() !== "" && !selectedTags.includes(tagInput.trim())) {
+      setSelectedTags([...selectedTags, tagInput.trim()]); // Add tag to selectedTags
     }
+    setTagInput(""); // Clear input after adding
   };
 
   const handleRemoveTag = (tag) => {
-    setSelectedTags(selectedTags.filter((t) => t !== tag));
-    setTags([...tags, tag]);
+    setSelectedTags(selectedTags.filter((t) => t !== tag)); // Remove selected tag
+  };
+
+  const handleKeyPress = (e) => {
+    if (e.key === "Enter") {
+      e.preventDefault();
+      handleAddTag();
+    }
   };
 
   return (
@@ -51,7 +52,7 @@ export default function AddCategory() {
           </div>
         </div>
 
-        <div className="flex gap-6">
+        <div className="flex md:flex-row flex-col gap-[24px]">
           <div className="md:w-[65%] w-full">
             <div className="flex flex-col gap-[16px]">
               <div>
@@ -76,64 +77,89 @@ export default function AddCategory() {
           </div>
 
           <div className="md:w-[35%] w-full">
-            <div className="space-y-6">
+            <div className="space-y-[48px]">
               <div>
-                <h3 className="text-lg font-semibold mb-2">Product Status</h3>
-                <label className="block mb-2">Status</label>
+                <h3 className="text-[20px] leading-[28px] font-[500] mb-[24px]">
+                  Product Status
+                </h3>
+                <label className="block text-[#09090B] text-[14px] font-[500] leading-[21.7px] mb-[6px]">
+                  Status
+                </label>
                 <select
-                  className="w-full p-2 border rounded-md"
+                  className="w-full py-[11px] px-[12px] pr-[40px] bg-[#F4F4F5] rounded-[10px] appearance-none relative"
                   value={status}
                   onChange={(e) => setStatus(e.target.value)}
+                  style={{
+                    backgroundImage: `url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 20 20' fill='black' %3E%3Cpath fill-rule='evenodd' d='M5.293 7.293a1 1 0 011.414 0L10 10.586l3.293-3.293a1 1 0 111.414 1.414l-4 4a1 1 0 01-1.414 0l-4-4a1 1 0 010-1.414z' clip-rule='evenodd'/%3E%3C/svg%3E")`, // Custom icon
+                    backgroundPosition: "calc(100% - 14px) center", // Adjust the position of the dropdown arrow
+                    backgroundRepeat: "no-repeat",
+                    backgroundSize: "14px 14px", // Size of the arrow
+                  }}
                 >
                   <option>Published</option>
                   <option>Draft</option>
                 </select>
+
+                <div className="flex items-center gap-[8px] my-[16px]">
+                  <input
+                    type="checkbox"
+                    id="hideCategory"
+                    checked={hidden}
+                    onChange={(e) => setHidden(e.target.checked)}
+                    className="w-[18px] h-[18px] cursor-pointer rounded-[6px] border border-gray-300 checked:bg-indigo-600 focus:ring-indigo-500"
+                  />
+                  <label
+                    htmlFor="hideCategory"
+                    className="text-[14px] font-[500] text-[#09090B]"
+                  >
+                    Hide this category
+                  </label>
+                </div>
+                <p className="text-[14px] font-[400] text-[#3F3F46]">
+                  Hidden products are not searchable and visible in storefront.
+                  Hidden products are only accessible by direct link.
+                </p>
               </div>
-              <div className="flex items-center">
-                <input
-                  type="checkbox"
-                  id="hideCategory"
-                  checked={hidden}
-                  onChange={(e) => setHidden(e.target.checked)}
-                  className="mr-2"
-                />
-                <label htmlFor="hideCategory">Hide this category</label>
-              </div>
-              <p className="text-sm text-gray-600">
-                Hidden products are not searchable and visible in storefront.
-                Hidden products are only accessible by direct link.
-              </p>
               <div>
-                <h3 className="text-lg font-semibold mb-2">Organization</h3>
-                <label className="block mb-2">Slug-Tags</label>
-                <div className="flex items-center border rounded-md">
+                <h3 className="text-[#09090B] text-[20px] font-[500] mb-[40px]">
+                  Organization
+                </h3>
+                <label className="block text-[#09090B] text-[14px] font-[500] leading-[21.7px] mb-[6px]">
+                  Slug-Tags
+                </label>
+                <div className="flex items-center gap-[8px]">
                   <input
                     type="text"
-                    className="flex-grow p-2"
+                    className="flex-grow py-[11px] px-[12px] bg-[#F4F4F5] placeholder:text-[#52525B] rounded-[10px]"
                     placeholder="Modern, Classic, Trendy"
-                    value={tags.join(", ")}
-                    readOnly
+                    value={tagInput}
+                    onChange={(e) => setTagInput(e.target.value)} // Update input value
+                    onKeyPress={handleKeyPress} // Add tag on Enter key press
                   />
-                  <button className="p-2" onClick={handleAddTag}>
-                    +
+                  <button
+                    className="border border-[#E4E4E7] rounded-full w-[48px] h-[48px] flex items-center justify-center"
+                    onClick={handleAddTag} // Add tag on button click
+                  >
+                    <LuPlus color="#09090B" size={20} />
                   </button>
                 </div>
-              </div>
-              <div className="flex flex-wrap gap-2">
-                {selectedTags.map((tag) => (
-                  <span
-                    key={tag}
-                    className="px-2 py-1 bg-gray-200 rounded-full flex items-center"
-                  >
-                    {tag}
-                    <button
-                      className="ml-1"
-                      onClick={() => handleRemoveTag(tag)}
+
+                <div className="flex flex-wrap gap-[8px] mt-[16px]">
+                  {selectedTags.map((tag) => (
+                    <span
+                      key={tag}
+                      className="px-[12px] py-[4px] bg-[#E4E4E7] rounded-full flex items-center text-[#18181B] text-[14px] tracking-[-2%] font-[400]"
                     >
-                      X
-                    </button>
-                  </span>
-                ))}
+                      {tag}
+                      <button
+                        className="ml-[2px]"
+                        onClick={() => handleRemoveTag(tag)}
+                      >
+                        <IoMdClose color="#18181B" size={15} />
+                      </button>
+                    </span>
+                  ))}
+                </div>
               </div>
             </div>
           </div>

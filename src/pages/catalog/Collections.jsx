@@ -71,7 +71,7 @@ export default function Collections() {
                   <th className="px-[16px] py-[18px]">
                     <input
                       type="checkbox"
-                      className="w-[20px] h-[20px] rounded-[6px] border border-gray-300 checked:bg-indigo-600 focus:ring-indigo-500"
+                      className="w-[20px] h-[20px] cursor-pointer rounded-[6px] border border-gray-300 checked:bg-indigo-600 focus:ring-indigo-500"
                     />
                   </th>
                   <th className="px-[16px] py-[14px] text-[#09090B] font-[500] text-[18px] tracking-[-1%]">
@@ -92,7 +92,7 @@ export default function Collections() {
                     <td className="px-[16px] py-[18px]">
                       <input
                         type="checkbox"
-                        className="w-[20px] h-[20px] rounded-[6px] border border-gray-300 checked:bg-indigo-600 focus:ring-indigo-500"
+                        className="w-[20px] h-[20px] cursor-pointer rounded-[6px] border border-gray-300 checked:bg-indigo-600 focus:ring-indigo-500"
                       />
                     </td>
                     <td className="px-[16px] py-[14px] text-[#09090B] font-[500] text-[16px]">

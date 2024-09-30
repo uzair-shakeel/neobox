@@ -127,10 +127,10 @@ export default function AddCategory() {
                 <label className="block text-[#09090B] text-[14px] font-[500] leading-[21.7px] mb-[6px]">
                   Slug-Tags
                 </label>
-                <div className="flex items-center gap-[8px]">
+                <div className="flex items-center flex-wrap gap-[8px]">
                   <input
                     type="text"
-                    className="flex-grow py-[11px] px-[12px] bg-[#F4F4F5] placeholder:text-[#52525B] rounded-[10px]"
+                    className="flex-grow py-[11px] px-[12px] bg-[#F4F4F5] placeholder:text-[#52525B] rounded-[10px] min-w-[50px]"
                     placeholder="Modern, Classic, Trendy"
                     value={tagInput}
                     onChange={(e) => setTagInput(e.target.value)} // Update input value

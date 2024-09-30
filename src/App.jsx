@@ -16,6 +16,7 @@ import Wallet from "./pages/finance/Wallet";
 import Orders from "./pages/catalog/Orders";
 import Collections from "./pages/catalog/Collections";
 import AddCategory from "./pages/catalog/AddCategory";
+import Order from "./pages/catalog/Order";
 
 function App() {
   return (
@@ -26,6 +27,7 @@ function App() {
           <Route path="/settings" element={<Settings />} />
           <Route path="/wallet" element={<Wallet />} />
           <Route path="/orders" element={<Orders />} />
+          <Route path="/order/:id" element={<Order />} />
           <Route path="/collections" element={<Collections />} />
           <Route path="/add-category" element={<AddCategory />} />
           <Route path="/signup" element={<SignUp />} />

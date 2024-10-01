@@ -240,10 +240,10 @@ export default function AddProduct() {
                     value={attribute1}
                     onChange={(e) => setAttribute1(e.target.value)}
                     placeholder="Color"
-                    className="block w-full px-[12px] py-[8px] bg-[#F4F4F5] rounded-[10px] text-[16px] font-[400] placeholder:text-[#A1A1AA] focus:ring-indigo-500 focus:border-indigo-500"
+                    className="block w-full px-[12px] py-[11px] bg-[#F4F4F5] rounded-[10px] text-[16px] font-[400] placeholder:text-[#A1A1AA] focus:ring-indigo-500 focus:border-indigo-500"
                   />
                 </div>
-                <div className="flex items-center flex-wrap gap-[8px]">
+                <div className="flex items-center w-full flex-grow gap-[8px]">
                   <InputWithTags
                     label="Values"
                     placeholder="Write attribute values"

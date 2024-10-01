@@ -22,7 +22,7 @@ const InputWithTags = ({
   };
 
   return (
-    <div>
+    <div className="w-full">
       <label className="block text-[#09090B] text-[14px] font-[500] leading-[21.7px] mb-[6px]">
         {label}
       </label>
@@ -38,7 +38,7 @@ const InputWithTags = ({
           type="text"
           className={`flex-grow py-[11px] ${
             showSearchIcon && "ps-[40px]"
-          } px-[12px] bg-[#F4F4F5] placeholder:text-[#52525B] rounded-[10px] min-w-[50px]`}
+          } px-[12px] bg-[#F4F4F5] placeholder:text-[#52525B] flex-grow rounded-[10px] min-w-[50px]`}
           placeholder={placeholder}
           value={inputValue}
           onChange={(e) => setInputValue(e.target.value)}

@@ -6,26 +6,43 @@ import CustomEditor from "../../components/CustomEditor";
 import { LuPlus, LuSearch } from "react-icons/lu";
 import { IoMdClose } from "react-icons/io";
 import { AiOutlineCloudUpload } from "react-icons/ai";
+import InputWithTags from "../../components/InputWithTags";
 
 export default function AddProduct() {
   const [title, setTitle] = useState("");
   const [status, setStatus] = useState("Published");
   const [hidden, setHidden] = useState(false);
-  const [tagInput, setTagInput] = useState("");
-  const [selectedTags, setSelectedTags] = useState([]);
-  const [collectionInput, setCollectionInput] = useState("");
-  const [selectedCollections, setSelectedCollections] = useState([]);
+  const [attribute1, setAttribute1] = useState("");
   const [file, setFile] = useState(null);
 
   const [price, setPrice] = useState("");
   const [costPrice, setCostPrice] = useState("");
   const [isVariableProduct, setIsVariableProduct] = useState(false);
 
+  const [tagInput, setTagInput] = useState("");
+  const [selectedTags, setSelectedTags] = useState([]);
+
+  const [valuesInput, setValuesInput] = useState("");
+  const [selectedValues, setSelectedValues] = useState([]);
+
+  const [collectionInput, setCollectionInput] = useState("");
+  const [selectedCollections, setSelectedCollections] = useState([]);
+
   const handleAddTag = () => {
     if (tagInput.trim() !== "" && !selectedTags.includes(tagInput.trim())) {
       setSelectedTags([...selectedTags, tagInput.trim()]);
     }
     setTagInput("");
+  };
+
+  const handleAddValue = () => {
+    if (
+      valuesInput.trim() !== "" &&
+      !selectedValues.includes(valuesInput.trim())
+    ) {
+      setSelectedValues([...selectedValues, valuesInput.trim()]);
+    }
+    setValuesInput("");
   };
 
   const handleAddCollection = () => {
@@ -39,24 +56,15 @@ export default function AddProduct() {
   };
 
   const handleRemoveTag = (tag) => {
-    setSelectedTags(selectedTags.filter((t) => t !== tag)); // Remove selected tag
+    setSelectedTags(selectedTags.filter((t) => t !== tag));
   };
 
-  const handleRemovecollection = (collection) => {
-    setSelectedCollections(selectedCollections.filter((t) => t !== collection)); // Remove selected tag
+  const handleRemoveValue = (value) => {
+    setSelectedValues(selectedValues.filter((v) => v !== value));
   };
 
-  const handleKeyPress = (e) => {
-    if (e.key === "Enter") {
-      e.preventDefault();
-      handleAddTag();
-    }
-  };
-  const handleCollectionKeyPress = (e) => {
-    if (e.key === "Enter") {
-      e.preventDefault();
-      handleAddCollection();
-    }
+  const handleRemoveCollection = (collection) => {
+    setSelectedCollections(selectedCollections.filter((c) => c !== collection));
   };
 
   const handleFileUpload = (e) => {
@@ -221,6 +229,34 @@ export default function AddProduct() {
                   </label>
                 </div>
               </div>
+
+              <div className="grid grid-cols-2 gap-[8px]">
+                <div>
+                  <label className="block text-[#09090B] text-[14px] font-[500] leading-[21.7px] mb-[6px]">
+                    Attribute 1
+                  </label>
+                  <input
+                    type="text"
+                    value={attribute1}
+                    onChange={(e) => setAttribute1(e.target.value)}
+                    placeholder="Color"
+                    className="block w-full px-[12px] py-[8px] bg-[#F4F4F5] rounded-[10px] text-[16px] font-[400] placeholder:text-[#A1A1AA] focus:ring-indigo-500 focus:border-indigo-500"
+                  />
+                </div>
+                <div className="flex items-center flex-wrap gap-[8px]">
+                  <InputWithTags
+                    label="Values"
+                    placeholder="Write attribute values"
+                    inputValue={valuesInput}
+                    setInputValue={setValuesInput}
+                    selectedItems={selectedValues}
+                    setSelectedItems={setSelectedValues}
+                    onAddItem={handleAddValue}
+                    onRemoveItem={handleRemoveValue}
+                    showPlusButton={true}
+                  />
+                </div>
+              </div>
             </div>
           </div>
 
@@ -273,74 +309,31 @@ export default function AddProduct() {
                   <h3 className="text-[#09090B] text-[20px] font-[500] mb-[24px]">
                     Organization
                   </h3>
-                  <label className="block text-[#09090B] text-[14px] font-[500] leading-[21.7px] mb-[6px]">
-                    Collections
-                  </label>
-                  <div className="flex flex-grow items-center bg-[#F4F4F5] rounded-[10px] ps-[12px] py-[14px]">
-                    <LuSearch color="#374151" size={20} className="mr-[8px]" />
-                    <input
-                      type="text"
-                      className="bg-transparent outline-none w-full h-full pe-[12px] placeholder:text-[#52525B]"
-                      placeholder="Search for collections"
-                      value={collectionInput}
-                      onChange={(e) => setCollectionInput(e.target.value)} // Update input value
-                      onKeyPress={handleCollectionKeyPress} // Add tag on Enter key press
-                    />
-                  </div>
-
-                  <div className="flex flex-wrap gap-[8px] mt-[16px]">
-                    {selectedCollections.map((collection) => (
-                      <span
-                        key={collection}
-                        className="px-[12px] py-[4px] bg-[#E4E4E7] rounded-full flex items-center text-[#18181B] text-[14px] tracking-[-2%] font-[400]"
-                      >
-                        {collection}
-                        <button
-                          className="ml-[2px]"
-                          onClick={() => handleRemovecollection(collection)}
-                        >
-                          <IoMdClose color="#18181B" size={15} />
-                        </button>
-                      </span>
-                    ))}
-                  </div>
-                </div>
-                <label className="block text-[#09090B] text-[14px] font-[500] leading-[21.7px] mb-[6px]">
-                  Tags
-                </label>
-                <div className="flex items-center flex-wrap gap-[8px]">
-                  <input
-                    type="text"
-                    className="flex-grow py-[11px] px-[12px] bg-[#F4F4F5] placeholder:text-[#52525B] rounded-[10px] min-w-[50px]"
-                    placeholder="Modern, Classic, Trendy"
-                    value={tagInput}
-                    onChange={(e) => setTagInput(e.target.value)} // Update input value
-                    onKeyPress={handleKeyPress} // Add tag on Enter key press
+                  <InputWithTags
+                    label="Collections"
+                    placeholder="Search for collections"
+                    inputValue={collectionInput}
+                    setInputValue={setCollectionInput}
+                    selectedItems={selectedCollections}
+                    setSelectedItems={setSelectedCollections}
+                    onAddItem={handleAddCollection}
+                    onRemoveItem={handleRemoveCollection}
+                    showPlusButton={false}
+                    showSearchIcon={true}
                   />
-                  <button
-                    className="border border-[#E4E4E7] rounded-full w-[48px] h-[48px] flex items-center justify-center"
-                    onClick={handleAddTag} // Add tag on button click
-                  >
-                    <LuPlus color="#09090B" size={20} />
-                  </button>
                 </div>
 
-                <div className="flex flex-wrap gap-[8px] mt-[16px]">
-                  {selectedTags.map((tag) => (
-                    <span
-                      key={tag}
-                      className="px-[12px] py-[4px] bg-[#E4E4E7] rounded-full flex items-center text-[#18181B] text-[14px] tracking-[-2%] font-[400]"
-                    >
-                      {tag}
-                      <button
-                        className="ml-[2px]"
-                        onClick={() => handleRemoveTag(tag)}
-                      >
-                        <IoMdClose color="#18181B" size={15} />
-                      </button>
-                    </span>
-                  ))}
-                </div>
+                <InputWithTags
+                  label="Tags"
+                  placeholder="Modern, Classic, Trendy"
+                  inputValue={tagInput}
+                  setInputValue={setTagInput}
+                  selectedItems={selectedTags}
+                  setSelectedItems={setSelectedTags}
+                  onAddItem={handleAddTag}
+                  onRemoveItem={handleRemoveTag}
+                  showPlusButton={true} // Show plus button for tags
+                />
               </div>
               <div className="pb-[32px]">
                 <h3 className="text-[#09090B] text-[20px] font-[500] mb-[24px]">

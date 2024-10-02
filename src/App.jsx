@@ -13,6 +13,12 @@ import SetupSecurity from "./pages/store/Security";
 import Dashboard from "./pages/home/Dashboard";
 import Settings from "./pages/settings/Settings";
 import Wallet from "./pages/finance/Wallet";
+import Orders from "./pages/catalog/Orders";
+import Collections from "./pages/catalog/Collections";
+import AddCategory from "./pages/catalog/AddCategory";
+import Order from "./pages/catalog/Order";
+import Products from "./pages/catalog/Products";
+import AddProduct from "./pages/catalog/AddProducts";
 
 function App() {
   return (
@@ -22,6 +28,12 @@ function App() {
           <Route path="/" element={<Dashboard />} />
           <Route path="/settings" element={<Settings />} />
           <Route path="/wallet" element={<Wallet />} />
+          <Route path="/orders" element={<Orders />} />
+          <Route path="/order/:id" element={<Order />} />
+          <Route path="/collections" element={<Collections />} />
+          <Route path="/add-category" element={<AddCategory />} />
+          <Route path="/products" element={<Products />} />
+          <Route path="/add-product" element={<AddProduct />} />
           <Route path="/signup" element={<SignUp />} />
           <Route path="/signup/create-password" element={<CreatePassword />} />
           <Route path="/signup/otp" element={<OTP />} />

@@ -13,3 +13,92 @@ body {
   overflow-x: hidden;
   font-family: "Poppins", sans-serif;
 }
+
+/* Custom Input Radio */
+.custom-radio {
+  appearance: none;
+  width: 16px;
+  height: 16px;
+  border: 1px solid #e5e5e5;
+  border-radius: 50%;
+  position: relative;
+  outline: none;
+  cursor: pointer;
+}
+
+.custom-radio:checked {
+  background-color: #151515;
+}
+
+.custom-radio:checked::before {
+  content: "";
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 6.5px;
+  height: 6.5px;
+  background-color: white;
+  border-radius: 50%;
+  transform: translate(-50%, -50%);
+}
+
+/* Custom Editor */
+.ql-toolbar {
+  background-color: #e4e4e7; /* Light background for toolbar */
+  border-radius: 8px 8px 0 0; /* Rounded corners on top */
+  padding: 14px 12px;
+}
+
+.ql-container {
+  background-color: #f4f4f5; /* Light background for editor */
+  border-radius: 0 0 8px 8px; /* Rounded corners at the bottom */
+  border: 1px solid #e5e7eb;
+  padding: 8px 12px;
+}
+
+.ql-editor {
+  min-height: 200px;
+  padding: 0px !important;
+  font-size: 16px;
+}
+
+.text-style .ql-picker-label svg {
+  display: none !important;
+}
+
+.text-style .ql-picker-label {
+  width: 100px !important;
+  color: #0a0a0a !important;
+  font-weight: 500 !important;
+  size: 14px !important;
+}
+
+/* custom checkbox */
+.custom-checkbox {
+  appearance: none;
+  background-color: white;
+  border: 1px solid #d4d4d8;
+  width: 20px;
+  height: 20px;
+  border-radius: 6px;
+  cursor: pointer;
+  position: relative;
+}
+
+.custom-checkbox:checked {
+  background-color: #151515 !important;
+  border-color: #151515 !important;
+}
+
+.custom-checkbox:checked::before {
+  content: "";
+  display: block;
+  position: absolute;
+  top: 2.5px;
+  left: 6.5px;
+  width: 5.5px;
+  height: 10px;
+  border: solid white;
+  border-width: 0 2px 2px 0;
+  transform: rotate(45deg);
+}

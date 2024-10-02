@@ -3,7 +3,7 @@
 import { useState } from "react";
 import Sidebar from "../../components/Sidebar";
 import CustomEditor from "../../components/CustomEditor";
-import { LuPlus, LuSearch } from "react-icons/lu";
+import { LuPlus } from "react-icons/lu";
 import { IoMdClose } from "react-icons/io";
 import { AiOutlineCloudUpload } from "react-icons/ai";
 import InputWithTags from "../../components/InputWithTags";
@@ -17,7 +17,11 @@ export default function AddProduct() {
 
   const [price, setPrice] = useState("");
   const [costPrice, setCostPrice] = useState("");
+  const [price2, setPrice2] = useState("");
+  const [quantity, setQuantity] = useState("");
+  const [sku, setSku] = useState("");
   const [isVariableProduct, setIsVariableProduct] = useState(false);
+  const [isVariableProduct2, setIsVariableProduct2] = useState(false);
 
   const [tagInput, setTagInput] = useState("");
   const [selectedTags, setSelectedTags] = useState([]);
@@ -27,6 +31,12 @@ export default function AddProduct() {
 
   const [collectionInput, setCollectionInput] = useState("");
   const [selectedCollections, setSelectedCollections] = useState([]);
+
+  const [colorInput1, setColorInput1] = useState("");
+  const [selectedColors1, setSelectedColors1] = useState([]);
+
+  const [colorInput2, setColorInput2] = useState("");
+  const [selectedColors2, setSelectedColors2] = useState([]);
 
   const handleAddTag = () => {
     if (tagInput.trim() !== "" && !selectedTags.includes(tagInput.trim())) {
@@ -55,6 +65,26 @@ export default function AddProduct() {
     setCollectionInput("");
   };
 
+  const handleAddColor1 = () => {
+    if (
+      colorInput1.trim() !== "" &&
+      !selectedColors1.includes(colorInput1.trim())
+    ) {
+      setSelectedColors1([...selectedColors1, colorInput1.trim()]);
+    }
+    setColorInput1("");
+  };
+
+  const handleAddColor2 = () => {
+    if (
+      colorInput2.trim() !== "" &&
+      !selectedColors2.includes(colorInput2.trim())
+    ) {
+      setSelectedColors2([...selectedColors2, colorInput2.trim()]);
+    }
+    setColorInput2("");
+  };
+
   const handleRemoveTag = (tag) => {
     setSelectedTags(selectedTags.filter((t) => t !== tag));
   };
@@ -65,6 +95,14 @@ export default function AddProduct() {
 
   const handleRemoveCollection = (collection) => {
     setSelectedCollections(selectedCollections.filter((c) => c !== collection));
+  };
+
+  const handleRemoveColor1 = (color1) => {
+    setSelectedColors1(selectedColors1.filter((c) => c !== color1));
+  };
+
+  const handleRemoveColor2 = (color2) => {
+    setSelectedColors2(selectedColors2.filter((c) => c !== color2));
   };
 
   const handleFileUpload = (e) => {
@@ -232,15 +270,16 @@ export default function AddProduct() {
 
               <div className="grid grid-cols-2 gap-[8px]">
                 <div>
-                  <label className="block text-[#09090B] text-[14px] font-[500] leading-[21.7px] mb-[6px]">
-                    Attribute 1
-                  </label>
-                  <input
-                    type="text"
-                    value={attribute1}
-                    onChange={(e) => setAttribute1(e.target.value)}
+                  <InputWithTags
+                    label="Attribute 1"
                     placeholder="Color"
-                    className="block w-full px-[12px] py-[11px] bg-[#F4F4F5] rounded-[10px] text-[16px] font-[400] placeholder:text-[#A1A1AA] focus:ring-indigo-500 focus:border-indigo-500"
+                    inputValue={colorInput1}
+                    setInputValue={setColorInput1}
+                    selectedItems={selectedColors1}
+                    setSelectedItems={setSelectedColors1}
+                    onAddItem={handleAddColor1}
+                    onRemoveItem={handleRemoveColor1}
+                    showPlusButton={false}
                   />
                 </div>
                 <div className="flex items-center w-full flex-grow gap-[8px]">
@@ -255,6 +294,81 @@ export default function AddProduct() {
                     onRemoveItem={handleRemoveValue}
                     showPlusButton={true}
                   />
+                </div>
+              </div>
+              <div className="space-y-[24px]">
+                <h2 className="text-[#09090B] text-[20px] font-[500]">
+                  Variants
+                </h2>
+                <div className="flex items-center">
+                  <input
+                    type="checkbox"
+                    checked={isVariableProduct2}
+                    onChange={(e) => setIsVariableProduct2(e.target.checked)}
+                    className="cursor-pointer rounded-[6px] custom-checkbox focus:ring-indigo-500"
+                  />
+                  <label
+                    htmlFor="isVariable"
+                    className="ml-[8px] block text-[14px] text-[#09090B] font-[500]"
+                  >
+                    This product is variable, has different colors, size, etc.
+                  </label>
+                </div>
+                <h4 className="text-[#09090B] text-[16px] font-[500]">
+                  Variant 1
+                </h4>
+              </div>
+              <div className="flex md:flex-row flex-col gap-[8px] w-full">
+                <div className="flex-1">
+                  <InputWithTags
+                    label="Attribute 1"
+                    placeholder="Color"
+                    inputValue={colorInput2}
+                    setInputValue={setColorInput2}
+                    selectedItems={selectedColors2}
+                    setSelectedItems={setSelectedColors2}
+                    onAddItem={handleAddColor2}
+                    onRemoveItem={handleRemoveColor2}
+                    showPlusButton={false}
+                  />
+                </div>
+                <div className="flex flex-col gap-[16px] flex-1">
+                  <div>
+                    <label className="block text-[#09090B] text-[14px] font-[500] leading-[21.7px] mb-[6px]">
+                      Pricing
+                    </label>
+                    <input
+                      type="number"
+                      value={price2}
+                      onChange={(e) => setPrice2(e.target.value)}
+                      placeholder="891"
+                      className="block w-full px-[12px] py-[8px] bg-[#F4F4F5] rounded-[10px] text-[16px] font-[400] placeholder:text-[#A1A1AA] focus:ring-indigo-500 focus:border-indigo-500"
+                    />
+                  </div>
+                  <div>
+                    <label className="block text-[#09090B] text-[14px] font-[500] leading-[21.7px] mb-[6px]">
+                      Quantity
+                    </label>
+                    <input
+                      type="number"
+                      value={quantity}
+                      onChange={(e) => setQuantity(e.target.value)}
+                      placeholder="23"
+                      className="block w-full px-[12px] py-[8px] bg-[#F4F4F5] rounded-[10px] text-[16px] font-[400] placeholder:text-[#A1A1AA] focus:ring-indigo-500 focus:border-indigo-500"
+                    />
+                  </div>
+                  <div>
+                    <label className="block text-[#09090B] text-[14px] font-[500] leading-[21.7px] mb-[6px]">
+                      SKU
+                    </label>
+                    <input
+                      type="text"
+                      value={sku}
+                      onChange={(e) => setSku(e.target.value)}
+                      placeholder="White-HADSK "
+                      className="block w-full px-[12px] py-[8px] bg-[#F4F4F5] rounded-[10px] text-[16px] font-[400] placeholder:text-[#A1A1AA] focus:ring-indigo-500 focus:border-indigo-500"
+                    />
+                  </div>
                 </div>
               </div>
             </div>

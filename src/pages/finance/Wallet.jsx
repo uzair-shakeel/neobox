@@ -1,5 +1,6 @@
 import React from "react";
 import Sidebar from "../../components/Sidebar";
+import { IoIosMore } from "react-icons/io";
 
 const Wallet = () => {
   return (
@@ -51,39 +52,65 @@ const Wallet = () => {
         </div>
 
         {/* Activity Summary */}
-        <div className="mb-10">
-          <h4 className="text-[20px] font-[500] mb-4">Activity Summary</h4>
-          <div className="flex justify-between items-center mb-6">
-            <div className="flex space-x-4">
-              <button className="flex items-center py-2 px-4 bg-gray-100 rounded-lg">
-                <span className="material-icons mr-2">sell</span>
-                Sales
+        <div className="mb-10 text-[14px] text-gray-900">
+          <div className="flex items-center justify-between">
+            <h4 className="text-[20px] font-medium mb-4">Activity Summary</h4>
+            {/* Dropdown */}
+            <button className="text-gray-600 text-sm font-medium border border-gray-300 rounded-lg py-2 px-4 bg-white shadow-sm">
+              Last Year ▾
+            </button>
+          </div>
+          <div className="flex justify-between items-center bg-white p-4 shadow-sm rounded-lg border border-gray-200">
+            {/* Sales Section */}
+            <div className="flex space-x-4 items-center justify-between w-1/3 px-3 border-r border-gray-200">
+              <button className="flex items-center py-2 px-4 border border-gray-300 rounded-full bg-white shadow-sm">
+                <img src="/sales.svg" alt="Sales" className="h-5 w-5 mr-2" />
+                <span className="text-gray-600 font-semibold">Sales</span>
               </button>
-              <span className="font-semibold">CAD 829.00</span>
+              <span className="font-semibold text-lg text-gray-800">
+                CAD 829.00
+              </span>
             </div>
-            <div className="flex space-x-4">
-              <button className="flex items-center py-2 px-4 bg-gray-100 rounded-lg">
-                <span className="material-icons mr-2">money_off</span>
-                Fees
+
+            {/* Fees Section */}
+            <div className="flex space-x-4 items-center justify-between w-1/3 px-3 border-r border-gray-200">
+              <button className="flex items-center py-2 px-4 border border-gray-300 rounded-full shadow-sm">
+                <img src="/fees.svg" alt="Sales" className="h-5 w-5 mr-2" />
+
+                <span className="text-gray-600 font-semibold">Fees</span>
               </button>
-              <span className="font-semibold">USD 57.00</span>
+              <span className="font-semibold text-lg text-gray-800">
+                USD 57.00
+              </span>
             </div>
-            <div className="flex space-x-4">
-              <button className="flex items-center py-2 px-4 bg-gray-100 rounded-lg">
-                <span className="material-icons mr-2">
-                  account_balance_wallet
-                </span>
-                Deposit
+
+            {/* Deposit Section */}
+            <div className="flex space-x-4 items-center justify-between w-1/3 px-3 ">
+              <button className="flex items-center py-2 px-4 border border-gray-300 rounded-full bg-white shadow-sm">
+                <img src="/deposit.svg" alt="Sales" className="h-5 w-5 mr-2" />
+
+                <span className="text-gray-600 font-semibold">Deposit</span>
               </button>
-              <span className="font-semibold">USD 323.00</span>
+              <span className="font-semibold text-lg text-gray-800">
+                USD 323.00
+              </span>
             </div>
-            <button className="text-gray-500">Last Year ▾</button>
           </div>
         </div>
 
         {/* Recent Activity */}
         <div>
-          <h4 className="text-[20px] font-[500] mb-4">Recent Activity</h4>
+          <div className="flex justify-between items-center">
+            <h4 className="text-[20px] font-[500] mb-4">Recent Activity</h4>
+            <div className="flex gap-3 items-center">
+              <button className="text-gray-600 text-sm font-medium border border-gray-300 rounded-lg py-2 px-4 bg-white shadow-sm">
+                Last Year ▾
+              </button>
+              <button className="text-gray-600 text-sm font-medium border border-gray-300 rounded-full p-2 bg-white shadow-sm">
+                <IoIosMore />
+              </button>
+            </div>
+          </div>
           <div className="overflow-x-auto">
             <table className="w-full bg-white border border-gray-300 rounded-[8px]">
               <thead>

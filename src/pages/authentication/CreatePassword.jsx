@@ -90,25 +90,25 @@ const CreatePassword = () => {
           {/* Password Strength */}
           {isPasswordEntered && (
             <div>
-              <div className="flex justify-between mt-2 mb-1">
+              <div className="flex justify-between gap-[10px] mt-2 mb-1">
                 <span
-                  className={`h-1 w-1/4 ${
-                    hasLowerCase ? "bg-yellow-500" : "bg-gray-300"
+                  className={`h-[8px] w-1/4 ${
+                    hasLowerCase ? "bg-[#FACC15]" : "bg-[#F4F4F5]"
                   }`}
                 ></span>
                 <span
-                  className={`h-1 w-1/4  ${
-                    hasUpperCase ? "bg-yellow-500" : "bg-gray-300"
+                  className={`h-[8px] w-1/4  ${
+                    hasUpperCase ? "bg-[#FACC15]" : "bg-[#F4F4F5]"
                   }`}
                 ></span>
                 <span
-                  className={`h-1 w-1/4  ${
-                    hasNumber ? "bg-yellow-500" : "bg-gray-300"
+                  className={`h-[8px] w-1/4  ${
+                    hasNumber ? "bg-[#FACC15]" : "bg-[#F4F4F5]"
                   }`}
                 ></span>
                 <span
-                  className={`h-1 w-1/4 ${
-                    isValidLength ? "bg-yellow-500" : "bg-gray-300"
+                  className={`h-[8px] w-1/4 ${
+                    isValidLength ? "bg-[#FACC15]" : "bg-[#F4F4F5]"
                   }`}
                 ></span>
               </div>

@@ -83,7 +83,7 @@ const SetupSecurity = () => {
       </div>
 
       {/* Right Panel: Conditional Form Rendering */}
-      <div className="relative md:w-2/4 w-full sm:px-8 px-4 py-8">
+      <div className="relative md:w-2/4 w-full sm:px-8 px-4 py-8 bg-white">
         {step === 1 ? (
           <>
             <h3 className="text-[24px] font-semibold mb-6">

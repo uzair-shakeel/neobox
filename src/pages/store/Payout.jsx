@@ -83,7 +83,7 @@ const SetupPayout = () => {
       </div>
 
       {/* Right Panel: Form */}
-      <div className="relative md:w-2/4 w-full min-h-screen sm:px-8 px-4 py-8">
+      <div className="relative md:w-2/4 w-full min-h-screen sm:px-8 px-4 py-8 bg-white">
         <h3 className="text-[24px] font-semibold mb-6">
           Setup payout withdrawal
         </h3>

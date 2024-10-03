@@ -75,7 +75,7 @@ const StoreSetup = () => {
       </div>
 
       {/* Right Panel: Form */}
-      <div className="relative md:w-2/4 w-full min-h-screen sm:px-8 px-4 py-8">
+      <div className="relative md:w-2/4 w-full min-h-screen sm:px-8 px-4 py-8 bg-white">
         <h3 className="text-[24px] font-semibold mb-6">Name your store</h3>
         <p className="text-gray-500 mb-4">
           Let’s get started! Tell us about you and your shop.

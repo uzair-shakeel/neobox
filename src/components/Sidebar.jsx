@@ -333,7 +333,7 @@ const Sidebar = () => {
                   >
                     {/* Dropdown items */}
                     <NavLink
-                      to="/wallet" // Change this to the correct path
+                      to="/finance/wallet" // Change this to the correct path
                       className={({ isActive }) =>
                         `px-[32px] py-[8px] font-[500] text-[14px] rounded-[6px] leading-[21.7px] ${
                           isActive
@@ -345,7 +345,7 @@ const Sidebar = () => {
                       Wallet
                     </NavLink>
                     <NavLink
-                      to="/withdrawal-methods" // Change this to the correct path
+                      to="/finance/withdrawal" // Change this to the correct path
                       className={({ isActive }) =>
                         `px-[32px] py-[8px] font-[500] text-[14px] rounded-[6px] leading-[21.7px] ${
                           isActive

@@ -21,12 +21,12 @@ export default function Dashboard() {
       <Sidebar />
 
       {/* Main Content */}
-      <main className="flex-1 overflow-y-auto px-[32px] py-[27px]">
-        <div className="flex justify-between items-center mb-[16px]">
-          <h2 className="text-[32px] leading-[44.8px] text-[#09090B] font-[500]">
+      <main className="flex-1 overflow-y-auto lg:px-[32px] md:px-[24px] px-[16px] py-[27px]">
+        <div className="flex gap-1 flex-wrap justify-between items-center mb-[16px]">
+          <h2 className="md:text-[32px] sm:text-[28px] text-[24px] leading-[44.8px] text-[#09090B] font-[500]">
             Hello, Marc!
           </h2>
-          <button className="bg-black text-white px-[16px] py-[13px] rounded-[12px] flex items-center gap-[8px] justify-center">
+          <button className="bg-black text-white md:px-[16px] px-[11px] md:py-[13px] py-[9px] rounded-[12px] flex items-center gap-[8px] justify-center">
             <span className="min-h-[20px] min-w-[20px]">
               <CiGlobe size={20} />{" "}
             </span>
@@ -34,72 +34,81 @@ export default function Dashboard() {
           </button>
         </div>
 
-        <div className="bg-[#F7FEE7] border border-[#151515] rounded-[8px] px-[24px] py-[15px] mb-[24px] mt-[16px] flex justify-between items-center">
+        <div className="bg-[#F7FEE7] border border-[#151515] rounded-[8px] md:px-[24px] sm:px-[12px] px-[8px] md:py-[15px] py-[9px] md:mb-[24px] mb-[16px] mt-[16px] flex justify-between items-center gap-1 flex-wrap relative">
           <div className="flex items-center">
-            <BiBook size={22} color="#22C55E" className="mr-[8px]" />
-            <span className="text-[18px] leading-[25.2px] font-[400] text-[#3F3F46]">
+            <span className="min-h-[22px] min-w-[22px] mr-[8px]">
+              <BiBook size={22} color="#22C55E" />
+            </span>
+            <span className="lg:text-[18px] sm:text-[16px] text-[14px] leading-[25.2px] font-[400] text-[#3F3F46] md:pe-0 pe-5">
               Learn how to set up your store step by step.
             </span>
           </div>
-          <div className="flex items-center gap-[24px]">
+          <div className="flex items-center md:gap-[24px] gap-1">
             <a
               href="#"
-              className="bg-white border-[#E4E4E7] border rounded-[6px] py-[5px] px-[8px] text-[14px] font-[500] leading-[21.7px] text-[#09090B] hover:underline flex items-center justify-center gap-[4px]"
+              className="bg-white border-[#E4E4E7] border rounded-[6px] md:ms-0 me-5 py-[5px] px-[8px] text-[14px] font-[500] leading-[21.7px] text-[#09090B] hover:underline flex items-center justify-center gap-[4px]"
             >
               Learn more <LuArrowUpRight size={16} />
             </a>
-            <span>
+            <span className="md:flex hidden">
+              <IoMdClose size={22} />
+            </span>
+            <span className="md:hidden flex absolute right-[8px] top-1/2 -translate-y-1/2 md:relative">
               <IoMdClose size={22} />
             </span>
           </div>
         </div>
 
-        <h3 className="flex items-center gap-[4px] text-[24px] leading-[36px] text-[#09090B] font-[500] mb-[8px]">
+        <h3 className="flex items-center gap-[4px] md:text-[24px] text-[18px] md:leading-[36px] text-[#09090B] font-[500] md:mb-[8px] mb-[4px]">
           Welcome to Neobox{" "}
           <span>
             <img src="/wave.png" />
           </span>
         </h3>
-        <p className="text-[18px] leading-[25.2px] font-[400] text-[#3F3F46] mb-[24px]">
+        <p className="md:text-[18px] text-[16px] md:leading-[25.2px] font-[400] text-[#3F3F46] md:mb-[24px] mb-[18px]">
           A quick guide to getting your first sale
         </p>
 
-        <div className="bg-[#F5F3FF] border border-[#8B5CF6] rounded-[8px] p-[24px] mb-[36px] flex flex-col gap-[24px]">
-          <div className="flex justify-between items-center">
-            <div className="flex items-center gap-[24px]">
-              <span className="flex items-center justify-center w-[40px] h-[40px] rounded-full bg-[#F7FEE7]">
-                <RiArchiveStackLine className="text-[#151515]" size={22} />
-              </span>
+        <div className="bg-[#F5F3FF] border border-[#8B5CF6] rounded-[8px] md:p-[24px] p-[10px] md:mb-[36px] mb-[22px] flex flex-col md:gap-[24px] gap-[12px]">
+          <div className="flex items-center md:gap-[24px] gap-2 w-full">
+            <span className="flex items-center justify-center w-[40px] h-[40px] rounded-full bg-[#F7FEE7]">
+              <RiArchiveStackLine className="text-[#151515]" size={22} />
+            </span>
+
+            <div className="flex justify-between items-center flex-wrap w-full gap-1">
               <div>
-                <h4 className="text-[20px] leading-[28px] font-[500] mb-[4px]">
+                <h4 className="md:text-[20px] sm:text-[16px] text-[14px] md:leading-[28px] font-[500] mb-[4px]">
                   Stock your store
                 </h4>
-                <p className="text-[16px] font-[400] leading-[25.6px] text-[#52525B]">
+                <p className="md:text-[16px] md:text-[14px] text-[12px] font-[400] md:leading-[25.6px] text-[#52525B]">
                   Let's get started. Add your products & Categories.
                 </p>
               </div>
+              <button className="flex items-center  gap-[4px] md:text-[16px] text-[14px] font-[500] bg-white text-[#09090B] md:px-[16px] px-[10px] md:py-[11px] py-[8px] rounded-[10px] border border-[#E4E4E7]">
+                Set Up{" "}
+                <LuArrowUpRight className="md:w-[18px] md:h-[18px] w-[14px] h-[14px]" />
+              </button>
             </div>
-            <button className="flex items-center gap-[4px] text-[16px] font-[500] bg-white text-[#09090B] px-[16px] py-[11px] rounded-[10px] border border-[#E4E4E7]">
-              Set Up <LuArrowUpRight size={18} />
-            </button>
           </div>
-          <div className="flex justify-between items-center">
-            <div className="flex items-center gap-[24px]">
-              <span className="flex items-center justify-center w-[40px] h-[40px] rounded-full bg-[#F7FEE7]">
-                <RiInboxUnarchiveLine className="text-[#151515]" size={22} />
-              </span>
+          <div className="flex items-center md:gap-[24px] gap-2 w-full">
+            <span className="flex items-center justify-center w-[40px] h-[40px] rounded-full bg-[#F7FEE7]">
+              <RiInboxUnarchiveLine className="text-[#151515]" size={22} />
+            </span>
+
+            <div className="flex justify-between items-center flex-wrap w-full gap-1">
               <div>
-                <h4 className="text-[20px] leading-[28px] font-[500] mb-[4px]">
+                <h4 className="md:text-[20px] sm:text-[16px] text-[14px] md:leading-[28px] font-[500] mb-[4px]">
                   Set up your withdrawal methods to receive payments.
                 </h4>
-                <p className="text-[16px] font-[400] leading-[25.6px] text-[#52525B]">
+                <p className="md:text-[16px] md:text-[14px] text-[12px] font-[400] md:leading-[25.6px] text-[#52525B]">
                   Let's get started, tell about you and your shop
                 </p>
               </div>
+              <button className="flex items-center  gap-[4px] md:text-[16px] text-[14px] font-[500] bg-white text-[#09090B] md:px-[16px] px-[10px] md:py-[11px] py-[8px] rounded-[10px] border border-[#E4E4E7]">
+                Set Up{" "}
+                <LuArrowUpRight className="md:w-[18px] md:h-[18px] w-[14px] h-[14px]" />
+              </button>
             </div>
-            <button className="flex items-center gap-[4px] text-[16px] font-[500] bg-white text-[#09090B] px-[16px] py-[11px] rounded-[10px] border border-[#E4E4E7]">
-              Set Up <LuArrowUpRight size={18} />
-            </button>
           </div>
         </div>
 

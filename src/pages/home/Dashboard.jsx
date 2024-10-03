@@ -298,7 +298,7 @@ export default function Dashboard() {
                       className="flex gap-[16px] items-center py-[8px] border-b border-[#F4F4F5] w-full"
                     >
                       <div
-                        className="rounded-full w-[40px] h-[40px] bg-white border border-[#E4E4E7] flex items-center justify-center"
+                        className="rounded-full w-[40px] h-[40px] bg-white border border-[#E4E4E7] flex items-center justify-center overflow-hidden"
                         style={{ boxShadow: "0px 1px 1px 0px #0D0D120D" }}
                       >
                         <img

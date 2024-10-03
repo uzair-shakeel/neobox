@@ -114,18 +114,18 @@ export default function Dashboard() {
 
         <div className="flex lg:flex-row flex-col items-start w-full gap-[24px]">
           <div className="lg:w-[70%]">
-            <div className="flex items-start justify-between mb-[16px]">
-              <h2 className="text-[20px] leading-[28px] font-[500]">
+            <div className="flex items-start justify-between mb-[16px] flex-wrap gap-2">
+              <h2 className="md:text-[20px] text-[18px] leading-[28px] font-[500]">
                 Overview performance
               </h2>
 
               {/* Tabs */}
-              <div className="flex bg-[#F4F4F5] rounded-[8px] overflow-hidden p-[2px]">
+              <div className="flex bg-[#F4F4F5] rounded-[8px] overflow-hidden p-[2px] flex-wrap">
                 {Object.keys(data).map((tab) => (
                   <button
                     key={tab}
                     onClick={() => setActiveTab(tab)}
-                    className={`px-[20px] py-[7px] capitalize text-[14px] leading-[21.7px] font-[400] focus:outline-none ${
+                    className={`sm:px-[20px] px-[11.5px] py-[7px] capitalize sm:text-[14px] text-[12px] leading-[21.7px] font-[400] focus:outline-none ${
                       activeTab === tab
                         ? "bg-[#FFFFFF] text-[#09090B] font-[500] rounded-[6px] shadow-sm"
                         : "bg-[#F4F4F5] text-[#52525B]"
@@ -142,15 +142,15 @@ export default function Dashboard() {
               className="grid grid-cols-1 md:grid-cols-2 rounded-[8px] overflow-hidden border border-[#F4F4F5]"
               style={{ boxShadow: "0px 1px 2px 0px #1018280F" }}
             >
-              <div className="py-[16px] px-[24px] border border-[#F4F4F5] flex items-center justify-between gap-1">
-                <div className="flex flex-col gap-[8px]">
-                  <h3 className="text-[18px] text-[#3F3F46] leading-[25.2px] font-[400]">
+              <div className="sm:py-[16px] py-[12px] sm:px-[24px] px-[12px] border border-[#F4F4F5] flex items-center justify-between gap-1">
+                <div className="flex flex-col sm:gap-[8px] gap-[2px]">
+                  <h3 className="sm:text-[18px] text-[16px] text-[#3F3F46] sm:leading-[25.2px] font-[400]">
                     Total Views
                   </h3>
-                  <p className="text-[#09090B] text-[32px] font-[500] leading-[44.8px]">
+                  <p className="text-[#09090B] sm:text-[32px] text-[24px] font-[500] sm:leading-[44.8px]">
                     {activeData.totalViews}
                   </p>
-                  <p className="text-[#6B7280] font-[400] text-[14px] leading-[21.7px]">
+                  <p className="text-[#6B7280] font-[400] sm:text-[14px] text-[12px] sm:leading-[21.7px]">
                     From last {activeData.totalViews} (last 7 days)
                   </p>
                 </div>
@@ -164,15 +164,15 @@ export default function Dashboard() {
                   {activeData.totalViewsDiff}
                 </span>
               </div>
-              <div className="py-[16px] px-[24px] border border-[#F4F4F5] flex items-center justify-between gap-1">
-                <div className="flex flex-col gap-[8px]">
-                  <h3 className="text-[18px] text-[#3F3F46] leading-[25.2px] font-[400]">
+              <div className="sm:py-[16px] py-[12px] sm:px-[24px] px-[12px] border border-[#F4F4F5] flex items-center justify-between gap-1">
+                <div className="flex flex-col sm:gap-[8px] gap-[2px]">
+                  <h3 className="sm:text-[18px] text-[16px] text-[#3F3F46] sm:leading-[25.2px] font-[400]">
                     Visits
                   </h3>
-                  <p className="text-[#09090B] text-[32px] font-[500] leading-[44.8px]">
+                  <p className="text-[#09090B] sm:text-[32px] text-[24px] font-[500] leading-[44.8px]">
                     {activeData.visits}
                   </p>
-                  <p className="text-[#6B7280] font-[400] text-[14px] leading-[21.7px]">
+                  <p className="text-[#6B7280] font-[400] sm:text-[14px] text-[12px] sm:leading-[21.7px]">
                     From last {activeData.totalViews} (last 7 days)
                   </p>
                 </div>
@@ -186,15 +186,15 @@ export default function Dashboard() {
                   {activeData.totalViewsDiff}
                 </span>
               </div>
-              <div className="py-[16px] px-[24px] border border-[#F4F4F5] flex items-center justify-between gap-1">
-                <div className="flex flex-col gap-[8px]">
-                  <h3 className="text-[18px] text-[#3F3F46] leading-[25.2px] font-[400]">
+              <div className="sm:py-[16px] py-[12px] sm:px-[24px] px-[12px] border border-[#F4F4F5] flex items-center justify-between gap-1">
+                <div className="flex flex-col sm:gap-[8px] gap-[2px]">
+                  <h3 className="sm:text-[18px] text-[16px] text-[#3F3F46] sm:leading-[25.2px] font-[400]">
                     Orders
                   </h3>
-                  <p className="text-[#09090B] text-[32px] font-[500] leading-[44.8px]">
+                  <p className="text-[#09090B] sm:text-[32px] text-[24px] font-[500] sm:leading-[44.8px]">
                     {activeData.orders}
                   </p>
-                  <p className="text-[#6B7280] font-[400] text-[14px] leading-[21.7px]">
+                  <p className="text-[#6B7280] font-[400] sm:text-[14px] text-[12px] sm:leading-[21.7px]">
                     From last {activeData.totalViews} (last 7 days)
                   </p>
                 </div>
@@ -208,15 +208,15 @@ export default function Dashboard() {
                   {activeData.ordersDiff}
                 </span>
               </div>
-              <div className="py-[16px] px-[24px] border border-[#F4F4F5] flex items-center justify-between gap-1">
-                <div className="flex flex-col gap-[8px]">
-                  <h3 className="text-[18px] text-[#3F3F46] leading-[25.2px] font-[400]">
+              <div className="sm:py-[16px] py-[12px] sm:px-[24px] px-[12px] border border-[#F4F4F5] flex items-center justify-between gap-1">
+                <div className="flex flex-col sm:gap-[8px] gap-[2px]">
+                  <h3 className="sm:text-[18px] text-[16px] text-[#3F3F46] sm:leading-[25.2px] font-[400]">
                     Conversion Rate
                   </h3>
-                  <p className="text-[#09090B] text-[32px] font-[500] leading-[44.8px]">
+                  <p className="text-[#09090B] sm:text-[32px] text-[24px] font-[500] sm:leading-[44.8px]">
                     {activeData.conversionRate}
                   </p>
-                  <p className="text-[#6B7280] font-[400] text-[14px] leading-[21.7px]">
+                  <p className="text-[#6B7280] font-[400] sm:text-[14px] text-[12px] sm:leading-[21.7px]">
                     From last {activeData.totalViews} (last 7 days)
                   </p>
                 </div>
@@ -235,45 +235,46 @@ export default function Dashboard() {
             <Revenue />
           </div>
 
-          <div className="lg:w-[30%]">
+          <div className="lg:w-[30%] w-full">
             {/* Products Section */}
             <div className="">
-              <div className="flex items-center justify-between mb-[16px]">
-                <h3 className="text-[20px] text-[#09090B] font-[500] leading-[28px]">
+              <div className="flex items-center justify-between md:mb-[16px] mb-[10px]">
+                <h3 className="md:text-[20px] text-[18px] text-[#09090B] font-[500] leading-[28px]">
                   Products
                 </h3>
                 <a
                   href="#"
-                  className="px-[8px] py-[5px] text-[#0A0A0A] text-[14px] leading-[21.7px] font-[500] flex items-center justify-center gap-[4px]"
+                  className="px-[8px] py-[5px] text-[#0A0A0A] md:text-[14px] text-[12px] leading-[21.7px] font-[500] flex items-center justify-center gap-[4px]"
                 >
-                  See All <IoArrowForwardOutline size={15} />
+                  See All{" "}
+                  <IoArrowForwardOutline className="md:w-[15px] md:h-[15px] h-[13px] w-[13px]" />
                 </a>
               </div>
               <div
-                className="px-[20px] py-[16px] border border-[#E4E4E7] rounded-[8px] flex flex-col gap-[16px]"
+                className="md:px-[20px] px-[12px] py-[16px] border border-[#E4E4E7] rounded-[8px] flex flex-col gap-[16px] "
                 style={{ boxShadow: "0px 1px 2px 0px #1018280F" }}
               >
                 <div className="flex justify-between items-center text-[#09090B]">
-                  <span className="font-[400] text-[18px] leading-[25.2px]">
+                  <span className="font-[400] md:text-[18px] text-[16px] md:leading-[25.2px]">
                     Active listings
                   </span>
-                  <span className="text-[24px] leading-[36px] font-[500]">
+                  <span className="md:text-[24px] text-[20px] md:leading-[36px] font-[500]">
                     6
                   </span>
                 </div>
                 <div className="flex justify-between items-center text-[#09090B]">
-                  <span className="font-[400] text-[18px] leading-[25.2px]">
+                  <span className="font-[400] md:text-[18px] text-[16px] md:leading-[25.2px]">
                     Hidden listings
                   </span>
-                  <span className="text-[24px] leading-[36px] font-[500]">
+                  <span className="md:text-[24px] text-[20px] md:leading-[36px] font-[500]">
                     12
                   </span>
                 </div>
                 <div className="flex justify-between items-center text-[#09090B]">
-                  <span className="font-[400] text-[18px] leading-[25.2px]">
+                  <span className="font-[400] md:text-[18px] text-[16px] md:leading-[25.2px]">
                     Sold out
                   </span>
-                  <span className="text-[24px] leading-[36px] font-[500]">
+                  <span className="md:text-[24px] text-[20px] md:leading-[36px] font-[500]">
                     5
                   </span>
                 </div>
@@ -281,8 +282,8 @@ export default function Dashboard() {
             </div>
 
             {/* Top Products Placeholder */}
-            <div className="mt-[24px]">
-              <h3 className="text-[20px] text-[#09090B] font-[500] leading-[28px] mb-[16px]">
+            <div className="md:mt-[24px] mt-[30px]">
+              <h3 className="text-[20px] text-[#09090B] font-[500] leading-[28px] md:mb-[16px] mb-[10px]">
                 Products
               </h3>
 

@@ -20,8 +20,8 @@ const Revenue = () => {
 
   return (
     <div className="mt-[24px]">
-      <div className="flex justify-between gap-1">
-        <h2 className="text-[20px] leading-[28px] font-[500] mb-[16px]">
+      <div className="flex justify-between gap-1 flex-wrap mb-[2px]">
+        <h2 className="sm:text-[20px] text-[18px] leading-[28px] font-[500] mb-[16px]">
           Revenue
         </h2>
 
@@ -29,7 +29,7 @@ const Revenue = () => {
         <div className="relative">
           <button
             onClick={() => setDropdownOpen(!dropdownOpen)}
-            className="flex items-center px-[12px] gap-[4px] py-[5px] w-fit border border-[#E4E4E7] rounded-[6px]"
+            className="flex items-center px-[12px] gap-[4px] py-[5px] sm:text-[16px] text-[14px] w-fit border border-[#E4E4E7] rounded-[6px]"
           >
             {selectedOption.label}
             <MdKeyboardArrowDown className="text-gray-500" />
@@ -64,19 +64,19 @@ const Revenue = () => {
 
       {/* Revenue Section */}
       <div
-        className="border border-[#E4E4E7] rounded-[8px] p-[24px]"
+        className="border border-[#E4E4E7] rounded-[8px] md:px-[24px] px-[12px] py-[15px]"
         style={{
           boxShadow: "0px 1px 2px 0px #1018280F",
         }}
       >
-        <div className="flex flex-col gap-[8px] mb-[32px]">
-          <h3 className="text-[18px] text-[#3F3F46] leading-[25.2px] font-[400]">
+        <div className="flex flex-col md:gap-[8px] gap-[4px] mb-[32px]">
+          <h3 className="md:text-[18px] text-[16px] text-[#3F3F46] md:leading-[25.2px] font-[400]">
             Total Revenue
           </h3>
-          <p className="text-[#09090B] text-[32px] font-[500] leading-[44.8px]">
+          <p className="text-[#09090B] md:text-[32px] text-[24px] font-[500] md:leading-[44.8px]">
             $14,020,110
           </p>
-          <p className="text-[#6B7280] font-[400] text-[14px] leading-[21.7px]">
+          <p className="text-[#6B7280] font-[400] md:text-[14px] text-[12px] md:leading-[21.7px]">
             You gained <span className="text-[#8B5CF6]">+$420.00</span> this
             month
           </p>

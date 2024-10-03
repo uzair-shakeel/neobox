@@ -1,72 +1,87 @@
 import React from "react";
 
 const StaffSettings = () => {
+  const staffData = [
+    {
+      id: 1,
+      fullName: "Iva Ryan",
+      email: "james_hall@gmail.com",
+      role: "Super Admin",
+      status: "Active",
+    },
+    {
+      id: 2,
+      fullName: "Ricky Smith",
+      email: "k.p.allen@aol.com",
+      role: "Members",
+      status: "Inactive",
+    },
+    {
+      id: 3,
+      fullName: "Patricia Sanders",
+      email: "s.t.sharkey@outlook.com",
+      role: "Admin",
+      status: "Active",
+    },
+    // Add more staff members as needed
+  ];
   return (
-    <div>
-      <div className="flex justify-between items-center">
-        <h3 className="text-[20px] font-[500]">Staff</h3>
-        <button className="mt-4 px-4 py-2 border border-[#E4E4E7] shadow-md rounded-lg">
+    <div className="">
+      <div className="flex justify-between items-center flex-wrap w-full">
+        <h3 className="md:text-[20px] text-[18px] font-[500]">Staff</h3>
+        <button className="md:px-4 px-3 py-2 md:text-[16px] text-[14px] border border-[#E4E4E7] shadow-md rounded-lg">
           + Add Staff
         </button>
       </div>
-      <table className="min-w-full mt-4 border-collapse border border-gray-300">
-        <thead>
-          <tr>
-            <th className="border border-gray-300 p-2 text-left text-[16px] font-[500]">
-              Full Name
-            </th>
-            <th className="border border-gray-300 p-2 text-left text-[16px] font-[500]">
-              Email
-            </th>
-            <th className="border border-gray-300 p-2 text-left text-[16px] font-[500]">
-              Role
-            </th>
-            <th className="border border-gray-300 p-2 text-left text-[16px] font-[500]">
-              Status
-            </th>
-          </tr>
-        </thead>
-        <tbody>
-          <tr className="text-[16px]">
-            <td className="border border-gray-300 p-2 text-[16px] font-[500]">
-              Iva Ryan
-            </td>
-            <td className="border border-gray-300 p-2">james_hall@gmail.com</td>
-            <td className="border border-gray-300 p-2">Super Admin</td>
-            <td className="border border-gray-300 p-2 ">
-              <span className="text-green-500 bg-[#F0FDF4] px-4 py-1 rounded-[16px]">
-                Active
-              </span>
-            </td>
-          </tr>
-          <tr>
-            <td className="border border-gray-300 p-2 text-[16px] font-[500]">
-              Ricky Smith
-            </td>
-            <td className="border border-gray-300 p-2">k.p.allen@aol.com</td>
-            <td className="border border-gray-300 p-2">Members</td>
-            <td className="border border-gray-300 p-2 ">
-              <span className="text-black bg-[#E4E4E7] px-4 py-1 rounded-[16px]">
-                Inactive
-              </span>
-            </td>
-          </tr>
-          <tr>
-            <td className="border border-gray-300 p-2 text-[16px] font-[500]">
-              Patricia Sanders
-            </td>
-            <td className="border border-gray-300 p-2">
-              s.t.sharkey@outlook.com
-            </td>
-            <td className="border border-gray-300 p-2">Admin</td>
-            <td className="border border-gray-300 p-2 ">
-              <span className="text-green-500 bg-[#F0FDF4] px-4 py-1 rounded-[16px]">
-                Active
-              </span>
-            </td>
-          </tr>
-        </tbody>
-      </table>
+      {/* Wrapping the table in a scrollable container */}
+      <div className="overflow-x-auto md:pb-[24px]  pt-[16px]">
+        <div className="border border-[#E4E4E7] rounded-[8px] p-[8px]">
+          <table className="min-w-full bg-[#FFFFFF]">
+            <thead className="bg-[#FAFAFA] text-left">
+              <tr>
+                <th className="px-[16px] py-[14px] text-[#09090B] font-[500] md:text-[18px] sm:text-[16px] text-[14px] tracking-[-1%]">
+                  Full Name
+                </th>
+                <th className="px-[16px] py-[14px] text-[#09090B] font-[500] md:text-[18px] sm:text-[16px] text-[14px] tracking-[-1%]">
+                  Email
+                </th>
+                <th className="px-[16px] py-[14px] text-[#09090B] font-[500] md:text-[18px] sm:text-[16px] text-[14px] tracking-[-1%]">
+                  Role
+                </th>
+                <th className="px-[16px] py-[14px] text-[#09090B] font-[500] md:text-[18px] sm:text-[16px] text-[14px] tracking-[-1%]">
+                  Status
+                </th>
+              </tr>
+            </thead>
+            <tbody className="divide-y">
+              {staffData.map((staff) => (
+                <tr key={staff.id} className="hover:bg-gray-50">
+                  <td className="px-[16px] py-[14px] text-[#09090B] font-[500] md:text-[16px] text-[14px]">
+                    {staff.fullName}
+                  </td>
+                  <td className="px-[16px] py-[14px]  text-[#09090B] font-[400] text-[14px]">
+                    {staff.email}
+                  </td>
+                  <td className="px-[16px] py-[14px]  text-[#09090B] font-[400] text-[14px]">
+                    {staff.role}
+                  </td>
+                  <td className="px-[16px] py-[14px] text-[#09090B] font-[400] text-[14px]">
+                    <span
+                      className={`px-4 py-1 rounded-[16px] ${
+                        staff.status === "Active"
+                          ? "text-green-500 bg-[#F0FDF4]"
+                          : "text-black bg-[#E4E4E7]"
+                      }`}
+                    >
+                      {staff.status}
+                    </span>
+                  </td>
+                </tr>
+              ))}
+            </tbody>
+          </table>
+        </div>
+      </div>
     </div>
   );
 };

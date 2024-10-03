@@ -17,13 +17,13 @@ const GeneralSettings = ({
   return (
     <div>
       <div
-        className={`grid grid-cols-2 gap-4 text-[18px] ${
+        className={`grid md:grid-cols-2 grid-cols-1 gap-4 text-[18px] ${
           isModalOpen ? "blur-[2px]" : ""
         }`}
       >
         <button
           onClick={() => setStoreInfoModalOpen(true)} // Open Store Info Modal on click
-          className="w-full flex justify-between items-center p-4 border border-gray-300 rounded-lg"
+          className="w-full flex justify-between items-center p-4 text-left md:text-[16px] text-[14px] border border-gray-300 rounded-lg"
         >
           <span>Store name, email, address</span>
           <span className="text-gray-500">
@@ -32,7 +32,7 @@ const GeneralSettings = ({
         </button>
         <button
           onClick={() => setAccountModalOpen(true)} // Open Account Modal on click
-          className="w-full flex justify-between items-center p-4 border border-gray-300 rounded-lg"
+          className="w-full flex justify-between items-center p-4 text-left md:text-[16px] text-[14px] border border-gray-300 rounded-lg"
         >
           <span>Account</span>
           <span className="text-gray-500">
@@ -41,7 +41,7 @@ const GeneralSettings = ({
         </button>
         <button
           onClick={() => setLanguageModalOpen(true)} // Open Store Info Modal on click
-          className="w-full flex justify-between items-center p-4 border border-gray-300 rounded-lg"
+          className="w-full flex justify-between items-center p-4 text-left md:text-[16px] text-[14px] border border-gray-300 rounded-lg"
         >
           <span>Language</span>
           <span className="text-gray-500">

@@ -27,17 +27,17 @@ const Settings = () => {
       </div>
 
       {/* Main Content */}
-      <div className={`flex-grow p-8 `}>
-        <div className="flex justify-between items-center">
+      <div className="w-full lg:px-[32px] md:px-[24px] px-[16px]">
+        <div className="flex justify-between items-center flex-wrap gap-[6px]">
           <h2
-            className={`text-[24px] font-[500] ${
+            className={`md:text-[24px] text-[20px] font-[500] ${
               isModalOpen ? "blur-[2px]" : ""
             }`}
           >
             Settings
           </h2>
-          <button className="text-[16px] flex gap-2 items-center text-gray-500 hover:underline">
-            <IoIosHelpCircleOutline size={20} />
+          <button className="md:text-[16px] text-[14px] flex lg:gap-2 gap-1 items-center text-gray-500 hover:underline">
+            <IoIosHelpCircleOutline className="md:w-[20px] md:h-[20px] h-[18px] w-[18px]" />
             Help and Feedback
           </button>
         </div>
@@ -46,10 +46,10 @@ const Settings = () => {
         <div
           className={`border-b mt-6 mb-8 ${isModalOpen ? "blur-[2px]" : ""}`}
         >
-          <nav className="-mb-px flex space-x-8">
+          <nav className="-mb-px flex md:space-x-8 space-x-4">
             <button
               onClick={() => handleTabChange("General")}
-              className={`text-[16px] font-medium ${
+              className={`md:text-[16px] text-[14px] font-medium ${
                 activeTab === "General"
                   ? "border-b-2 border-[#A3E635] text-black"
                   : "text-gray-500"
@@ -59,7 +59,7 @@ const Settings = () => {
             </button>
             <button
               onClick={() => handleTabChange("Staff")}
-              className={`text-[16px] font-medium ${
+              className={`md:text-[16px] text-[14px] font-medium ${
                 activeTab === "Staff"
                   ? "border-b-2 border-[#A3E635] text-black"
                   : "text-gray-500"
@@ -69,7 +69,7 @@ const Settings = () => {
             </button>
             <button
               onClick={() => handleTabChange("Brand")}
-              className={`text-[16px] font-medium ${
+              className={`md:text-[16px] text-[14px] font-medium ${
                 activeTab === "Brand"
                   ? "border-b-2 border-[#A3E635] text-black"
                   : "text-gray-500"

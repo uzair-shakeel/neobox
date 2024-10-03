@@ -22,7 +22,7 @@ const Step2Form = ({ formData, setFormData, onNext }) => {
 
   return (
     <>
-      <div className="space-y-4">
+      <div className="space-y-4 overflow-y-scroll modal-scrollbar h-[300px]">
         {/* Beneficiary */}
         <div>
           <label className="text-sm font-semibold">Beneficiary</label>

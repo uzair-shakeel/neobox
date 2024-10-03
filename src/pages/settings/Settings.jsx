@@ -7,21 +7,35 @@ import { IoIosHelpCircleOutline } from "react-icons/io";
 
 const Settings = () => {
   const [activeTab, setActiveTab] = useState("General");
+  const [isAccountModalOpen, setAccountModalOpen] = useState(false);
+  const [isStoreInfoModalOpen, setStoreInfoModalOpen] = useState(false);
+  const [isLanguageModalOpen, setLanguageModalOpen] = useState(false);
 
   // Function to handle switching between tabs
   const handleTabChange = (tab) => {
     setActiveTab(tab);
   };
 
+  const isModalOpen =
+    isAccountModalOpen || isStoreInfoModalOpen || isLanguageModalOpen;
+
   return (
-    <div className="min-h-screen flex bg-white">
+    <div className={`min-h-screen flex bg-white `}>
       {/* Sidebar Component */}
-      <Sidebar />
+      <div className={isModalOpen ? "blur-[2px]" : ""}>
+        <Sidebar />
+      </div>
 
       {/* Main Content */}
-      <div className="flex-grow p-8">
+      <div className={`flex-grow p-8 `}>
         <div className="flex justify-between items-center">
-          <h2 className="text-[24px] font-[500]">Settings</h2>
+          <h2
+            className={`text-[24px] font-[500] ${
+              isModalOpen ? "blur-[2px]" : ""
+            }`}
+          >
+            Settings
+          </h2>
           <button className="text-[16px] flex gap-2 items-center text-gray-500 hover:underline">
             <IoIosHelpCircleOutline size={20} />
             Help and Feedback
@@ -29,7 +43,9 @@ const Settings = () => {
         </div>
 
         {/* Tabs */}
-        <div className="border-b mt-6 mb-8">
+        <div
+          className={`border-b mt-6 mb-8 ${isModalOpen ? "blur-[2px]" : ""}`}
+        >
           <nav className="-mb-px flex space-x-8">
             <button
               onClick={() => handleTabChange("General")}
@@ -65,7 +81,17 @@ const Settings = () => {
         </div>
 
         {/* Tab Content */}
-        {activeTab === "General" && <GeneralSettings />}
+        {activeTab === "General" && (
+          <GeneralSettings
+            isAccountModalOpen={isAccountModalOpen}
+            isStoreInfoModalOpen={isStoreInfoModalOpen}
+            isLanguageModalOpen={isLanguageModalOpen}
+            setLanguageModalOpen={setLanguageModalOpen}
+            setAccountModalOpen={setAccountModalOpen}
+            setStoreInfoModalOpen={setStoreInfoModalOpen}
+            isModalOpen={isModalOpen}
+          />
+        )}
         {activeTab === "Staff" && <StaffSettings />}
         {activeTab === "Brand" && <BrandSettings />}
       </div>

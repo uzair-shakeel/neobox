@@ -19,6 +19,7 @@ import AddCategory from "./pages/catalog/AddCategory";
 import Order from "./pages/catalog/Order";
 import Products from "./pages/catalog/Products";
 import AddProduct from "./pages/catalog/AddProducts";
+import Withdrawal from "./pages/finance/Withdrawal";
 
 function App() {
   return (
@@ -27,7 +28,8 @@ function App() {
         <Routes>
           <Route path="/" element={<Dashboard />} />
           <Route path="/settings" element={<Settings />} />
-          <Route path="/wallet" element={<Wallet />} />
+          <Route path="/finance/wallet" element={<Wallet />} />
+          <Route path="/finance/withdrawal" element={<Withdrawal />} />
           <Route path="/orders" element={<Orders />} />
           <Route path="/order/:id" element={<Order />} />
           <Route path="/collections" element={<Collections />} />

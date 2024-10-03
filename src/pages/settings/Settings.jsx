@@ -20,7 +20,7 @@ const Settings = () => {
     isAccountModalOpen || isStoreInfoModalOpen || isLanguageModalOpen;
 
   return (
-    <div className={`min-h-screen flex bg-white `}>
+    <div className={`min-h-screen w-screen overflow-hidden flex bg-white `}>
       {/* Sidebar Component */}
       <div className={isModalOpen ? "blur-[2px]" : ""}>
         <Sidebar />

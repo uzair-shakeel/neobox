@@ -26,7 +26,7 @@ const StaffSettings = () => {
     // Add more staff members as needed
   ];
   return (
-    <div className="">
+    <div className="w-[75%] lg:w-full">
       <div className="flex justify-between items-center flex-wrap w-full">
         <h3 className="md:text-[20px] text-[18px] font-[500]">Staff</h3>
         <button className="md:px-4 px-3 py-2 md:text-[16px] text-[14px] border border-[#E4E4E7] shadow-md rounded-lg">

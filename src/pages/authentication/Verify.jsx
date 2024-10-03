@@ -20,7 +20,7 @@ const Verify = () => {
     <div>
       <Header />
 
-      <div className="min-h-screen flex flex-col justify-center items-center bg-gray-50">
+      <div className="min-h-screen flex flex-col justify-center mx-4 items-center bg-gray-50">
         <div className="w-full max-w-md p-8 space-y-6 bg-white shadow-md border border-[#E4E4E7] rounded-[16px]">
           {/* Logo */}
           <div>

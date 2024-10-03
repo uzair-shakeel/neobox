@@ -4,9 +4,9 @@ import { AiOutlineCloudUpload } from "react-icons/ai";
 const BrandSettings = () => {
   return (
     <div>
-      <div className="grid grid-cols-2 gap-8">
+      <div className="grid md:grid-cols-2 grid-cols-1 gap-8">
         {/* Logo Section */}
-        <div className="border border-gray-400 rounded-lg p-8">
+        <div className="border border-gray-400 rounded-lg md:p-8 p-4">
           <div className="bg-[#FAFAFA] border border-dashed cursor-pointer border-[#D4D4D8] rounded-[8px] px-[24px] py-[16px]">
             <div className="h-[25px] w-auto">
               <AiOutlineCloudUpload className="h-full w-full object-cover" />
@@ -29,7 +29,7 @@ const BrandSettings = () => {
         </div>
 
         {/* Favicon Section */}
-        <div className="border  border-gray-400 rounded-lg p-8">
+        <div className="border  border-gray-400 rounded-lg md:p-8 p-4">
           <div className="bg-[#FAFAFA] border border-dashed cursor-pointer border-[#D4D4D8] rounded-[8px] px-[24px] py-[16px]">
             <div className="h-[25px] w-auto">
               <AiOutlineCloudUpload className="h-full w-full object-cover" />
@@ -53,7 +53,7 @@ const BrandSettings = () => {
       </div>
 
       {/* Header Image Section */}
-      <div className="mt-8 border  border-gray-400 rounded-lg p-8">
+      <div className="mt-8 border  border-gray-400 rounded-lg md:p-8 p-4">
         <div className="bg-[#FAFAFA] border border-dashed cursor-pointer border-[#D4D4D8] rounded-[8px] px-[24px] py-[16px]">
           <div className="h-[25px] w-auto">
             <AiOutlineCloudUpload className="h-full w-full object-cover" />

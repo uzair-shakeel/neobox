@@ -1,4 +1,5 @@
 import React, { useState } from "react";
+import { IoMdCheckmark } from "react-icons/io";
 
 const SetupPayout = () => {
   const [language, setLanguage] = useState("English");
@@ -16,15 +17,17 @@ const SetupPayout = () => {
   };
 
   return (
-    <div className="min-h-screen flex bg-white">
+    <div className="min-h-screen flex bg-[#FAFAFA]">
       {/* Left Panel: Stepper */}
-      <div className="w-2/4 border-r h-screen border-gray-300 p-8">
+      <div className="md:w-2/4 w-full border-r h-screen border-gray-300 sm:px-8 px-4 py-8 md:flex flex-col hidden">
         <h2 className="text-[24px] font-semibold mb-6">Setup your store</h2>
         <ul className="space-y-6">
           <li className="flex items-start space-x-3">
             <span
-              className={`w-8 h-8 bg-black inline-flex items-center justify-center rounded-full`}
-            ></span>
+              className={`min-w-[40px] w-[40px] min-h-[40px] h-[40px] bg-black inline-flex items-center justify-center rounded-full`}
+            >
+              <IoMdCheckmark color="white" size={18} />
+            </span>
             <div>
               <h3 className="text-[18px] font-medium">Name your store</h3>
               <p className="text-sm text-gray-500">
@@ -34,8 +37,10 @@ const SetupPayout = () => {
           </li>
           <li className="flex items-start space-x-3">
             <span
-              className={`w-8 h-8 bg-black inline-flex items-center justify-center rounded-full`}
-            ></span>
+              className={`min-w-[40px] w-[40px] min-h-[40px] h-[40px] bg-black inline-flex items-center justify-center rounded-full`}
+            >
+              <IoMdCheckmark color="white" size={18} />
+            </span>
             <div>
               <h3 className="text-[18px] font-medium">
                 Preferences your store
@@ -49,8 +54,8 @@ const SetupPayout = () => {
             <li key={index} className="flex items-start space-x-3">
               <div className="flex-shrink-0">
                 <span
-                  className={`w-8 h-8 text-black inline-flex items-center justify-center rounded-full ${
-                    index === 0 ? "border-[1.4px] font-bold border-black" : ""
+                  className={`min-w-[40px] w-[40px] min-h-[40px] h-[40px] text-black inline-flex items-center justify-center rounded-full bg-white ${
+                    index === 0 ? "border-2 font-bold border-black" : ""
                   }`}
                 >
                   {index + 3}
@@ -70,7 +75,7 @@ const SetupPayout = () => {
       </div>
 
       {/* Right Panel: Form */}
-      <div className="relative w-2/4 p-8">
+      <div className="relative md:w-2/4 w-full min-h-screen sm:px-8 px-4 py-8">
         <h3 className="text-[24px] font-semibold mb-6">
           Setup payout withdrawal
         </h3>

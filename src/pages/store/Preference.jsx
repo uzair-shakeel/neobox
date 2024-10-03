@@ -15,9 +15,9 @@ const Preferences = () => {
 
   return (
     <div className="min-h-screen">
-      <div className="flex h-full w-full bg-white border-gray-300">
+      <div className="flex h-full w-full bg-[#FAFAFA] border-gray-300">
         {/* Left Panel: Stepper */}
-        <div className="w-2/4 border-r h-screen border-gray-300 p-8">
+        <div className="md:w-2/4 w-full border-r h-screen border-gray-300 sm:px-8 px-4 py-8 md:flex flex-col hidden">
           <h2 className="text-[24px] font-semibold mb-6">Setup your store</h2>
           <ul className="space-y-6">
             {[
@@ -29,8 +29,8 @@ const Preferences = () => {
               <li key={index} className="flex items-start space-x-3">
                 <div className="flex-shrink-0">
                   <span
-                    className={`w-8 h-8 text-black inline-flex items-center justify-center rounded-full ${
-                      index === 0 ? "border-[1.4px] font-bold border-black" : ""
+                    className={`w-[40px] h-[40px] text-black inline-flex items-center justify-center rounded-full bg-white ${
+                      index === 0 ? "border-2 font-bold border-black" : ""
                     }`}
                   >
                     {index + 1}
@@ -50,7 +50,7 @@ const Preferences = () => {
         </div>
 
         {/* Right Panel: Form */}
-        <div className="relative w-2/4 p-8">
+        <div className="relative md:w-2/4 w-full min-h-screen sm:px-8 px-4 py-8">
           <h3 className="text-[24px] font-semibold mb-6">Shop Preferences</h3>
           <p className="text-gray-500 mb-4">
             Let’s get started! Tell us about you and your shop.
@@ -120,7 +120,7 @@ const Preferences = () => {
 
           <button
             type="button"
-            className={`w-[90%] absolute bottom-10  py-2 px-4 rounded-lg ${
+            className={`md:w-[90%] w-full md:absolute bottom-10  py-2 px-4 rounded-lg ${
               isFormValid()
                 ? "bg-black text-white"
                 : "bg-gray-300 text-white cursor-not-allowed"

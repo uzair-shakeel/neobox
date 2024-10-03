@@ -17,6 +17,7 @@
     "react-quill": "^2.0.0",
     "react-router-dom": "^6.26.2",
     "react-select": "^5.8.1",
+    "react-select-country-list": "^2.2.3",
     "recharts": "^2.12.7"
   },
   "devDependencies": {

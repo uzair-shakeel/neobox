@@ -116,6 +116,49 @@ const CustomEditor = () => {
           </button>
         </div>
 
+        <div className="gap-[12px] sm:hidden flex ">
+          {/* Align Dropdown */}
+          <select className="ql-align">
+            <option defaultValue="" />
+            <option value="center">
+              <RiAlignCenter />
+            </option>
+            <option value="right">
+              <RiAlignRight />
+            </option>
+            <option value="justify">
+              <RiAlignJustify />
+            </option>
+          </select>
+
+          {/* Custom Color Picker */}
+          <div className="relative color-picker">
+            <button
+              className="rounded-[4px]"
+              style={{
+                backgroundColor: selectedColor,
+                width: "20px !important",
+                height: "20px !important",
+              }}
+              onClick={() => setShowColorPicker(!showColorPicker)}
+            ></button>
+            {showColorPicker && (
+              <div className="absolute z-10 mt-2 bg-white shadow-lg rounded-md p-1 w-[140px]">
+                <div className="grid grid-cols-5 gap-1 p-1">
+                  {colorOptions.map((color) => (
+                    <button
+                      key={color}
+                      className="w-10 h-10 rounded-lg border border-gray-300"
+                      style={{ backgroundColor: color }}
+                      onClick={() => handleColorChange(color)}
+                    ></button>
+                  ))}
+                </div>
+              </div>
+            )}
+          </div>
+        </div>
+
         {/* Text Style Dropdown with Custom Arrow */}
         <div className="relative text-[#09090B]">
           <select
@@ -133,45 +176,47 @@ const CustomEditor = () => {
           </div>
         </div>
 
-        {/* Align Dropdown */}
-        <select className="ql-align ms-[10px]">
-          <option defaultValue="" />
-          <option value="center">
-            <RiAlignCenter />
-          </option>
-          <option value="right">
-            <RiAlignRight />
-          </option>
-          <option value="justify">
-            <RiAlignJustify />
-          </option>
-        </select>
+        <div className="gap-[12px] sm:flex hidden ">
+          {/* Align Dropdown */}
+          <select className="ql-align ms-[10px]">
+            <option defaultValue="" />
+            <option value="center">
+              <RiAlignCenter />
+            </option>
+            <option value="right">
+              <RiAlignRight />
+            </option>
+            <option value="justify">
+              <RiAlignJustify />
+            </option>
+          </select>
 
-        {/* Custom Color Picker */}
-        <div className="relative color-picker">
-          <button
-            className="rounded-[4px]"
-            style={{
-              backgroundColor: selectedColor,
-              width: "20px !important",
-              height: "20px !important",
-            }}
-            onClick={() => setShowColorPicker(!showColorPicker)}
-          ></button>
-          {showColorPicker && (
-            <div className="absolute z-10 mt-2 bg-white shadow-lg p-1 rounded-md w-[200px]">
-              <div className="grid grid-cols-5 gap-2 p-2">
-                {colorOptions.map((color) => (
-                  <button
-                    key={color}
-                    className="w-10 h-10 rounded-lg border border-gray-300"
-                    style={{ backgroundColor: color }}
-                    onClick={() => handleColorChange(color)}
-                  ></button>
-                ))}
+          {/* Custom Color Picker */}
+          <div className="relative color-picker">
+            <button
+              className="rounded-[4px]"
+              style={{
+                backgroundColor: selectedColor,
+                width: "20px !important",
+                height: "20px !important",
+              }}
+              onClick={() => setShowColorPicker(!showColorPicker)}
+            ></button>
+            {showColorPicker && (
+              <div className="absolute z-10 mt-2 bg-white shadow-lg rounded-md p-1 w-[140px]">
+                <div className="grid grid-cols-5 gap-1 p-1">
+                  {colorOptions.map((color) => (
+                    <button
+                      key={color}
+                      className="w-10 h-10 rounded-lg border border-gray-300"
+                      style={{ backgroundColor: color }}
+                      onClick={() => handleColorChange(color)}
+                    ></button>
+                  ))}
+                </div>
               </div>
-            </div>
-          )}
+            )}
+          </div>
         </div>
 
         <div>

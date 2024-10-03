@@ -100,7 +100,7 @@ const Sidebar = () => {
         }`}
       ></div>
       <aside
-        className={`fixed top-0 left-0 bg-[#F4F4F5] border-r py-[16px] h-screen transition-all duration-200 overflow-hidden ${
+        className={`fixed top-0 left-0 bg-[#F4F4F5] border-r py-[16px] h-screen transition-all duration-200 overflow-hidden overflow-y-auto ${
           isExpanded
             ? "xl:w-[272px] lg:w-[240px] w-[220px] px-[12px]"
             : "px-[8px] w-[70px]"
@@ -428,8 +428,8 @@ const Sidebar = () => {
               setProfileDropdown(!profileDropdown);
             }}
             className={`flex items-center justify-between w-full flex-grow ${
-              profileDropdown && "border-b"
-            }  border-b-[#E4E4E7] pb-[8px] xl:px-[12px] px-[6px] w-full`}
+              profileDropdown && "border-b pb-[8px]"
+            }  border-b-[#E4E4E7] xl:px-[12px] px-[6px] w-full`}
           >
             <div className="flex items-center ">
               <span

@@ -26,7 +26,7 @@ const InputWithTags = ({
       <label className="block text-[#09090B] text-[14px] font-[500] leading-[21.7px] mb-[6px]">
         {label}
       </label>
-      <div className="flex items-center flex-wrap gap-[8px] relative">
+      <div className="flex items-center gap-[8px] relative">
         {showSearchIcon && (
           <LuSearch
             color="#374151"
@@ -36,9 +36,9 @@ const InputWithTags = ({
         )}
         <input
           type="text"
-          className={`flex-grow py-[11px] ${
+          className={`flex-grow md:py-[11px] py-[9px] ${
             showSearchIcon && "ps-[40px]"
-          } px-[12px] bg-[#F4F4F5] placeholder:text-[#52525B] flex-grow rounded-[10px] min-w-[50px]`}
+          } px-[12px] bg-[#F4F4F5] placeholder:text-[#52525B] rounded-[10px] min-w-[50px]`}
           placeholder={placeholder}
           value={inputValue}
           onChange={(e) => setInputValue(e.target.value)}
@@ -46,10 +46,13 @@ const InputWithTags = ({
         />
         {showPlusButton && (
           <button
-            className="border border-[#E4E4E7] rounded-full w-[48px] h-[48px] flex items-center justify-center"
-            onClick={onAddItem}
+            className="border border-[#E4E4E7] rounded-full md:min-w-[48px] md:min-h-[48px] min-w-[40px] min-h-[40px] md:w-[48px] w-[40px] md:h-[48px] h-[40px] flex items-center justify-center"
+            onClick={onAddItem} // Add tag on button click
           >
-            <LuPlus color="#09090B" size={20} />
+            <LuPlus
+              color="#09090B"
+              className="md:w-[20px] md:h-[20px] w-[18px] h-[18px]"
+            />
           </button>
         )}
       </div>

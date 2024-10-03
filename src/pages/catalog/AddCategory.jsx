@@ -37,16 +37,16 @@ export default function AddCategory() {
       <Sidebar />
 
       {/* Main Content */}
-      <main className="flex-1 overflow-y-auto px-[32px] py-[27px]">
-        <div className="flex items-center justify-between pb-[32px]">
-          <h1 className="text-[24px] leading-[36px] font-[500]">
+      <main className="flex-1 overflow-y-auto lg:px-[32px] md:px-[24px] px-[16px] py-[27px]">
+        <div className="flex items-center justify-between lg:pb-[32px] md:pb-[24px] pb-[16px] flex-wrap gap-[6px]">
+          <h1 className="md:text-[24px] text-[20px] leading-[36px] font-[500]">
             Add Category
           </h1>
-          <div className="flex gap-[10px]">
-            <button className="rounded-[12px] border border-[#E4E4E7] text-[16px] tracking-[-2%] font-[500] bg-white text-black px-[16px] py-[13px] flex items-center justify-center">
+          <div className="flex gap-[10px] flex-wrap">
+            <button className="rounded-[12px] border border-[#E4E4E7] md:text-[16px] text-[14px] tracking-[-2%] font-[500] bg-white text-black md:px-[16px] px-[12px] md:py-[13px] py-[9px] flex items-center justify-center">
               Discard
             </button>
-            <button className="rounded-[12px] text-[16px] tracking-[-2%] font-[500] bg-black text-white p-[13px] w-[120px] flex items-center justify-center">
+            <button className="rounded-[12px] md:text-[16px] text-[14px] tracking-[-2%] font-[500] bg-black text-white md:p-[13px] p-[7px] md:w-[120px] w-[100px] flex items-center justify-center">
               Save
             </button>
           </div>
@@ -61,7 +61,7 @@ export default function AddCategory() {
                 </label>
                 <input
                   type="text"
-                  className="w-full placeholder:text-[#52525B] font-[400] py-[11px] px-[12px] bg-[#F4F4F5] rounded-[10px]"
+                  className="w-full placeholder:text-[#52525B] font-[400] md:py-[11px] py-[8px] px-[12px] bg-[#F4F4F5] rounded-[10px]"
                   placeholder="Enter title"
                   value={title}
                   onChange={(e) => setTitle(e.target.value)}
@@ -77,16 +77,16 @@ export default function AddCategory() {
           </div>
 
           <div className="md:w-[35%] w-full">
-            <div className="space-y-[48px]">
+            <div className="md:space-y-[48px] space-y-[30px]">
               <div>
-                <h3 className="text-[20px] leading-[28px] font-[500] mb-[24px]">
+                <h3 className="md:text-[20px] text-[18px] leading-[28px] font-[500] md:mb-[24px] mb-[16px]">
                   Product Status
                 </h3>
                 <label className="block text-[#09090B] text-[14px] font-[500] leading-[21.7px] mb-[6px]">
                   Status
                 </label>
                 <select
-                  className="w-full py-[11px] px-[12px] pr-[40px] bg-[#F4F4F5] rounded-[10px] appearance-none relative cursor-pointer"
+                  className="w-full md:py-[11px] py-[8px] px-[12px] pr-[40px] bg-[#F4F4F5] md:text-[16px] text-[14px] rounded-[10px] appearance-none relative cursor-pointer"
                   value={status}
                   onChange={(e) => setStatus(e.target.value)}
                   style={{
@@ -121,26 +121,29 @@ export default function AddCategory() {
                 </p>
               </div>
               <div>
-                <h3 className="text-[#09090B] text-[20px] font-[500] mb-[40px]">
+                <h3 className="text-[#09090B] md:text-[20px] text-[18px] font-[500] md:mb-[40px] mb-[20px]">
                   Organization
                 </h3>
                 <label className="block text-[#09090B] text-[14px] font-[500] leading-[21.7px] mb-[6px]">
                   Slug-Tags
                 </label>
-                <div className="flex items-center flex-wrap gap-[8px]">
+                <div className="flex items-center gap-[8px]">
                   <input
                     type="text"
-                    className="flex-grow py-[11px] px-[12px] bg-[#F4F4F5] placeholder:text-[#52525B] rounded-[10px] min-w-[50px]"
+                    className="flex-grow md:py-[11px] py-[9px] px-[12px] bg-[#F4F4F5] placeholder:text-[#52525B] rounded-[10px] min-w-[50px]"
                     placeholder="Modern, Classic, Trendy"
                     value={tagInput}
                     onChange={(e) => setTagInput(e.target.value)} // Update input value
                     onKeyPress={handleKeyPress} // Add tag on Enter key press
                   />
                   <button
-                    className="border border-[#E4E4E7] rounded-full w-[48px] h-[48px] flex items-center justify-center"
+                    className="border border-[#E4E4E7] rounded-full md:min-w-[48px] md:min-h-[48px] min-w-[40px] min-h-[40px] md:w-[48px] w-[40px] md:h-[48px] h-[40px] flex items-center justify-center"
                     onClick={handleAddTag} // Add tag on button click
                   >
-                    <LuPlus color="#09090B" size={20} />
+                    <LuPlus
+                      color="#09090B"
+                      className="md:w-[20px] md:h-[20px] w-[18px] h-[18px]"
+                    />
                   </button>
                 </div>
 

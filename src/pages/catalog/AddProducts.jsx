@@ -120,14 +120,16 @@ export default function AddProduct() {
       <Sidebar />
 
       {/* Main Content */}
-      <main className="flex-1 overflow-y-auto px-[32px] py-[27px]">
-        <div className="flex items-center justify-between pb-[32px]">
-          <h1 className="text-[24px] leading-[36px] font-[500]">Add Product</h1>
-          <div className="flex gap-[10px]">
-            <button className="rounded-[12px] border border-[#E4E4E7] text-[16px] tracking-[-2%] font-[500] bg-white text-black px-[16px] py-[13px] flex items-center justify-center">
+      <main className="flex-1 overflow-y-auto lg:px-[32px] md:px-[24px] px-[16px] py-[27px]">
+        <div className="flex items-center justify-between lg:pb-[32px] md:pb-[24px] pb-[16px] flex-wrap gap-[6px]">
+          <h1 className="md:text-[24px] text-[20px] leading-[36px] font-[500]">
+            Add Product
+          </h1>
+          <div className="flex gap-[10px] flex-wrap">
+            <button className="rounded-[12px] border border-[#E4E4E7] md:text-[16px] text-[14px] tracking-[-2%] font-[500] bg-white text-black md:px-[16px] px-[12px] md:py-[13px] py-[9px] flex items-center justify-center">
               Discard
             </button>
-            <button className="rounded-[12px] text-[16px] tracking-[-2%] font-[500] bg-black text-white p-[13px] w-[120px] flex items-center justify-center">
+            <button className="rounded-[12px] md:text-[16px] text-[14px] tracking-[-2%] font-[500] bg-black text-white md:p-[13px] p-[7px] md:w-[120px] w-[100px] flex items-center justify-center">
               Save
             </button>
           </div>
@@ -135,7 +137,7 @@ export default function AddProduct() {
 
         <div className="flex md:flex-row flex-col gap-[24px]">
           <div className="md:w-[65%] w-full">
-            <h3 className="text-[#09090B] text-[24px] font-[500] mb-[24px]">
+            <h3 className="text-[#09090B] md:text-[24px] sm:text-[20px] text-[18px] font-[500] md:mb-[24px] mb-[14px]">
               Products
             </h3>
             <div className="flex flex-col gap-[16px]">
@@ -145,7 +147,7 @@ export default function AddProduct() {
                 </label>
                 <input
                   type="text"
-                  className="w-full placeholder:text-[#52525B] font-[400] py-[11px] px-[12px] bg-[#F4F4F5] rounded-[10px]"
+                  className="w-full placeholder:text-[#52525B] font-[400] md:py-[11px] py-[9px] px-[12px] bg-[#F4F4F5] rounded-[10px]"
                   placeholder="Enter title"
                   value={title}
                   onChange={(e) => setTitle(e.target.value)}
@@ -215,11 +217,11 @@ export default function AddProduct() {
               </div>
 
               {/* Pricing Section */}
-              <div className="space-y-[24px]">
-                <h2 className="text-[#09090B] text-[20px] font-[500]">
+              <div className="md:space-y-[24px] space-y-[16px]">
+                <h2 className="text-[#09090B] md:text-[20px] text-[17px] font-[500]">
                   Pricing
                 </h2>
-                <div className="grid grid-cols-2 gap-[8px]">
+                <div className="grid sm:grid-cols-2 grid-cols-1 gap-[8px]">
                   <div>
                     <label className="block text-[#09090B] text-[14px] font-[500] leading-[21.7px] mb-[6px]">
                       Pricing
@@ -248,8 +250,8 @@ export default function AddProduct() {
               </div>
 
               {/* Variation Checkbox */}
-              <div className="space-y-[24px]">
-                <h2 className="text-[#09090B] text-[20px] font-[500]">
+              <div className="md:space-y-[24px] space-y-[16px]">
+                <h2 className="text-[#09090B] md:text-[20px] text-[17px] font-[500]">
                   Variation
                 </h2>
                 <div className="flex items-center">
@@ -268,7 +270,7 @@ export default function AddProduct() {
                 </div>
               </div>
 
-              <div className="grid grid-cols-2 gap-[8px]">
+              <div className="grid sm:grid-cols-2 grid-cols-1 gap-[8px]">
                 <div>
                   <InputWithTags
                     label="Attribute 1"
@@ -296,8 +298,8 @@ export default function AddProduct() {
                   />
                 </div>
               </div>
-              <div className="space-y-[24px]">
-                <h2 className="text-[#09090B] text-[20px] font-[500]">
+              <div className="md:space-y-[24px] space-y-[16px]">
+                <h2 className="text-[#09090B] md:text-[20px] text-[17px] font-[500]">
                   Variants
                 </h2>
                 <div className="flex items-center">
@@ -318,7 +320,7 @@ export default function AddProduct() {
                   Variant 1
                 </h4>
               </div>
-              <div className="flex md:flex-row flex-col gap-[8px] w-full">
+              <div className="flex sm:flex-row flex-col sm:gap-[8px] gap-[16px] w-full">
                 <div className="flex-1">
                   <InputWithTags
                     label="Attribute 1"
@@ -377,7 +379,7 @@ export default function AddProduct() {
           <div className="md:w-[35%] w-full">
             <div className="space-y-[48px]">
               <div>
-                <h3 className="text-[20px] leading-[28px] font-[500] mb-[24px]">
+                <h3 className="text-[20px] leading-[28px] font-[500] mb-[24px] md:mt-0 mt-[24px]">
                   Product Status
                 </h3>
                 <label className="block text-[#09090B] text-[14px] font-[500] leading-[21.7px] mb-[6px]">

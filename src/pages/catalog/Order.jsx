@@ -25,7 +25,7 @@ export default function Order() {
       <Sidebar />
 
       {/* Main Content */}
-      <main className="flex-1 overflow-y-auto px-[32px] py-[27px]">
+      <main className="flex-1 overflow-y-auto lg:px-[32px] md:px-[24px] px-[16px] py-[27px]">
         <h1 className="text-[24px] leading-[36px] font-[500] pt-[5px] pb-[32px] flex items-center gap-[16px]">
           <span className="min-h-[20px] min-w-[20px]">
             <RiArrowLeftLine size={20} />

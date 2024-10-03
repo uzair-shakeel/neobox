@@ -73,6 +73,11 @@ body {
   size: 14px !important;
 }
 
+.color-picker button {
+  width: 20px !important;
+  height: 20px !important;
+}
+
 /* custom checkbox */
 .custom-checkbox {
   appearance: none;

@@ -19,6 +19,7 @@ const RootComponent = () => {
 
   return (
     <StrictMode>
+      {/*
       {isMobile ? (
         <div className="flex items-center justify-center h-screen bg-gray-100">
           <div className="p-6 bg-white rounded-lg mx-6 shadow-lg text-center max-w-md">
@@ -34,6 +35,9 @@ const RootComponent = () => {
       ) : (
         <App />
       )}
+    */}
+
+      <App />
     </StrictMode>
   );
 };

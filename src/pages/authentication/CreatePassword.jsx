@@ -1,12 +1,16 @@
 import React, { useState } from "react";
 import { FaEye } from "react-icons/fa";
 import { FaEyeSlash } from "react-icons/fa6";
+import { useNavigate, useLocation } from "react-router-dom"; // Import navigate and location
 import Header from "../../components/settings/Header";
 
 const CreatePassword = () => {
   const [password, setPassword] = useState("");
   const [isPasswordEntered, setIsPasswordEntered] = useState(false);
   const [isPasswordVisible, setIsPasswordVisible] = useState(false); // New state for password visibility
+  const navigate = useNavigate();
+  const location = useLocation();
+  const { email } = location.state || {}; // Safely retrieve email from state
 
   const handlePasswordChange = (e) => {
     setPassword(e.target.value);
@@ -21,6 +25,10 @@ const CreatePassword = () => {
   const hasNumber = /\d/.test(password);
   const hasUpperCase = /[A-Z]/.test(password);
   const hasLowerCase = /[a-z]/.test(password);
+
+  const goToOTP = () => {
+    navigate("/signup/otp", { state: { email } }); // Navigate to OTP page with email
+  };
 
   return (
     <div>
@@ -44,7 +52,8 @@ const CreatePassword = () => {
             </h4>
             <input
               type="email"
-              placeholder="marquezmarc@gmail.com"
+              value={email} // Use the email from state
+              readOnly
               className="w-full px-4 py-2 border border-gray-300 rounded-lg shadow-sm placeholder-gray-400 focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm "
             />
           </div>
@@ -162,6 +171,7 @@ const CreatePassword = () => {
               disabled={
                 !(isValidLength && hasNumber && hasUpperCase && hasLowerCase)
               }
+              onClick={goToOTP} // Navigate to OTP on click
             >
               Continue
             </button>

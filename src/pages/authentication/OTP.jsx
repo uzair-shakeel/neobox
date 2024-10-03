@@ -1,8 +1,10 @@
 import React, { useState } from "react";
+import { useNavigate } from "react-router-dom"; // Import useNavigate
 import Header from "../../components/settings/Header";
 
 const OTP = () => {
   const [otp, setOtp] = useState(new Array(6).fill(""));
+  const navigate = useNavigate(); // Initialize navigate
 
   const handleOtpChange = (element, index) => {
     if (isNaN(element.value)) return;
@@ -22,6 +24,12 @@ const OTP = () => {
   };
 
   const isOtpComplete = otp.every((digit) => digit !== "");
+
+  const handleSubmit = () => {
+    if (isOtpComplete) {
+      navigate("/signup/success"); // Navigate to /verify page
+    }
+  };
 
   return (
     <div>
@@ -70,6 +78,7 @@ const OTP = () => {
                     : "bg-gray-300 text-white cursor-not-allowed"
                 }`}
                 disabled={!isOtpComplete}
+                onClick={handleSubmit} // Call handleSubmit on click
               >
                 Continue
               </button>

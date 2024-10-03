@@ -1,7 +1,9 @@
 import React, { useState } from "react";
 import Header from "../../components/settings/Header";
+import { useNavigate } from "react-router-dom";
 
 const SignUp = () => {
+  const navigate = useNavigate();
   const [email, setEmail] = useState("");
 
   const handleEmailChange = (e) => {
@@ -13,6 +15,11 @@ const SignUp = () => {
     const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
     return emailRegex.test(email);
   };
+
+  const goNext = () => {
+    navigate("/signup/create-password", { state: { email } });
+  };
+
 
   return (
     <div>
@@ -80,6 +87,7 @@ const SignUp = () => {
                   : "bg-gray-300 text-white cursor-not-allowed"
               }`}
               disabled={!isValidEmail(email)}
+              onClick={goNext}
             >
               Continue
             </button>

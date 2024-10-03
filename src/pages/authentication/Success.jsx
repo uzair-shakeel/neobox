@@ -1,8 +1,15 @@
 import React from "react";
 import "react-phone-input-2/lib/style.css";
+import { useNavigate } from "react-router-dom"; // Import useNavigate
 import Header from "../../components/settings/Header";
 
 const Success = () => {
+  const navigate = useNavigate(); // Initialize navigate
+
+  const handleContinue = () => {
+    navigate("/"); // Navigate to home page
+  };
+
   return (
     <div>
       <Header />
@@ -14,7 +21,6 @@ const Success = () => {
             alt=""
             className="absolute top-0 left-1/2 -translate-x-1/2"
           />
-          {/* Logo */}
 
           <div className="text-center w-[90%] mx-auto pt-40">
             <h2 className=" text-[24px] font-[500] text-gray-900">
@@ -31,6 +37,7 @@ const Success = () => {
             <button
               type="button"
               className={`w-full py-2 px-4 rounded-lg bg-black text-white`}
+              onClick={handleContinue} // Call handleContinue on click
             >
               Continue
             </button>

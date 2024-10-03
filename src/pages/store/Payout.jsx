@@ -1,9 +1,11 @@
 import React, { useState } from "react";
 import { IoMdCheckmark } from "react-icons/io";
+import { useNavigate } from "react-router-dom";
 
 const SetupPayout = () => {
   const [language, setLanguage] = useState("English");
   const [country, setCountry] = useState("");
+  const navigate = useNavigate();
 
   const handleLanguageChange = (e) => {
     setLanguage(e.target.value);
@@ -14,6 +16,12 @@ const SetupPayout = () => {
 
   const isFormValid = () => {
     return country.trim() !== "" && language.trim() !== "";
+  };
+
+  const handleButtonClick = () => {
+    if (isFormValid()) {
+      navigate("/store/security"); // Replace '/next-page' with the desired route
+    }
   };
 
   return (
@@ -132,6 +140,7 @@ const SetupPayout = () => {
               : "bg-gray-300 text-white cursor-not-allowed"
           }`}
           disabled={!isFormValid()}
+          onClick={handleButtonClick}
         >
           Save and Continue
         </button>

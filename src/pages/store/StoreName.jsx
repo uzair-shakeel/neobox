@@ -1,9 +1,11 @@
 import React, { useState } from "react";
 import { IoMdCheckmark } from "react-icons/io";
+import { useNavigate } from "react-router-dom";
 
 const StoreSetup = () => {
   const [storeName, setStoreName] = useState("");
   const [step1Checked, setStep1Checked] = useState(false);
+  const navigate = useNavigate();
 
   const handleStoreNameChange = (e) => {
     setStoreName(e.target.value);
@@ -15,6 +17,12 @@ const StoreSetup = () => {
       storeName.length <= 20 &&
       /^[a-zA-Z0-9 ]+$/.test(storeName)
     );
+  };
+
+  const handleButtonClick = () => {
+    if (isStoreNameValid()) {
+      navigate("/store/payout"); // Replace '/next-page' with the desired route
+    }
   };
 
   return (
@@ -102,6 +110,7 @@ const StoreSetup = () => {
               : "bg-gray-300 text-white cursor-not-allowed"
           }`}
           disabled={!isStoreNameValid()}
+          onClick={handleButtonClick}
         >
           Save and Continue
         </button>

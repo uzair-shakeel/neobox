@@ -1,6 +1,8 @@
 import React, { useState } from "react";
+import { useNavigate } from "react-router-dom";
 
 const Preferences = () => {
+  const navigate = useNavigate();
   const [language, setLanguage] = useState("English");
   const [country, setCountry] = useState("");
   const [currency, setCurrency] = useState("");
@@ -11,6 +13,12 @@ const Preferences = () => {
 
   const isFormValid = () => {
     return country.trim() !== "" && currency.trim() !== "";
+  };
+
+  const handleButtonClick = () => {
+    if (isFormValid()) {
+      navigate("/store/name"); // Replace '/next-page' with the desired route
+    }
   };
 
   return (
@@ -120,12 +128,13 @@ const Preferences = () => {
 
           <button
             type="button"
-            className={`md:w-[90%] w-full md:absolute bottom-10  py-2 px-4 rounded-lg ${
+            className={`md:w-[90%] w-full md:absolute bottom-10 py-2 px-4 rounded-lg ${
               isFormValid()
                 ? "bg-black text-white"
                 : "bg-gray-300 text-white cursor-not-allowed"
             }`}
             disabled={!isFormValid()}
+            onClick={handleButtonClick}
           >
             Save and Continue
           </button>

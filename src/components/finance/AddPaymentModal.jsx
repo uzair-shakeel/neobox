@@ -58,7 +58,7 @@ const AddMethodModal = ({ isOpen, onClose }) => {
 
       {/* Modal Content */}
       <div className="fixed inset-0 z-50 flex items-center justify-center">
-        <div className="relative bg-white max-w-[420px] w-full p-6 rounded-lg shadow-lg max-h-[90vh] overflow-y-auto modal-scrollbar">
+        <div className="relative bg-white max-w-[420px] w-full p-6 rounded-lg shadow-lg max-h-[85vh]">
           {/* Close Button */}
           <button
             className="absolute top-6 right-4 text-gray-500 hover:text-gray-900"
@@ -136,7 +136,7 @@ const AddMethodModal = ({ isOpen, onClose }) => {
               <p className="text-gray-500 text-center mb-6">{selectedMethod}</p>
 
               {/* Form */}
-              <div className="space-y-4">
+              <div className="space-y-4 overflow-y-scroll modal-scrollbar">
                 {/* Recipient Name */}
                 <div>
                   <label className="text-sm font-semibold">

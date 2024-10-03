@@ -3,7 +3,7 @@ import { MdClose } from "react-icons/md";
 import { FiChevronLeft } from "react-icons/fi";
 import Select from "react-select";
 import countryList from "react-select-country-list";
-import Step2Form from "./Step2Form";
+import Step2Form from "./Step3Form";
 import Step4Form from "./Step4Form"; // New Step 4 Component
 import Step5Form from "./step5Form"; // New Step 5 Component
 
@@ -77,9 +77,10 @@ const AddMethodModal = ({ isOpen, onClose }) => {
 
               <div className="space-y-4">
                 <div
-                  className="flex items-center justify-between border border-gray-200 rounded-lg p-4 hover:bg-gray-100 transition-colors cursor-pointer"
+                  className="flex gap-3 border border-gray-200 rounded-lg p-4 hover:bg-gray-100 transition-colors cursor-pointer"
                   onClick={() => nextStep("Instant Card Transfer")}
                 >
+                  <img src="/card icon.svg" alt="" />
                   <div>
                     <p className="font-semibold">Instant Card Transfer</p>
                     <p className="text-sm text-gray-500">
@@ -90,9 +91,10 @@ const AddMethodModal = ({ isOpen, onClose }) => {
                 </div>
 
                 <div
-                  className="flex items-center justify-between border border-gray-200 rounded-lg p-4 hover:bg-gray-100 transition-colors cursor-pointer"
+                  className="flex gap-3 border border-gray-200 rounded-lg p-4 hover:bg-gray-100 transition-colors cursor-pointer"
                   onClick={() => nextStep("Bank Transfer")}
                 >
+                  <img src="/Bank Icon.svg" alt="" />
                   <div>
                     <p className="font-semibold">Bank Transfer</p>
                     <p className="text-sm text-gray-500">
@@ -102,9 +104,10 @@ const AddMethodModal = ({ isOpen, onClose }) => {
                 </div>
 
                 <div
-                  className="flex items-center justify-between border border-gray-200 rounded-lg p-4 hover:bg-gray-100 transition-colors cursor-pointer"
+                  className="flex gap-3 border border-gray-200 rounded-lg p-4 hover:bg-gray-100 transition-colors cursor-pointer"
                   onClick={() => nextStep("Wise")}
                 >
+                  <img src="/wise icon.svg" alt="" />
                   <div>
                     <p className="font-semibold">Wise</p>
                     <p className="text-sm text-gray-500">
@@ -127,10 +130,10 @@ const AddMethodModal = ({ isOpen, onClose }) => {
                 <FiChevronLeft size={24} />
               </button>
 
-              <h2 className="text-xl font-semibold mb-4">
+              <h2 className="text-xl font-semibold mb-4 text-center">
                 Add a new withdrawal method
               </h2>
-              <p className="text-gray-500 mb-6">{selectedMethod}</p>
+              <p className="text-gray-500 text-center mb-6">{selectedMethod}</p>
 
               {/* Form */}
               <div className="space-y-4">
@@ -201,10 +204,10 @@ const AddMethodModal = ({ isOpen, onClose }) => {
                 <FiChevronLeft size={24} />
               </button>
 
-              <h2 className="text-xl font-semibold mb-4">
+              <h2 className="text-xl font-semibold text-center mb-4">
                 Add a new withdrawal method
               </h2>
-              <p className="text-gray-500 mb-6">{selectedMethod}</p>
+              <p className="text-gray-500 mb-6 text-center">{selectedMethod}</p>
 
               {/* Step 2 Form */}
               <Step2Form

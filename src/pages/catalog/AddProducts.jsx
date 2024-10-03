@@ -167,9 +167,9 @@ export default function AddProduct() {
                 <h2 className="block text-[#09090B] text-[14px] font-[500] leading-[21.7px] mb-[6px]">
                   Media
                 </h2>
-                <div className="flex gap-[12px] h-[188px]">
+                <div className="flex sm:flex-row flex-col gap-[12px] sm:h-[188px]">
                   {file && (
-                    <div className="relative w-[188px] h-full rounded-[9.07px] text-center text-sm">
+                    <div className="relative sm:w-[188px] w-full max-w-[240px] h-[188px] rounded-[9.07px] text-center text-sm">
                       <img
                         src={URL.createObjectURL(file)} // Use URL.createObjectURL to preview the image
                         alt="Uploaded preview"
@@ -187,8 +187,8 @@ export default function AddProduct() {
                   <label
                     htmlFor="file-upload"
                     className={`block ${
-                      file ? "w-[240px]" : "w-full"
-                    } h-full border border-dashed border-[#D4D4D8] rounded-[8px] flex flex-col items-center justify-center cursor-pointer hover:border-gray-400 transition-colors px-[16px] py-[18px]`}
+                      file ? "max-w-[240px] w-full" : "w-full"
+                    } min-h-[188px] border border-dashed border-[#D4D4D8] rounded-[8px] flex flex-col items-center justify-center cursor-pointer hover:border-gray-400 transition-colors px-[16px] py-[18px]`}
                   >
                     <span className="min-h-[26] min-w-[26]">
                       <AiOutlineCloudUpload size={30} />
@@ -377,7 +377,7 @@ export default function AddProduct() {
           </div>
 
           <div className="md:w-[35%] w-full">
-            <div className="space-y-[48px]">
+            <div className="md:space-y-[48px] space-y-[30px]">
               <div>
                 <h3 className="text-[20px] leading-[28px] font-[500] mb-[24px] md:mt-0 mt-[24px]">
                   Product Status
@@ -421,7 +421,7 @@ export default function AddProduct() {
                 </p>
               </div>
               <div>
-                <div className="mb-[40px]">
+                <div className="md:mb-[40px] mb-[20px]">
                   <h3 className="text-[#09090B] text-[20px] font-[500] mb-[24px]">
                     Organization
                   </h3>
@@ -452,7 +452,7 @@ export default function AddProduct() {
                 />
               </div>
               <div className="pb-[32px]">
-                <h3 className="text-[#09090B] text-[20px] font-[500] mb-[24px]">
+                <h3 className="text-[#09090B] text-[20px] font-[500] md:mb-[24px] mb-[16px]">
                   Shipping
                 </h3>
                 <label className="block text-[#09090B] text-[14px] font-[500] leading-[21.7px] mb-[6px]">
@@ -462,9 +462,9 @@ export default function AddProduct() {
                   <input
                     type="number"
                     placeholder="0"
-                    className="flex-1 min-w-0 block w-full py-[11px] px-[12px] placeholder:text-[#52525B] text-[#09090B] bg-[#F4F4F5] text-[16px] rounded-[10px] focus:ring-indigo-500 focus:border-indigo-500"
+                    className="flex-1 min-w-0 block w-full md:py-[11px] py-[9px] px-[12px] placeholder:text-[#52525B] text-[#09090B] bg-[#F4F4F5] text-[16px] rounded-[10px] focus:ring-indigo-500 focus:border-indigo-500"
                   />
-                  <select className="bg-[#F4F4F5] text-[#09090B] text-[16px] font-[400] rounded-[10px] focus:ring-indigo-500 focus:border-indigo-500 py-[11px] px-[12px]">
+                  <select className="bg-[#F4F4F5] text-[#09090B] text-[16px] font-[400] rounded-[10px] focus:ring-indigo-500 focus:border-indigo-500 md:py-[11px] py-[9px] px-[12px]">
                     <option value="g">g</option>
                     <option value="kg">kg</option>
                     <option value="lb">lb</option>

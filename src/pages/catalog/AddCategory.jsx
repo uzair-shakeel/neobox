@@ -5,6 +5,7 @@ import Sidebar from "../../components/Sidebar";
 import CustomEditor from "../../components/CustomEditor";
 import { LuPlus } from "react-icons/lu";
 import { IoMdClose } from "react-icons/io";
+import InputWithTags from "../../components/InputWithTags";
 
 export default function AddCategory() {
   const [title, setTitle] = useState("");
@@ -124,44 +125,18 @@ export default function AddCategory() {
                 <h3 className="text-[#09090B] md:text-[20px] text-[18px] font-[500] md:mb-[40px] mb-[20px]">
                   Organization
                 </h3>
-                <label className="block text-[#09090B] text-[14px] font-[500] leading-[21.7px] mb-[6px]">
-                  Slug-Tags
-                </label>
-                <div className="flex items-center gap-[8px]">
-                  <input
-                    type="text"
-                    className="flex-grow md:py-[11px] py-[9px] px-[12px] bg-[#F4F4F5] placeholder:text-[#52525B] rounded-[10px] min-w-[50px]"
+                <div>
+                  <InputWithTags
+                    label="Slug-Tags"
                     placeholder="Modern, Classic, Trendy"
-                    value={tagInput}
-                    onChange={(e) => setTagInput(e.target.value)} // Update input value
-                    onKeyPress={handleKeyPress} // Add tag on Enter key press
+                    inputValue={tagInput}
+                    setInputValue={setTagInput}
+                    selectedItems={selectedTags}
+                    setSelectedItems={setSelectedTags}
+                    onAddItem={handleAddTag}
+                    onRemoveItem={handleRemoveTag}
+                    showPlusButton={true} // Show plus button for tags
                   />
-                  <button
-                    className="border border-[#E4E4E7] rounded-full md:min-w-[48px] md:min-h-[48px] min-w-[40px] min-h-[40px] md:w-[48px] w-[40px] md:h-[48px] h-[40px] flex items-center justify-center"
-                    onClick={handleAddTag} // Add tag on button click
-                  >
-                    <LuPlus
-                      color="#09090B"
-                      className="md:w-[20px] md:h-[20px] w-[18px] h-[18px]"
-                    />
-                  </button>
-                </div>
-
-                <div className="flex flex-wrap gap-[8px] mt-[16px]">
-                  {selectedTags.map((tag) => (
-                    <span
-                      key={tag}
-                      className="px-[12px] py-[4px] bg-[#E4E4E7] rounded-full flex items-center text-[#18181B] text-[14px] tracking-[-2%] font-[400]"
-                    >
-                      {tag}
-                      <button
-                        className="ml-[2px]"
-                        onClick={() => handleRemoveTag(tag)}
-                      >
-                        <IoMdClose color="#18181B" size={15} />
-                      </button>
-                    </span>
-                  ))}
                 </div>
               </div>
             </div>

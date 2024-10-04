@@ -6,10 +6,12 @@ import countryList from "react-select-country-list";
 import Step2Form from "./Step3Form";
 import Step4Form from "./Step4Form"; // New Step 4 Component
 import Step5Form from "./step5Form"; // New Step 5 Component
+import PhoneInput from "react-phone-input-2";
 
 const AddMethodModal = ({ isOpen, onClose }) => {
   const [step, setStep] = useState(1);
   const [selectedMethod, setSelectedMethod] = useState("");
+  const [phone, setPhone] = useState("");
   const [formData, setFormData] = useState({
     recipientName: "",
     country: { value: "US", label: "United States" },
@@ -155,11 +157,14 @@ const AddMethodModal = ({ isOpen, onClose }) => {
                 {/* Country */}
                 <div>
                   <label className="text-sm font-semibold">Country</label>
-                  <Select
-                    options={countryOptions}
-                    value={formData.country}
-                    onChange={handleCountryChange}
-                    className="w-full mt-2"
+
+                  <PhoneInput
+                    country={"us"}
+                    placeholder="+1 Phone number"
+                    value={phone}
+                    onChange={setPhone}
+                    className="!w-full"
+                    inputClass="!w-full px-4 py-2 bg-gray-100 border border-gray-300 rounded-lg shadow-sm placeholder-gray-400 focus:ring-indigo-500 focus:border-indigo-500"
                   />
                 </div>
 

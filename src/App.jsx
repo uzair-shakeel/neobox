@@ -46,7 +46,6 @@ function App() {
           <Route path="/store/name" element={<StoreName />} />
           <Route path="/store/payout" element={<SetupPayout />} />
           <Route path="/store/security" element={<SecuritySetupPage />} />
-          {/* You can add more routes here */}
         </Routes>
       </div>
     </Router>

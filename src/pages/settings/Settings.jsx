@@ -1,8 +1,8 @@
 import React, { useState } from "react";
-import Sidebar from "../../components/Sidebar"; // Import the sidebar
-import GeneralSettings from "../../components/settings/General"; // Import GeneralSettings
-import StaffSettings from "../../components/settings/Staff"; // Import StaffSettings
-import BrandSettings from "../../components/settings/Brand"; // Import BrandSettings
+import Sidebar from "../../components/Sidebar";
+import GeneralSettings from "../../components/settings/General";
+import StaffSettings from "../../components/settings/Staff";
+import BrandSettings from "../../components/settings/Brand";
 import { IoIosHelpCircleOutline } from "react-icons/io";
 
 const Settings = () => {

@@ -1,7 +1,7 @@
 // GeneralSettings.js
 import React, { useState } from "react";
 import { IoMdArrowForward } from "react-icons/io";
-import AccountModal from "./AccountModal"; // Import the AccountModal component
+import AccountModal from "./AccountModal";
 import StoreInfoModal from "./StoreInfoModal"; // Import the StoreInfoModal component
 import LanguageModal from "./LanguageModal";
 

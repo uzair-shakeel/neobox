@@ -5,7 +5,7 @@ import PhoneInput from "react-phone-input-2";
 import "react-phone-input-2/lib/style.css";
 
 const AccountModal = ({ isOpen, onClose }) => {
-  if (!isOpen) return null; // Don't render if the modal is closed
+  if (!isOpen) return null;
 
   // State to manage input values
   const [firstName, setFirstName] = useState("");
@@ -48,9 +48,10 @@ const AccountModal = ({ isOpen, onClose }) => {
               placeholder="+1 Phone number"
               value={phone}
               onChange={setPhone}
-              className="w-full"
-              inputClass="w-full px-4 py-2 bg-gray-100 border border-gray-300 rounded-lg shadow-sm placeholder-gray-400 focus:ring-indigo-500 focus:border-indigo-500"
+              className="!w-full"
+              inputClass="!w-full px-4 py-2 bg-gray-100 border border-gray-300 rounded-lg shadow-sm placeholder-gray-400 focus:ring-indigo-500 focus:border-indigo-500"
             />
+
           </div>
           <div>
             <label className="block text-sm font-medium">Email</label>

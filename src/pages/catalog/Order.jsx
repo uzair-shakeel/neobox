@@ -26,12 +26,12 @@ export default function Order() {
 
       {/* Main Content */}
       <main className="flex-1 overflow-y-auto lg:px-[32px] md:px-[24px] px-[16px] py-[27px]">
-        <h1 className="md:text-[24px] text-[20px] leading-[36px] font-[500] pt-[5px] pb-[32px] flex items-center gap-[16px]">
+        <a href="/orders" className="md:text-[24px] text-[20px] leading-[36px] font-[500] pt-[5px] pb-[32px] flex items-center gap-[16px]">
           <span className="min-h-[20px] min-w-[20px]">
             <RiArrowLeftLine size={20} />
           </span>
           Order {order.id}
-        </h1>
+        </a>
         <div className="flex flex-col lg:flex-row gap-[24px] md:pt-[15px]">
           <div className="lg:w-[65%] w-full flex flex-col gap-[24px]">
             <div

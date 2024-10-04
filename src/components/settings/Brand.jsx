@@ -1,13 +1,28 @@
-import React from "react";
+import React, { useState } from "react";
 import { AiOutlineCloudUpload } from "react-icons/ai";
 
 const BrandSettings = () => {
+  const [fileName, setFileName] = useState('');
+
+  const handleFileChange = (event) => {
+    const file = event.target.files[0];
+    if (file) {
+      setFileName(file.name);
+    }
+  };
   return (
     <div>
       <div className="grid md:grid-cols-2 grid-cols-1 gap-8">
         {/* Logo Section */}
         <div className="border border-gray-400 rounded-lg md:p-8 p-4">
-          <div className="bg-[#FAFAFA] border border-dashed cursor-pointer border-[#D4D4D8] rounded-[8px] px-[24px] py-[16px]">
+          <div className="bg-[#FAFAFA] border relative border-dashed cursor-pointer border-[#D4D4D8] rounded-[8px] px-[24px] py-[16px]">
+            <input
+              type="file"
+              accept="image/png, image/jpeg"
+              onChange={handleFileChange}
+              className="absolute inset-0 opacity-0 cursor-pointer"
+            />
+
             <div className="h-[25px] w-auto">
               <AiOutlineCloudUpload className="h-full w-full object-cover" />
             </div>
@@ -30,7 +45,13 @@ const BrandSettings = () => {
 
         {/* Favicon Section */}
         <div className="border  border-gray-400 rounded-lg md:p-8 p-4">
-          <div className="bg-[#FAFAFA] border border-dashed cursor-pointer border-[#D4D4D8] rounded-[8px] px-[24px] py-[16px]">
+          <div className="bg-[#FAFAFA] border relative border-dashed cursor-pointer border-[#D4D4D8] rounded-[8px] px-[24px] py-[16px]">
+            <input
+              type="file"
+              accept="image/png, image/jpeg"
+              onChange={handleFileChange}
+              className="absolute inset-0 opacity-0 cursor-pointer"
+            />
             <div className="h-[25px] w-auto">
               <AiOutlineCloudUpload className="h-full w-full object-cover" />
             </div>
@@ -54,7 +75,14 @@ const BrandSettings = () => {
 
       {/* Header Image Section */}
       <div className="mt-8 border  border-gray-400 rounded-lg md:p-8 p-4">
-        <div className="bg-[#FAFAFA] border border-dashed cursor-pointer border-[#D4D4D8] rounded-[8px] px-[24px] py-[16px]">
+        <div className="bg-[#FAFAFA] border border-dashed relative cursor-pointer border-[#D4D4D8] rounded-[8px] px-[24px] py-[16px]">
+          <input
+            type="file"
+            accept="image/png, image/jpeg"
+            onChange={handleFileChange}
+            className="absolute inset-0 opacity-0 cursor-pointer"
+          />
+
           <div className="h-[25px] w-auto">
             <AiOutlineCloudUpload className="h-full w-full object-cover" />
           </div>

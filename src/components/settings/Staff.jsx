@@ -40,29 +40,13 @@ const AddStaffModal = ({ isOpen, onClose }) => {
             </label>
             <PhoneInput
               country={"us"}
+              placeholder="+1 Phone number"
               value={phone}
               onChange={setPhone}
-              inputClass="w-full px-4 py-2 bg-gray-100 border w-full border-gray-300 rounded-lg shadow-sm placeholder-gray-400 focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm"
-              containerStyle={{ width: "100%" }}
+              className="!w-full"
+              inputClass="!w-full px-4 py-2 bg-gray-100 border border-gray-300 rounded-lg shadow-sm placeholder-gray-400 focus:ring-indigo-500 focus:border-indigo-500"
             />
-            {/* <PhoneInput
-              country={"us"}
-              value={phone} // The phone number value
-              onChange={(phone) => setPhone(phone)} // Update state on change
-              inputProps={{
-                name: "phone",
-                required: true,
-                autoFocus: true,
-              }}
-              inputStyle={{
-                width: "100%",
-                borderRadius: "0.375rem",
-                border: "1px solid #D1D5DB",
-                padding: "0.5rem 0.75rem",
-                height: "42px",
-                fontSize: "16px",
-              }}
-            /> */}
+
           </div>
 
           <div>
@@ -176,11 +160,10 @@ const StaffSettings = () => {
                   </td>
                   <td className="px-[16px] py-[14px] text-[#09090B] font-[400] text-[14px]">
                     <span
-                      className={`px-4 py-1 rounded-[16px] ${
-                        staff.status === "Active"
+                      className={`px-4 py-1 rounded-[16px] ${staff.status === "Active"
                           ? "text-green-500 bg-[#F0FDF4]"
                           : "text-black bg-[#E4E4E7]"
-                      }`}
+                        }`}
                     >
                       {staff.status}
                     </span>

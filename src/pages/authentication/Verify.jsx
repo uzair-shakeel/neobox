@@ -6,7 +6,7 @@ import Header from "../../components/settings/Header";
 
 const Verify = () => {
   const [phone, setPhone] = useState("");
-  const navigate = useNavigate(); 
+  const navigate = useNavigate();
 
   const isPhoneValid = phone.length >= 10;
 
@@ -39,10 +39,11 @@ const Verify = () => {
             </h4>
             <PhoneInput
               country={"us"}
+              placeholder="+1 Phone number"
               value={phone}
               onChange={setPhone}
-              inputClass="w-full px-4 flex-1 py-2 bg-gray-100 border w-full border-gray-300 rounded-lg shadow-sm placeholder-gray-400 focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm"
-              containerStyle={{ width: "100%" }}
+              className="!w-full"
+              inputClass="!w-full px-4 py-2 bg-gray-100 border border-gray-300 rounded-lg shadow-sm placeholder-gray-400 focus:ring-indigo-500 focus:border-indigo-500"
             />
           </div>
 
@@ -50,11 +51,10 @@ const Verify = () => {
           <div>
             <button
               type="button"
-              className={`w-full py-2 px-4 rounded-lg ${
-                isPhoneValid
+              className={`w-full py-2 px-4 rounded-lg ${isPhoneValid
                   ? "bg-black text-white"
                   : "bg-gray-300 text-white cursor-not-allowed"
-              }`}
+                }`}
               disabled={!isPhoneValid}
               onClick={handleContinue} // Call handleContinue on click
             >

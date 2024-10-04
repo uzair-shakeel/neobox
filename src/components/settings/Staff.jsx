@@ -131,7 +131,7 @@ const StaffSettings = () => {
   ];
 
   return (
-    <div className="w-[75%] lg:w-full">
+    <div className="w-full">
       <div className="flex justify-between items-center flex-wrap w-full">
         <h3 className="md:text-[20px] text-[18px] font-[500]">Staff</h3>
         <button

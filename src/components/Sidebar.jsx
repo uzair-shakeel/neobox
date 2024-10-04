@@ -11,7 +11,7 @@ import {
   RiStoreLine,
 } from "react-icons/ri";
 import { TbLayoutSidebarRightExpand } from "react-icons/tb";
-import { NavLink } from "react-router-dom";
+import { Link, NavLink } from "react-router-dom";
 
 const Sidebar = () => {
   const [isSalesChannelsVisible, setIsSalesChannelsVisible] = useState(true);
@@ -130,13 +130,15 @@ const Sidebar = () => {
             <span
               className={`${
                 isExpanded ? "h-[33px] w-[33px]" : " h-[43px] w-[43px] mx-auto"
-              }  rounded-full flex items-center justify-center bg-white border border-[#E4E4E7]`}
+              }  rounded-full flex items-center cursor-pointer justify-center bg-white border border-[#E4E4E7]`}
               style={{ boxShadow: "0px -3px 0px 0px #00000014 inset" }}
               onClick={toggleSidebar}
             >
               <TbLayoutSidebarRightExpand
                 className={`${
-                  isExpanded ? "h-[17px] w-[17px]" : " h-[22px] w-[22px]"
+                  isExpanded
+                    ? "h-[17px] w-[17px] "
+                    : " h-[22px] w-[22px] rotate-180"
                 }`}
               />
             </span>
@@ -361,7 +363,7 @@ const Sidebar = () => {
               </li>
               <li>
                 <NavLink
-                  to="/customers" // Change this to the correct path
+                  to="/" // Change this to the correct path
                   className={({ isActive }) =>
                     `flex items-center gap-[12px] font-[500] text-[14px] leading-[21.7px] ${
                       isActive ? "bg-white text-[#0D0D12]" : "text-[#52525B]"
@@ -405,7 +407,7 @@ const Sidebar = () => {
                 {/* Conditionally render the <a> link */}
                 {isSalesChannelsVisible && (
                   <NavLink
-                    to="/online-store" // Change this to the correct path
+                    to="/store/preference" // Change this to the correct path
                     className={({ isActive }) =>
                       `mt-[8px] flex items-center gap-[12px] font-[500] text-[14px] leading-[21.7px] ${
                         isActive ? "bg-white text-[#0D0D12]" : "text-[#52525B]"
@@ -472,8 +474,8 @@ const Sidebar = () => {
             }`}
           >
             <li>
-              <a
-                href="#"
+              <Link
+                to="/settings"
                 className={`flex items-center text-[#52525B] rounded-[8px] hover:bg-gray-100 ${
                   isExpanded ? "px-[12px] py-[9px]" : "pb-[5px]"
                 }`}
@@ -492,7 +494,7 @@ const Sidebar = () => {
                 >
                   Settings
                 </span>
-              </a>
+              </Link>
             </li>
             <li>
               <a

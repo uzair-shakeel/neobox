@@ -20,6 +20,7 @@ import Order from "./pages/catalog/Order";
 import Products from "./pages/catalog/Products";
 import AddProduct from "./pages/catalog/AddProducts";
 import Withdrawal from "./pages/finance/Withdrawal";
+import SecuritySetupPage from "./pages/store/SecuritySetup";
 
 function App() {
   return (
@@ -44,7 +45,7 @@ function App() {
           <Route path="/store/preference" element={<Preferences />} />
           <Route path="/store/name" element={<StoreName />} />
           <Route path="/store/payout" element={<SetupPayout />} />
-          <Route path="/store/security" element={<SetupSecurity />} />
+          <Route path="/store/security" element={<SecuritySetupPage />} />
           {/* You can add more routes here */}
         </Routes>
       </div>

@@ -1,9 +1,11 @@
 import React, { useState } from "react";
 import { IoMdCheckmark } from "react-icons/io";
+import { useNavigate } from "react-router-dom";
 
-const SetupSecurity = () => {
+const SetupSecurity = ({ openModal }) => {
   const [security, setSecurity] = useState("");
   const [step, setStep] = useState(1); // State to track steps
+  const navigate = useNavigate();
 
   const handleSecurityChange = (e) => {
     setSecurity(e.target.value);
@@ -11,9 +13,12 @@ const SetupSecurity = () => {
 
   const handleContinue = () => {
     if (step === 1) {
-      setStep(2); // Move to step 2 when "Save and Continue" is clicked
+      setStep(2);
     } else if (step === 2) {
-      setStep(3); // Move to step 3 after setting up 2FA
+      setStep(3);
+    } else {
+      // navigate("/"); // Redirect to the homepage after clicking the final button
+      openModal(); // Call the modal opening function when the last step is completed
     }
   };
 
@@ -216,6 +221,7 @@ const SetupSecurity = () => {
 
             <button
               type="button"
+              onClick={handleContinue}
               className="w-[90%] absolute bottom-10 py-2 px-4 rounded-lg bg-black text-white"
             >
               Continue

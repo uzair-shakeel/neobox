@@ -27,7 +27,7 @@ const CreatePassword = () => {
   const hasLowerCase = /[a-z]/.test(password);
 
   const goToOTP = () => {
-    navigate("/signup/otp", { state: { email } }); // Navigate to OTP page with email
+    navigate("/signup/verify", { state: { email } });
   };
 
   return (

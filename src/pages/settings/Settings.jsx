@@ -28,7 +28,7 @@ const Settings = () => {
 
       {/* Main Content */}
       <div className="w-full lg:px-[32px] md:px-[24px] px-[16px]">
-        <div className="flex justify-between items-center flex-wrap gap-[6px]">
+        <div className="flex justify-between items-center flex-wrap gap-[6px] pt-5">
           <h2
             className={`md:text-[24px] text-[20px] font-[500] ${
               isModalOpen ? "blur-[2px]" : ""

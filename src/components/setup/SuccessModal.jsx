@@ -27,7 +27,7 @@ const Modal = ({ isOpen, onClose }) => {
           <button
             type="button"
             className={`w-full py-2 px-4 rounded-lg bg-black text-white`}
-            onClick={onClose} // Call handleContinue on click
+            onClick={onClose}
           >
             Continue
           </button>

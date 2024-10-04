@@ -18,7 +18,7 @@ const Preferences = () => {
 
   const handleButtonClick = () => {
     if (isFormValid()) {
-      navigate("/store/name"); // Replace '/next-page' with the desired route
+      navigate("/store/name");
     }
   };
 

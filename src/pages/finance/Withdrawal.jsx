@@ -14,18 +14,24 @@ const Withdrawal = () => {
     <div className="flex h-screen relative">
       {/* Main Content with Blur on Sidebar and Content When Modal is Open */}
       <div
-        className={`flex bg-gray-50 h-full w-full transition-all duration-300 ${
-          isModalOpen ? "blur-[2px]" : ""
-        }`}
+        className={`flex bg-gray-50 h-full w-full transition-all duration-300 ${isModalOpen ? "blur-[2px]" : ""
+          }`}
       >
         {/* Sidebar */}
         <Sidebar />
 
         {/* Main Content */}
         <div className="flex-1 px-8 py-6">
-          <h2 className="text-2xl lg:text-3xl font-semibold mb-6">
-            Withdrawal Methods
-          </h2>
+          <div className="flex items-center gap-3 justify-between flex-wrap mb-6">
+            <h2 className="text-2xl lg:text-3xl font-semibold">
+              Withdrawal Methods
+            </h2>
+            <div className="text-[#0A0A0A] font-medium cursor-pointer hidden md:flex items-center gap-2">
+              <img src="/question-mark.svg" alt="question-mark" />
+              Help and Feebdack
+            </div>
+
+          </div>
 
           <div className="grid grid-cols-12 gap-6">
             {/* Left Content - Saved Withdrawal Methods */}

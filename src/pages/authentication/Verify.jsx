@@ -1,18 +1,18 @@
 import React, { useState } from "react";
 import PhoneInput from "react-phone-input-2";
 import "react-phone-input-2/lib/style.css";
-import { useNavigate } from "react-router-dom"; // Import useNavigate
+import { useNavigate } from "react-router-dom";
 import Header from "../../components/settings/Header";
 
 const Verify = () => {
   const [phone, setPhone] = useState("");
-  const navigate = useNavigate(); // Initialize navigate
+  const navigate = useNavigate(); 
 
   const isPhoneValid = phone.length >= 10;
 
   const handleContinue = () => {
     if (isPhoneValid) {
-      navigate("/signup/otp"); // Navigate to /signup/otp
+      navigate("/signup/otp");
     }
   };
 
@@ -33,7 +33,7 @@ const Verify = () => {
           </div>
 
           {/* Phone Number Input */}
-          <div>
+          <div className="w-full flex-1">
             <h4 className="text-start mb-2 text-[14px] font-[500] text-gray-900">
               Phone
             </h4>
@@ -41,7 +41,7 @@ const Verify = () => {
               country={"us"}
               value={phone}
               onChange={setPhone}
-              inputClass="w-full px-4 py-2 bg-gray-100 border w-full border-gray-300 rounded-lg shadow-sm placeholder-gray-400 focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm"
+              inputClass="w-full px-4 flex-1 py-2 bg-gray-100 border w-full border-gray-300 rounded-lg shadow-sm placeholder-gray-400 focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm"
               containerStyle={{ width: "100%" }}
             />
           </div>

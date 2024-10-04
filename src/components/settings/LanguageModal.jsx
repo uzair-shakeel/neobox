@@ -1,5 +1,6 @@
 // LanguageModal.js
 import React, { useState } from "react";
+import { MdClose } from "react-icons/md";
 
 const LanguageModal = ({ isOpen, onClose }) => {
   const [selectedLanguage, setSelectedLanguage] = useState("english"); // Default language
@@ -12,7 +13,7 @@ const LanguageModal = ({ isOpen, onClose }) => {
 
   return (
     <div className="fixed inset-0 flex items-center justify-center bg-black bg-opacity-50">
-      <div className="bg-white p-6 rounded-lg w-[400px] shadow-lg">
+      <div className="bg-white p-6 rounded-lg w-[400px] shadow-lg relative">
         <h2 className="text-center text-xl font-semibold mb-4">Language</h2>
         <p className="text-center text-gray-500 mb-6">
           Change your store language
@@ -38,7 +39,7 @@ const LanguageModal = ({ isOpen, onClose }) => {
           onClick={onClose}
           className="absolute top-4 right-4 text-gray-500"
         >
-          X
+          <MdClose size={24} />
         </button>
       </div>
     </div>

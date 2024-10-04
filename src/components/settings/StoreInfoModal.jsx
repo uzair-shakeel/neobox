@@ -1,12 +1,13 @@
 // StoreInfoModal.js
 import React from "react";
+import { MdClose } from "react-icons/md";
 
 const StoreInfoModal = ({ isOpen, onClose }) => {
   if (!isOpen) return null; // Don't render if the modal is closed
 
   return (
     <div className="fixed inset-0 flex items-center justify-center bg-black bg-opacity-50">
-      <div className="bg-white p-6 rounded-lg w-[400px] shadow-lg">
+      <div className="bg-white p-6 rounded-lg w-[400px] shadow-lg relative">
         <h2 className="text-center text-xl font-semibold mb-4">
           Store Information
         </h2>
@@ -62,7 +63,7 @@ const StoreInfoModal = ({ isOpen, onClose }) => {
           onClick={onClose}
           className="absolute top-4 right-4 text-gray-500"
         >
-          X
+          <MdClose size={24} />
         </button>
       </div>
     </div>

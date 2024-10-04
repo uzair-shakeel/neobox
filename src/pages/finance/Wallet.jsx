@@ -9,26 +9,28 @@ const Wallet = () => {
       <Sidebar />
 
       {/* Main Content */}
-      <div className="flex-grow p-8">
+      <div className="w-[30%]  flex-grow py-6 p-3 lg:p-8">
         {/* Header */}
-        <div className="flex justify-between items-center mb-8">
-          <h2 className="text-[24px] font-semibold">Wallet</h2>
-          <button className="bg-black text-white p-[16px] rounded-md flex gap-2 items-center text-sm">
+        <div className="flex justify-between w-full items-center mb-8">
+          <h2 className="text-[18px] lg:text-[24px] font-semibold">Wallet</h2>
+          <button className="bg-black text-white p-[10px] lg:p-[16px] rounded-md flex gap-2 items-center text-sm">
             <img src="/dollar.svg" alt="" />
             Download Report
           </button>
         </div>
 
         {/* Amount Due Section */}
-        <div className="grid grid-cols-2 gap-6 mb-10">
+        <div className="grid lg:grid-cols-2 gap-6 mb-10">
           <div>
-            <p className="text-gray-900 text-[20px] font-[500]">
+            <p className="text-gray-900 text-[16px] lg:text-[20px] font-[500]">
               Amount due for March
             </p>
-            <div className="p-6 border border-gray-300 rounded-lg flex justify-between items-center">
+            <div className="p-3 lg:p-6 border border-gray-300 rounded-lg flex justify-between items-center">
               <div>
-                <h3 className="text-[40px] font-[500] ">CAD 80.493,00</h3>
-                <p className="text-[14px] text-gray-600">
+                <h3 className="text-[25px] lg:text-[40px] font-[500] ">
+                  CAD 80.493,00
+                </h3>
+                <p className="text-[12px] lg:text-[14px] text-gray-600">
                   Your sales cover your fees
                 </p>
               </div>
@@ -36,13 +38,15 @@ const Wallet = () => {
             </div>
           </div>
           <div>
-            <p className="text-gray-900 text-[20px] font-[500]">
+            <p className="text-gray-900 text-[16px] lg:text-[20px] font-[500]">
               Available for deposit
             </p>
-            <div className="p-6 border border-gray-300 rounded-lg flex justify-between items-center">
+            <div className="p-3 lg:p-6 border border-gray-300 rounded-lg flex justify-between items-center">
               <div>
-                <h3 className="text-[40px] font-[500]">CAD 44.493,00</h3>
-                <p className="text-[14px] text-gray-600">
+                <h3 className="text-[25px] lg:text-[40px] font-[500]">
+                  CAD 44.493,00
+                </h3>
+                <p className="text-[12px] lg:text-[14px] text-gray-600">
                   Deposit schedule weekly
                 </p>
               </div>
@@ -52,17 +56,19 @@ const Wallet = () => {
         </div>
 
         {/* Activity Summary */}
-        <div className="mb-10 text-[14px] text-gray-900">
+        <div className=" mb-10 text-[14px] text-gray-900">
           <div className="flex items-center justify-between">
-            <h4 className="text-[20px] font-medium mb-4">Activity Summary</h4>
+            <h4 className="text-[16px] lg:text-[20px] font-medium mb-4">
+              Activity Summary
+            </h4>
             {/* Dropdown */}
             <button className="text-gray-600 text-sm font-medium border border-gray-300 rounded-lg py-2 px-4 bg-white shadow-sm">
               Last Year ▾
             </button>
           </div>
-          <div className="flex justify-between items-center bg-white p-4 shadow-sm rounded-lg border border-gray-200">
+          <div className="flex flex-col lg:flex-row justify-between gap-3 lg:items-center bg-white p-2 py-4 lg:p-4 shadow-sm rounded-lg border border-gray-200">
             {/* Sales Section */}
-            <div className="flex space-x-4 items-center justify-between w-1/3 px-3 border-r border-gray-200">
+            <div className="flex space-x-4 items-center justify-between lg:w-1/3  lg:px-3 lg:border-r border-gray-200">
               <button className="flex items-center py-2 px-4 border border-gray-300 rounded-full bg-white shadow-sm">
                 <img src="/sales.svg" alt="Sales" className="h-5 w-5 mr-2" />
                 <span className="text-gray-600 font-semibold">Sales</span>
@@ -73,7 +79,7 @@ const Wallet = () => {
             </div>
 
             {/* Fees Section */}
-            <div className="flex space-x-4 items-center justify-between w-1/3 px-3 border-r border-gray-200">
+            <div className="flex space-x-4 items-center justify-between lg:w-1/3  lg:px-3 lg:border-r border-gray-200">
               <button className="flex items-center py-2 px-4 border border-gray-300 rounded-full shadow-sm">
                 <img src="/fees.svg" alt="Sales" className="h-5 w-5 mr-2" />
 
@@ -85,7 +91,7 @@ const Wallet = () => {
             </div>
 
             {/* Deposit Section */}
-            <div className="flex space-x-4 items-center justify-between w-1/3 px-3 ">
+            <div className="flex space-x-4 items-center justify-between lg:w-1/3  lg:px-3 ">
               <button className="flex items-center py-2 px-4 border border-gray-300 rounded-full bg-white shadow-sm">
                 <img src="/deposit.svg" alt="Sales" className="h-5 w-5 mr-2" />
 
@@ -101,9 +107,11 @@ const Wallet = () => {
         {/* Recent Activity */}
         <div>
           <div className="flex justify-between items-center">
-            <h4 className="text-[20px] font-[500] mb-4">Recent Activity</h4>
+            <h4 className="text-[16px] lg:text-[20px] font-[500] mb-4">
+              Recent Activity
+            </h4>
             <div className="flex gap-3 items-center">
-              <button className="text-gray-600 text-sm font-medium border border-gray-300 rounded-lg py-2 px-4 bg-white shadow-sm">
+              <button className="text-gray-600 text-sm font-medium border border-gray-300 rounded-lg px-2 py-2 lg:px-4 bg-white shadow-sm">
                 Last Year ▾
               </button>
               <button className="text-gray-600 text-sm font-medium border border-gray-300 rounded-full p-2 bg-white shadow-sm">
@@ -111,7 +119,7 @@ const Wallet = () => {
               </button>
             </div>
           </div>
-          <div className="overflow-x-auto">
+          <div className=" overflow-x-auto">
             <table className="w-full bg-white border border-gray-300 rounded-[8px]">
               <thead>
                 <tr className="text-left text-gray-900 text-[16px] font-[500] border-b">

@@ -95,19 +95,22 @@ const Sidebar = () => {
   return (
     <>
       <div
-        className={`h-full flex sidebar-behind top-0 left-0 ${isExpanded ? "xl:w-[272px] lg:w-[240px] w-[70px]" : "min-w-[70px]"
-          }`}
+        className={`h-full flex sidebar-behind top-0 left-0 ${
+          isExpanded ? "xl:w-[272px] lg:w-[240px] w-[70px]" : "min-w-[70px]"
+        }`}
       ></div>
       <aside
-        className={`fixed top-0 left-0 bg-[#F4F4F5] border-r py-[16px] h-screen transition-all duration-200 overflow-hidden overflow-y-auto ${isExpanded
-          ? "xl:w-[272px] lg:w-[240px] w-[220px] px-[12px]"
-          : "px-[8px] w-[70px]"
-          } flex flex-col justify-between z-[60]`}
+        className={`fixed top-0 left-0 bg-[#F4F4F5] border-r py-[16px] h-screen transition-all duration-200 overflow-hidden overflow-y-auto ${
+          isExpanded
+            ? "xl:w-[272px] lg:w-[240px] w-[220px] px-[12px]"
+            : "px-[8px] w-[70px]"
+        } flex flex-col justify-between z-[60]`}
       >
         <div>
           <div
-            className={`${isExpanded ? "px-[8px]" : "px-0"
-              } flex justify-between`}
+            className={`${
+              isExpanded ? "px-[8px]" : "px-0"
+            } flex justify-between`}
           >
             <a href="/" className={`flex gap-[8px] ${!isExpanded && "hidden"}`}>
               <span
@@ -120,22 +123,23 @@ const Sidebar = () => {
             `,
                 }}
               >
-
                 <img src="/neobox-icon.png" className="w-[21px] h-[19.53px]" />
               </span>
               <h1 className="text-xl font-semibold">Neobox</h1>
             </a>
             <span
-              className={`${isExpanded ? "h-[33px] w-[33px]" : " h-[43px] w-[43px] mx-auto"
-                }  rounded-full flex items-center cursor-pointer justify-center bg-white border border-[#E4E4E7]`}
+              className={`${
+                isExpanded ? "h-[33px] w-[33px]" : " h-[43px] w-[43px] mx-auto"
+              }  rounded-full flex items-center cursor-pointer justify-center bg-white border border-[#E4E4E7]`}
               style={{ boxShadow: "0px -3px 0px 0px #00000014 inset" }}
               onClick={toggleSidebar}
             >
               <TbLayoutSidebarRightExpand
-                className={`${isExpanded
-                  ? "h-[17px] w-[17px] "
-                  : " h-[22px] w-[22px] rotate-180"
-                  }`}
+                className={`${
+                  isExpanded
+                    ? "h-[17px] w-[17px] "
+                    : " h-[22px] w-[22px] rotate-180"
+                }`}
               />
             </span>
           </div>
@@ -149,8 +153,9 @@ const Sidebar = () => {
           </div>
           <div className="flex items-center bg-[#EBEBEB] py-[9px] pe-[4px] rounded-[8px] w-full mt-[16px] relative">
             <span
-              className={`min-w-[20px] min-h-[20px] ${isExpanded ? "mr-[8px] ps-[12px]" : " ps-[4px] mx-auto"
-                }`}
+              className={`min-w-[20px] min-h-[20px] ${
+                isExpanded ? "mr-[8px] ps-[12px]" : " ps-[4px] mx-auto"
+              }`}
               onClick={() => {
                 setIsExpanded(true);
               }}
@@ -160,12 +165,14 @@ const Sidebar = () => {
             <input
               type="text"
               placeholder="Search"
-              className={`bg-[#EBEBEB] outline-none  placeholder:text-[#71717A] text-sm w-[67%] ${!isExpanded && "hidden"
-                } `}
+              className={`bg-[#EBEBEB] outline-none  placeholder:text-[#71717A] text-sm w-[67%] ${
+                !isExpanded && "hidden"
+              } `}
             />
             <div
-              className={`absolute right-[4px] h-full py-[3px] ${!isExpanded && "hidden"
-                }`}
+              className={`absolute right-[4px] h-full py-[3px] ${
+                !isExpanded && "hidden"
+              }`}
             >
               <div className="bg-white px-[8px] h-full rounded-[6px] flex gap-[4px] items-center">
                 <span className="text-black text-[14px] font-semibold">
@@ -189,8 +196,10 @@ const Sidebar = () => {
                 <NavLink
                   to="/" // Change this to the correct path
                   className={({ isActive }) =>
-                    `flex items-center gap-[12px] font-[500] text-[14px] leading-[21.7px] ${isActive ? "bg-white text-[#0D0D12]" : "text-[#52525B]"
-                    } rounded-[8px] py-[8px] ${isExpanded ? "px-[12px]" : "px-[8px]"
+                    `flex items-center gap-[12px] font-[500] text-[14px] leading-[21.7px] ${
+                      isActive ? "bg-white text-[#0D0D12]" : "text-[#52525B]"
+                    } rounded-[8px] py-[8px] ${
+                      isExpanded ? "px-[12px]" : "px-[8px]"
                     } `
                   }
                 >
@@ -201,16 +210,18 @@ const Sidebar = () => {
               <li ref={catalogRef} className="transition">
                 <button
                   onClick={() => toggleDropdown("catalog")}
-                  className={`flex items-center justify-between w-full text-[#0D0D12] font-[500] text-[14px] leading-[21.7px] hover:bg-[#FAFAFA] rounded-[8px] py-[8px] ${isExpanded ? "px-[12px]" : "px-[8px]"
-                    }
+                  className={`flex items-center justify-between w-full text-[#0D0D12] font-[500] text-[14px] leading-[21.7px] hover:bg-[#FAFAFA] rounded-[8px] py-[8px] ${
+                    isExpanded ? "px-[12px]" : "px-[8px]"
+                  }
                      gap-1`}
                 >
                   <span className="flex items-center gap-[12px]">
                     <RiApps2Line
-                      className={`${openDropdown === "catalog"
-                        ? "text-[#A3E635]"
-                        : "text-[#52525B]"
-                        }`}
+                      className={`${
+                        openDropdown === "catalog"
+                          ? "text-[#A3E635]"
+                          : "text-[#52525B]"
+                      }`}
                       size={isExpanded ? 20 : 22}
                     />{" "}
                     <span className={`${!isExpanded && "hidden"}`}>
@@ -219,10 +230,11 @@ const Sidebar = () => {
                   </span>
                   <span>
                     <MdArrowBackIos
-                      className={`mt-[-4px] transition transform ${openDropdown === "catalog"
-                        ? "mt-[7px] rotate-90"
-                        : "mt-[-4px] rotate-[-90deg]"
-                        }`}
+                      className={`mt-[-4px] transition transform ${
+                        openDropdown === "catalog"
+                          ? "mt-[7px] rotate-90"
+                          : "mt-[-4px] rotate-[-90deg]"
+                      }`}
                       color="#52525B"
                       size={12}
                     />
@@ -241,9 +253,10 @@ const Sidebar = () => {
                     <NavLink
                       to="/products" // Change this to the correct path
                       className={({ isActive }) =>
-                        `px-[32px] py-[8px] font-[500] text-[14px] rounded-[6px] leading-[21.7px] ${isActive
-                          ? "bg-[#FFFFFF] border border-[#E4E4E7] text-[#09090B] shadow"
-                          : "text-[#52525B]"
+                        `px-[32px] py-[8px] font-[500] text-[14px] rounded-[6px] leading-[21.7px] ${
+                          isActive
+                            ? "bg-[#FFFFFF] border border-[#E4E4E7] text-[#09090B] shadow"
+                            : "text-[#52525B]"
                         } rounded-[6px]`
                       }
                     >
@@ -252,9 +265,10 @@ const Sidebar = () => {
                     <NavLink
                       to="/collections" // Change this to the correct path
                       className={({ isActive }) =>
-                        `px-[32px] py-[8px] font-[500] text-[14px] rounded-[6px] leading-[21.7px] ${isActive
-                          ? "bg-[#FFFFFF] border border-[#E4E4E7] text-[#09090B] shadow"
-                          : "text-[#52525B]"
+                        `px-[32px] py-[8px] font-[500] text-[14px] rounded-[6px] leading-[21.7px] ${
+                          isActive
+                            ? "bg-[#FFFFFF] border border-[#E4E4E7] text-[#09090B] shadow"
+                            : "text-[#52525B]"
                         } rounded-[6px]`
                       }
                     >
@@ -263,9 +277,10 @@ const Sidebar = () => {
                     <NavLink
                       to="/orders" // Change this to the correct path
                       className={({ isActive }) =>
-                        `px-[32px] py-[8px] font-[500] text-[14px] rounded-[6px] leading-[21.7px] ${isActive
-                          ? "bg-[#FFFFFF] border border-[#E4E4E7] text-[#09090B] shadow"
-                          : "text-[#52525B]"
+                        `px-[32px] py-[8px] font-[500] text-[14px] rounded-[6px] leading-[21.7px] ${
+                          isActive
+                            ? "bg-[#FFFFFF] border border-[#E4E4E7] text-[#09090B] shadow"
+                            : "text-[#52525B]"
                         } rounded-[6px]`
                       }
                     >
@@ -279,16 +294,18 @@ const Sidebar = () => {
               <li ref={financesRef}>
                 <button
                   onClick={() => toggleDropdown("finances")}
-                  className={`flex items-center justify-between w-full text-[#0D0D12] font-[500] text-[14px] leading-[21.7px] hover:bg-[#FAFAFA] rounded-[8px] py-[8px] ${isExpanded ? "px-[12px]" : "px-[8px]"
-                    }
+                  className={`flex items-center justify-between w-full text-[#0D0D12] font-[500] text-[14px] leading-[21.7px] hover:bg-[#FAFAFA] rounded-[8px] py-[8px] ${
+                    isExpanded ? "px-[12px]" : "px-[8px]"
+                  }
                      gap-1`}
                 >
                   <span className="flex items-center gap-[12px]">
                     <RiMoneyDollarCircleLine
-                      className={`${openDropdown === "finances"
-                        ? "text-[#A3E635]"
-                        : "text-[#52525B]"
-                        }`}
+                      className={`${
+                        openDropdown === "finances"
+                          ? "text-[#A3E635]"
+                          : "text-[#52525B]"
+                      }`}
                       size={isExpanded ? 20 : 22}
                     />{" "}
                     <span className={`${!isExpanded && "hidden"}`}>
@@ -297,10 +314,11 @@ const Sidebar = () => {
                   </span>
                   <span>
                     <MdArrowBackIos
-                      className={`mt-[-4px] transition transform ${openDropdown === "finances"
-                        ? "mt-[7px] rotate-90"
-                        : "mt-[-4px] rotate-[-90deg]"
-                        }`}
+                      className={`mt-[-4px] transition transform ${
+                        openDropdown === "finances"
+                          ? "mt-[7px] rotate-90"
+                          : "mt-[-4px] rotate-[-90deg]"
+                      }`}
                       color="#52525B"
                       size={12}
                     />
@@ -319,9 +337,10 @@ const Sidebar = () => {
                     <NavLink
                       to="/finance/wallet" // Change this to the correct path
                       className={({ isActive }) =>
-                        `px-[32px] py-[8px] font-[500] text-[14px] rounded-[6px] leading-[21.7px] ${isActive
-                          ? "bg-[#FFFFFF] border border-[#E4E4E7] text-[#09090B] shadow"
-                          : "text-[#52525B]"
+                        `px-[32px] py-[8px] font-[500] text-[14px] rounded-[6px] leading-[21.7px] ${
+                          isActive
+                            ? "bg-[#FFFFFF] border border-[#E4E4E7] text-[#09090B] shadow"
+                            : "text-[#52525B]"
                         } rounded-[6px]`
                       }
                     >
@@ -330,9 +349,10 @@ const Sidebar = () => {
                     <NavLink
                       to="/finance/withdrawal" // Change this to the correct path
                       className={({ isActive }) =>
-                        `px-[32px] py-[8px] font-[500] text-[14px] rounded-[6px] leading-[21.7px] ${isActive
-                          ? "bg-[#FFFFFF] border border-[#E4E4E7] text-[#09090B] shadow"
-                          : "text-[#52525B]"
+                        `px-[32px] py-[8px] font-[500] text-[14px] rounded-[6px] leading-[21.7px] ${
+                          isActive
+                            ? "bg-[#FFFFFF] border border-[#E4E4E7] text-[#09090B] shadow"
+                            : "text-[#52525B]"
                         } rounded-[6px]`
                       }
                     >
@@ -341,25 +361,7 @@ const Sidebar = () => {
                   </div>
                 )}
               </li>
-              <li>
-                <NavLink
-                  to="/" // Change this to the correct path
-                  className={({ isActive }) =>
-                    `flex items-center gap-[12px] font-[500] text-[14px] leading-[21.7px] ${isActive ? "bg-white text-[#0D0D12]" : "text-[#52525B]"
-                    } rounded-[8px] py-[8px] ${isExpanded ? "px-[12px]" : "px-[8px]"
-                    }`
-                  }
-                >
-                  <img
-                    src="/customers.svg"
-                    className={`${isExpanded ? "w-[20px] h-[20px]" : "w-[22px] h-[22px]"
-                      }`}
-                  />{" "}
-                  <span className={`${!isExpanded && "hidden"}`}>
-                    Customers
-                  </span>
-                </NavLink>
-              </li>
+
               <li>
                 <button
                   onClick={toggleSalesChannels}
@@ -367,10 +369,11 @@ const Sidebar = () => {
                 >
                   <span>
                     <MdArrowBackIos
-                      className={`transform transition ${isSalesChannelsVisible
-                        ? "mt-[7px] rotate-90"
-                        : "mt-[-4px] rotate-[-90deg]"
-                        }`} // Rotates the arrow when clicked
+                      className={`transform transition ${
+                        isSalesChannelsVisible
+                          ? "mt-[7px] rotate-90"
+                          : "mt-[-4px] rotate-[-90deg]"
+                      }`} // Rotates the arrow when clicked
                       color="#71717A"
                       size={isExpanded ? 12 : 14}
                     />
@@ -385,7 +388,8 @@ const Sidebar = () => {
                   <NavLink
                     to="/store/preference" // Change this to the correct path
                     className={({ isActive }) =>
-                      `mt-[8px] flex items-center gap-[12px] font-[500] text-[14px] leading-[21.7px] ${isActive ? "bg-white text-[#0D0D12]" : "text-[#52525B]"
+                      `mt-[8px] flex items-center gap-[12px] font-[500] text-[14px] leading-[21.7px] ${
+                        isActive ? "bg-white text-[#0D0D12]" : "text-[#52525B]"
                       } rounded-[8px] py-[8px] px-[12px]`
                     }
                   >
@@ -404,21 +408,24 @@ const Sidebar = () => {
             onClick={() => {
               setProfileDropdown(!profileDropdown);
             }}
-            className={`flex items-center justify-between w-full flex-grow ${profileDropdown && "border-b pb-[8px]"
-              }  border-b-[#E4E4E7] xl:px-[12px] px-[6px] w-full`}
+            className={`flex items-center justify-between w-full flex-grow ${
+              profileDropdown && "border-b pb-[8px]"
+            }  border-b-[#E4E4E7] xl:px-[12px] px-[6px] w-full`}
           >
             <div className="flex items-center ">
               <span
-                className={`${isExpanded
-                  ? "min-h-[40px] min-w-[40px]"
-                  : "min-h-[25px] min-w-[25px]"
-                  }`}
+                className={`${
+                  isExpanded
+                    ? "min-h-[40px] min-w-[40px]"
+                    : "min-h-[25px] min-w-[25px]"
+                }`}
               >
                 <img
                   src="/profile.png"
                   alt="User"
-                  className={`${isExpanded ? "h-[40px] w-[40px]" : "h-[25px] w-[25px]"
-                    } rounded-[8px] object-cover`}
+                  className={`${
+                    isExpanded ? "h-[40px] w-[40px]" : "h-[25px] w-[25px]"
+                  } rounded-[8px] object-cover`}
                 />
               </span>
               <div
@@ -441,20 +448,23 @@ const Sidebar = () => {
             </span>{" "}
           </div>
           <ul
-            className={`${isExpanded ? "pb-[8px]" : "pb-0"} pt-[8px] px-[8px] ${profileDropdown ? "block" : "hidden"
-              }`}
+            className={`${isExpanded ? "pb-[8px]" : "pb-0"} pt-[8px] px-[8px] ${
+              profileDropdown ? "block" : "hidden"
+            }`}
           >
             <li>
               <Link
                 to="/settings"
-                className={`flex items-center text-[#52525B] rounded-[8px] hover:bg-gray-100 ${isExpanded ? "px-[12px] py-[9px]" : "pb-[5px]"
-                  }`}
+                className={`flex items-center text-[#52525B] rounded-[8px] hover:bg-gray-100 ${
+                  isExpanded ? "px-[12px] py-[9px]" : "pb-[5px]"
+                }`}
               >
                 <span
-                  className={` ${isExpanded
-                    ? "min-h-[20px] min-w-[20px] h-[20px] w-[20px]"
-                    : "min-h-[25px] min-w-[25px] h-[25px] w-[25px]"
-                    }`}
+                  className={` ${
+                    isExpanded
+                      ? "min-h-[20px] min-w-[20px] h-[20px] w-[20px]"
+                      : "min-h-[25px] min-w-[25px] h-[25px] w-[25px]"
+                  }`}
                 >
                   <RiSettings3Line className="h-full w-full" />{" "}
                 </span>
@@ -468,14 +478,16 @@ const Sidebar = () => {
             <li>
               <a
                 href="#"
-                className={`flex items-center text-[#52525B] rounded-[8px] hover:bg-gray-100 py-[9px] ${isExpanded ? "px-[12px] py-[9px]" : "pb-[5px]"
-                  }`}
+                className={`flex items-center text-[#52525B] rounded-[8px] hover:bg-gray-100 py-[9px] ${
+                  isExpanded ? "px-[12px] py-[9px]" : "pb-[5px]"
+                }`}
               >
                 <span
-                  className={`${isExpanded
-                    ? "min-h-[20px] min-w-[20px] h-[20px] w-[20px]"
-                    : "min-h-[25px] min-w-[25px] h-[25px] w-[25px]"
-                    }`}
+                  className={`${
+                    isExpanded
+                      ? "min-h-[20px] min-w-[20px] h-[20px] w-[20px]"
+                      : "min-h-[25px] min-w-[25px] h-[25px] w-[25px]"
+                  }`}
                 >
                   <RiLogoutCircleLine className="h-full w-full" />{" "}
                 </span>

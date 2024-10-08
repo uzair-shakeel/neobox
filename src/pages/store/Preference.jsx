@@ -58,6 +58,20 @@ const Preferences = () => {
                 </li>
               ))}
             </ul>
+
+            <div className="absolute bottom-8 left-8">
+              <select
+                className="border border-gray-300 bg-white p-2 rounded-md shadow-sm focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm"
+                value={language}
+                onChange={handleLanguageChange}
+              >
+                <option value="English (US)">
+                  <img src="/Bank Icon.svg" alt="" /> English (US)
+                </option>
+                <option value="French">French</option>
+                <option value="Spanish">Spanish</option>
+              </select>
+            </div>
           </div>
 
           {/* Right Panel: Form */}

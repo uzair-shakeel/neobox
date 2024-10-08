@@ -279,8 +279,6 @@ export default function Products() {
         </div>
       </main>
 
-      {/* Chat Button */}
-      <ChatButton />
     </div>
   );
 }

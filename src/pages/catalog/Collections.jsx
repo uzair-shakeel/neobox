@@ -123,8 +123,6 @@ export default function Collections() {
         </div>
       </main>
 
-      {/* Chat Button */}
-      <ChatButton />
     </div>
   );
 }

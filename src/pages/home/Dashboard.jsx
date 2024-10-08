@@ -13,6 +13,8 @@ import products from "../../assets/ProductsData";
 
 export default function Dashboard() {
   const [activeTab, setActiveTab] = useState("week");
+  const [isVisible, setIsVisible] = useState(true);
+
   const activeData = data[activeTab];
 
   return (
@@ -33,32 +35,32 @@ export default function Dashboard() {
             Open Site
           </button>
         </div>
-
-        <div className="bg-[#F7FEE7] border border-[#151515] rounded-[8px] md:px-[24px] sm:px-[12px] px-[8px] md:py-[15px] py-[9px] md:mb-[24px] mb-[16px] mt-[16px] flex justify-between items-center gap-1 flex-wrap relative">
-          <div className="flex items-center">
-            <span className="min-h-[22px] min-w-[22px] mr-[8px]">
-              <BiBook size={22} color="#22C55E" />
-            </span>
-            <span className="lg:text-[18px] sm:text-[16px] text-[14px] leading-[25.2px] font-[400] text-[#3F3F46] md:pe-0 pe-5">
-              Learn how to set up your store step by step.
-            </span>
+        {isVisible && (
+          <div className="bg-[#F7FEE7] border border-[#151515] rounded-[8px] md:px-[24px] sm:px-[12px] px-[8px] md:py-[15px] py-[9px] md:mb-[24px] mb-[16px] mt-[16px] flex justify-between items-center gap-1 flex-wrap relative">
+            <div className="flex items-center">
+              <span className="min-h-[22px] min-w-[22px] mr-[8px]">
+                <BiBook size={22} color="#22C55E" />
+              </span>
+              <span className="lg:text-[18px] sm:text-[16px] text-[14px] leading-[25.2px] font-[400] text-[#3F3F46] md:pe-0 pe-5">
+                Learn how to set up your store step by step.
+              </span>
+            </div>
+            <div className="flex items-center md:gap-[24px] gap-1">
+              <a
+                href="#"
+                className="bg-white border-[#E4E4E7] border rounded-[6px] md:ms-0 me-5 py-[5px] px-[8px] text-[14px] font-[500] leading-[21.7px] text-[#09090B] hover:underline flex items-center justify-center gap-[4px]"
+              >
+                Learn more <LuArrowUpRight size={16} />
+              </a>
+              <span className="md:flex hidden cursor-pointer">
+                <IoMdClose size={22} onClick={() => setIsVisible(false)} />
+              </span>
+              <span className="md:hidden flex absolute right-[8px] top-1/2  -translate-y-1/2 md:relative">
+                <IoMdClose size={22} onClick={() => setIsVisible(false)} />
+              </span>
+            </div>
           </div>
-          <div className="flex items-center md:gap-[24px] gap-1">
-            <a
-              href="#"
-              className="bg-white border-[#E4E4E7] border rounded-[6px] md:ms-0 me-5 py-[5px] px-[8px] text-[14px] font-[500] leading-[21.7px] text-[#09090B] hover:underline flex items-center justify-center gap-[4px]"
-            >
-              Learn more <LuArrowUpRight size={16} />
-            </a>
-            <span className="md:flex hidden">
-              <IoMdClose size={22} />
-            </span>
-            <span className="md:hidden flex absolute right-[8px] top-1/2 -translate-y-1/2 md:relative">
-              <IoMdClose size={22} />
-            </span>
-          </div>
-        </div>
-
+        )}
         <h3 className="flex items-center gap-[4px] md:text-[24px] text-[18px] md:leading-[36px] text-[#09090B] font-[500] md:mb-[8px] mb-[4px]">
           Welcome to Neobox{" "}
           <span>
@@ -68,7 +70,6 @@ export default function Dashboard() {
         <p className="md:text-[18px] text-[16px] md:leading-[25.2px] font-[400] text-[#3F3F46] md:mb-[24px] mb-[18px]">
           A quick guide to getting your first sale
         </p>
-
         <div className="bg-[#F5F3FF] border border-[#8B5CF6] rounded-[8px] md:p-[24px] p-[10px] md:mb-[36px] mb-[22px] flex flex-col md:gap-[24px] gap-[12px]">
           <div className="flex items-center md:gap-[24px] gap-2 w-full">
             <span className="flex items-center justify-center w-[40px] h-[40px] rounded-full bg-[#F7FEE7]">
@@ -111,7 +112,6 @@ export default function Dashboard() {
             </div>
           </div>
         </div>
-
         <div className="flex lg:flex-row flex-col items-start w-full gap-[24px]">
           <div className="lg:w-[70%]">
             <div className="flex items-start justify-between mb-[16px] flex-wrap gap-2">
@@ -337,9 +337,6 @@ export default function Dashboard() {
           </div>
         </div>
       </main>
-
-      {/* Chat Button */}
-      <ChatButton />
     </div>
   );
 }

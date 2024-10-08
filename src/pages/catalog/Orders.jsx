@@ -258,8 +258,6 @@ export default function Orders() {
         </div>
       </main>
 
-      {/* Chat Button */}
-      <ChatButton />
     </div>
   );
 }

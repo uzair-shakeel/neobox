@@ -1,20 +1,36 @@
-"use client";
-import React from "react";
+import React, { useState } from "react";
 import Sidebar from "../../components/Sidebar";
 import { RiFilterLine } from "react-icons/ri";
 import { LuSearch } from "react-icons/lu";
-import ChatButton from "../../components/ChatButton";
 import { IoFilterSharp } from "react-icons/io5";
 import { AiOutlinePlus } from "react-icons/ai";
 import { PiDotsThree } from "react-icons/pi";
 import { NavLink } from "react-router-dom";
+import DeleteCollectionModal from "../../components/catalog/deleteCollectionModal";
 
 export default function Collections() {
+  const [isModalOpen, setIsModalOpen] = useState(false);
+
   const collections = [
     { id: 1, name: "On Sale", slug: "on-sale", items: 4 },
     { id: 2, name: "Best Seller", slug: "best-seller", items: 9 },
     { id: 3, name: "Flash Sale", slug: "flash-sale", items: 10 },
   ];
+
+  const handleOpenModal = () => {
+    setIsModalOpen(true);
+  };
+
+  const handleCloseModal = () => {
+    setIsModalOpen(false);
+  };
+
+  const handleDelete = () => {
+    // Implement your delete logic here
+    console.log("Deleted");
+    handleCloseModal();
+  };
+
   return (
     <div className="flex h-screen bg-white">
       {/* Sidebar */}
@@ -110,7 +126,10 @@ export default function Collections() {
                     </td>
                     <td className="px-[16px] py-[14px] text-[#09090B] font-[400] text-[14px]">
                       <div className="flex justify-end">
-                        <button className="md:w-[48px] md:h-[48px] md:min-h-[48px] md:min-w-[48px] w-[30px] h-[30px] min-h-[30px] min-w-[30px] flex items-center justify-center border border-[#E4E4E7] rounded-full text-[#09090B]">
+                        <button
+                          className="md:w-[48px] md:h-[48px] md:min-h-[48px] md:min-w-[48px] w-[30px] h-[30px] min-h-[30px] min-w-[30px] flex items-center justify-center border border-[#E4E4E7] rounded-full text-[#09090B]"
+                          onClick={handleOpenModal}
+                        >
                           <PiDotsThree size={20} />
                         </button>
                       </div>
@@ -123,6 +142,12 @@ export default function Collections() {
         </div>
       </main>
 
+      {/* Delete Modal */}
+      <DeleteCollectionModal
+        isOpen={isModalOpen}
+        onClose={handleCloseModal}
+        onDelete={handleDelete}
+      />
     </div>
   );
 }

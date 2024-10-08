@@ -120,7 +120,7 @@ const StaffSettings = () => {
         <h3 className="md:text-[20px] text-[18px] font-[500]">Staff</h3>
         <button
           onClick={() => setIsModalOpen(true)}
-          className="md:px-4 px-3 py-2 md:text-[16px] text-[14px] border border-[#E4E4E7] shadow-md rounded-lg"
+          className="md:px-4 px-3 py-2 md:text-[16px] text-[14px] font-medium border border-[#E4E4E7] rounded-lg"
         >
           + Add Staff
         </button>

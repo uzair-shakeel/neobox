@@ -169,19 +169,21 @@ const Sidebar = () => {
             </div>
             {/* Dropdown options */}
             {expanded2 && ( // Check if expanded2 is true
-              <div className="absolute z-10 mt-2 w-full bg-white border border-[#E4E4E7] rounded-[8px] shadow-md">
-                <div
-                  className="px-[13px] py-[10px] cursor-pointer hover:bg-gray-100"
-                  onClick={() => handleShopSelect("Tab Shop")}
-                >
-                  Tab Shop
+              <div className="absolute z-10 mt-2 w-full bg-white border border-[#E4E4E7] rounded-[8px] p-2 shadow-md">
+                <p className="text-[#52525B] text-xs lg:text-sm mb-1">
+                  marquezmarc@gmail.com
+                </p>
+
+                <div className="px-3 py-2 mb-1 bg-[#FAFAFA] flex items-center justify-between gap-2 rounded-lg cursor-pointer">
+                  <div className="flex items-center gap-2 text-[#09090B] font-medium text-sm">
+                    <RiStoreLine size={20} color="#52525B" />
+                    Mob Shop
+                  </div>
+
+                  <img src="/tikmark-arrow.svg" alt="tikmark-arrow" />
                 </div>
-                <div
-                  className="px-[13px] py-[10px] cursor-pointer hover:bg-gray-100"
-                  onClick={() => handleShopSelect("Sys Shop")}
-                >
-                  Sys Shop
-                </div>
+
+                <button className="border border-[#E4E4E7] flex items-center justify-center gap-2 text-[#E4E4E7] font-medium text-sm rounded-[6px] p-2 w-full">Create Store <img src="/1.svg" alt="arrow" /></button>
               </div>
             )}
           </div>

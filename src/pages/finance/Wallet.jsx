@@ -1,6 +1,5 @@
 import React, { useState } from "react";
 import Sidebar from "../../components/Sidebar";
-import { IoIosMore } from "react-icons/io";
 
 const Wallet = () => {
   // Dropdown states for both buttons
@@ -9,17 +8,12 @@ const Wallet = () => {
   const [selectedPeriod, setSelectedPeriod] = useState("Last Year");
   const [selectedPeriod2, setSelectedPeriod2] = useState("Last Year");
 
-  const [isCategoryDropdownOpen, setIsCategoryDropdownOpen] = useState(false);
-  const [selectedCategory, setSelectedCategory] = useState("Sales");
-
   const togglePeriodDropdown = () =>
     setIsPeriodDropdownOpen(!isPeriodDropdownOpen);
 
   const togglePeriodDropdown2 = () =>
     setIsPeriodDropdown2Open(!isPeriodDropdown2Open);
 
-  const toggleCategoryDropdown = () =>
-    setIsCategoryDropdownOpen(!isCategoryDropdownOpen);
 
   const handleSelectPeriod = (period) => {
     setSelectedPeriod(period);
@@ -31,10 +25,6 @@ const Wallet = () => {
     setIsPeriodDropdown2Open(false);
   };
 
-  const handleSelectCategory = (category) => {
-    setSelectedCategory(category);
-    setIsCategoryDropdownOpen(false);
-  };
 
   return (
     <div className="min-h-screen flex bg-white">
@@ -87,8 +77,8 @@ const Wallet = () => {
 
         {/* Activity Summary */}
         <div className="mb-10 text-[14px] text-gray-900">
-          <div className="flex items-center justify-between">
-            <h4 className="text-[16px] lg:text-[20px] font-medium mb-4">
+          <div className="flex items-center justify-between mb-4">
+            <h4 className="text-[16px] lg:text-[20px] font-medium">
               Activity Summary
             </h4>
 
@@ -126,58 +116,52 @@ const Wallet = () => {
             </div>
           </div>
 
-          <div className="flex flex-col lg:flex-row justify-between gap-3 lg:items-center bg-white p-2 py-4 lg:p-4 shadow-sm rounded-lg border border-gray-200">
-            {/* Dropdown 2: Category */}
-            <div className="flex space-x-4 items-center justify-between lg:w-1/3  lg:px-3 lg:border-r border-gray-200 relative">
-              <button
-                onClick={toggleCategoryDropdown}
-                className="flex items-center py-2 px-4 border border-gray-300 rounded-full bg-white shadow-sm w-full"
-              >
-                <img
-                  src={`/${selectedCategory.toLowerCase()}.svg`}
-                  alt={selectedCategory}
-                  className="h-5 w-5 mr-2"
-                />
-                <span className="text-gray-600 font-semibold">
-                  {selectedCategory}
-                </span>
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-3 bg-white p-2 py-4 lg:p-4 shadow-sm rounded-lg border border-gray-200">
+            <div className="flex space-x-4 items-center pr-3 justify-between lg:border-r border-gray-200 relative">
+              <button className="flex items-center gap-2 justify-start pl-1 pr-2 py-1 max-w-[114px] border border-gray-300 rounded-full bg-white shadow-sm w-full">
+                <div className="w-8 h-8 bg-[#F5F3FF] rounded-full flex justify-center items-center">
+                  <img src="/sales.svg" alt="sales" className="h-5 w-5" />
+                </div>
+                <span className="text-gray-600 font-semibold">Sales</span>
               </button>
 
-              {isCategoryDropdownOpen && (
-                <div className="absolute mt-2 py-2 w-full bg-white rounded-lg shadow-lg border border-gray-300">
-                  <button
-                    className="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100 w-full text-left"
-                    onClick={() => handleSelectCategory("Sales")}
-                  >
-                    Sales
-                  </button>
-                  <button
-                    className="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100 w-full text-left"
-                    onClick={() => handleSelectCategory("Fees")}
-                  >
-                    Fees
-                  </button>
-                  <button
-                    className="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100 w-full text-left"
-                    onClick={() => handleSelectCategory("Deposit")}
-                  >
-                    Deposit
-                  </button>
-                </div>
-              )}
+              <span className="font-semibold text-lg text-gray-800">
+                CAD 829.00
+              </span>
             </div>
 
-            {/* Displayed Amount */}
-            <span className="font-semibold text-lg text-gray-800 lg:w-1/3">
-              CAD 829.00
-            </span>
+            <div className="flex space-x-4 items-center pr-3 justify-between lg:border-r border-gray-200 relative">
+              <button className="flex items-center gap-2 justify-start pl-1 pr-2 py-1 max-w-[114px] border border-gray-300 rounded-full bg-white shadow-sm w-full">
+                <div className="w-8 h-8 bg-[#F7FEE7] rounded-full flex justify-center items-center">
+                  <img src="/fees.svg" alt="Fees" className="h-5 w-5" />
+                </div>
+                <span className="text-gray-600 font-semibold">Fees</span>
+              </button>
+
+              <span className="font-semibold text-lg text-gray-800">
+                USD 57.00
+              </span>
+            </div>
+
+            <div className="flex space-x-4 items-center pr-3 justify-between">
+              <button className="flex items-center gap-2 justify-start pl-1 pr-2 py-1 max-w-[114px] border border-gray-300 rounded-full bg-white shadow-sm w-full">
+                <div className="w-8 h-8 bg-[#F5F3FF] rounded-full flex justify-center items-center">
+                  <img src="/deposit.svg" alt="Deposit" className="h-5 w-5" />
+                </div>
+                <span className="text-gray-600 font-semibold">Deposit</span>
+              </button>
+
+              <span className="font-semibold text-lg text-gray-800">
+                USD 323.00
+              </span>
+            </div>
           </div>
         </div>
 
         {/* Recent Activity */}
         <div>
-          <div className="flex justify-between items-center">
-            <h4 className="text-[16px] lg:text-[20px] font-[500] mb-4">
+          <div className="flex justify-between items-center mb-4">
+            <h4 className="text-[16px] lg:text-[20px] font-[500]">
               Recent Activity
             </h4>
             <div className="flex gap-3 items-center">

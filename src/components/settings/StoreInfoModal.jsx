@@ -1,9 +1,18 @@
-// StoreInfoModal.js
-import React from "react";
+import React, { useState } from "react";
 import { MdClose } from "react-icons/md";
 
 const StoreInfoModal = ({ isOpen, onClose }) => {
   if (!isOpen) return null; // Don't render if the modal is closed
+
+  // State to manage input values
+  const [storeName, setStoreName] = useState("");
+  const [email, setEmail] = useState("");
+  const [address, setAddress] = useState("");
+  const [city, setCity] = useState("");
+  const [zipCode, setZipCode] = useState("");
+
+  // Condition to check if all fields are filled
+  const isFormComplete = storeName && email && address && city && zipCode;
 
   return (
     <div className="fixed inset-0 flex items-center justify-center bg-black bg-opacity-50">
@@ -20,6 +29,8 @@ const StoreInfoModal = ({ isOpen, onClose }) => {
             <input
               type="text"
               placeholder="Food-illiumini.Inc"
+              value={storeName}
+              onChange={(e) => setStoreName(e.target.value)}
               className="w-full p-2 border border-gray-300 rounded-md"
             />
           </div>
@@ -28,6 +39,8 @@ const StoreInfoModal = ({ isOpen, onClose }) => {
             <input
               type="email"
               placeholder="info@gmail.com"
+              value={email}
+              onChange={(e) => setEmail(e.target.value)}
               className="w-full p-2 border border-gray-300 rounded-md"
             />
           </div>
@@ -36,6 +49,8 @@ const StoreInfoModal = ({ isOpen, onClose }) => {
             <input
               type="text"
               placeholder="Enter Address"
+              value={address}
+              onChange={(e) => setAddress(e.target.value)}
               className="w-full p-2 border border-gray-300 rounded-md"
             />
           </div>
@@ -44,6 +59,8 @@ const StoreInfoModal = ({ isOpen, onClose }) => {
             <input
               type="text"
               placeholder="Enter City"
+              value={city}
+              onChange={(e) => setCity(e.target.value)}
               className="w-full p-2 border border-gray-300 rounded-md"
             />
           </div>
@@ -52,13 +69,25 @@ const StoreInfoModal = ({ isOpen, onClose }) => {
             <input
               type="text"
               placeholder="Enter Zip Code"
+              value={zipCode}
+              onChange={(e) => setZipCode(e.target.value)}
               className="w-full p-2 border border-gray-300 rounded-md"
             />
           </div>
-          <button className="w-full mt-4 p-2 bg-gray-300 text-white rounded-md">
+
+          {/* Button that changes style based on form completion */}
+          <button
+            className={`w-full mt-4 p-2 rounded-md ${
+              isFormComplete
+                ? "bg-black text-white"
+                : "bg-gray-300 text-white"
+            }`}
+            disabled={!isFormComplete} // Optionally disable button if form isn't complete
+          >
             Save
           </button>
         </div>
+
         <button
           onClick={onClose}
           className="absolute top-4 right-4 text-gray-500"

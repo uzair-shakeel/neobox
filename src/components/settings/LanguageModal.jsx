@@ -1,4 +1,3 @@
-// LanguageModal.js
 import React, { useState } from "react";
 import { MdClose } from "react-icons/md";
 
@@ -31,7 +30,12 @@ const LanguageModal = ({ isOpen, onClose }) => {
             </select>
           </div>
 
-          <button className="w-full mt-4 p-2 bg-gray-300 text-white rounded-md">
+          {/* Button that changes style based on language selection */}
+          <button
+            className={`w-full mt-4 p-2 rounded-md ${
+              selectedLanguage ? "bg-black text-white" : "bg-gray-300 text-white"
+            }`}
+          >
             Save
           </button>
         </div>

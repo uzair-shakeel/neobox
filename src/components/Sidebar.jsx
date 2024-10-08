@@ -160,7 +160,7 @@ const Sidebar = () => {
               onClick={() => setExpanded2(!expanded2)}
               className={`mt-[30px] ${!isExpanded && "hidden"}`}
             >
-              <div className="px-[13px] py-[14px] bg-white flex items-center justify-between border border-[#E4E4E7] rounded-[8px]">
+              <div className="px-[13px] py-[14px] bg-white cursor-pointer flex items-center justify-between border border-[#E4E4E7] rounded-[8px]">
                 <span className="flex items-center gap-[8px]">
                   <RiStoreLine size={20} color="#52525B" /> {selectedShop}
                 </span>

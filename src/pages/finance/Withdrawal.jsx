@@ -3,9 +3,23 @@ import Sidebar from "../../components/Sidebar";
 import { MdArrowOutward } from "react-icons/md";
 import { HiOutlinePlusSm } from "react-icons/hi";
 import AddMethodModal from "../../components/finance/AddPaymentModal"; // Modal component
+import { SlPaypal } from "react-icons/sl";
 
 const Withdrawal = () => {
   const [isModalOpen, setIsModalOpen] = useState(false);
+  const [expanded, setExpanded] = useState(false); // State for dropdown visibility
+  const [selectedIcon, setSelectedIcon] = useState("bank"); // State for dropdown visibility
+  const [selectedPayment, setSelectedPayment] = useState("Bank Transfer"); // Default option
+
+  const toggleDropdown = () => {
+    setExpanded((prev) => !prev); // Toggle dropdown visibility
+  };
+
+  const handlePaymentSelect = (paymentMethod, icon) => {
+    setSelectedPayment(paymentMethod);
+    setSelectedIcon(icon);
+    setExpanded(false); // Close dropdown after selection
+  };
 
   const openModal = () => setIsModalOpen(true);
   const closeModal = () => setIsModalOpen(false);
@@ -14,8 +28,9 @@ const Withdrawal = () => {
     <div className="flex h-screen relative">
       {/* Main Content with Blur on Sidebar and Content When Modal is Open */}
       <div
-        className={`flex bg-gray-50 h-full w-full transition-all duration-300 ${isModalOpen ? "blur-[2px]" : ""
-          }`}
+        className={`flex bg-gray-50 h-full w-full transition-all duration-300 ${
+          isModalOpen ? "blur-[2px]" : ""
+        }`}
       >
         {/* Sidebar */}
         <Sidebar />
@@ -30,7 +45,6 @@ const Withdrawal = () => {
               <img src="/question-mark.svg" alt="question-mark" />
               Help and Feebdack
             </div>
-
           </div>
 
           <div className="grid grid-cols-12 gap-6">
@@ -40,24 +54,62 @@ const Withdrawal = () => {
                 Saved withdrawal methods
               </h3>
               <div className="bg-white border border-gray-200 p-3 lg:p-6 rounded-lg shadow-sm mb-6">
-                <div className="flex justify-between items-center border border-gray-200 rounded-lg p-2 lg:p-4">
-                  <div className="flex items-center space-x-2 lg:space-x-4">
-                    <img
-                      src="/bank.svg"
-                      alt="Bank Icon"
-                      className="border border-gray-100 p-2 rounded-full"
-                    />
-                    <div>
-                      <p className="font-semibold text-[13px] lg:text-[16px]">
-                        Bank Transfer • CAD
-                      </p>
-                      <p className="text-[10px] lg:text-[14px] text-gray-500">
-                        marquezemarc@gmail.com
-                      </p>
+                <div className="relative mt-4">
+                  {/* Added margin for spacing */}
+                  <div
+                    className="flex justify-between items-center border border-gray-200 rounded-lg p-2 lg:p-4 cursor-pointer"
+                    onClick={toggleDropdown} // Toggle dropdown on click
+                  >
+                    <div className="flex items-center space-x-2 lg:space-x-4">
+                      <img src={`/${selectedIcon}.svg`} alt="Bank Icon" />
+                      <div>
+                        <p className="font-semibold text-[13px] lg:text-[16px]">
+                          {selectedPayment} • CAD{" "}
+                          {/* Show selected payment method */}
+                        </p>
+                        <p className="text-[10px] lg:text-[14px] text-gray-500">
+                          marquezemarc@gmail.com
+                        </p>
+                      </div>
                     </div>
+                    <img src="/arrows.svg" alt="Arrow Icon" />
                   </div>
-                  <img src="/arrows.svg" alt="Arrow Icon" />
+                  {/* Dropdown options */}
+                  {expanded && ( // Check if dropdown is expanded
+                    <div className="absolute z-10 mt-2 w-full bg-white border border-gray-200 rounded-lg shadow-md">
+                      <div
+                        className="flex items-center space-x-2 lg:space-x-4 p-2 cursor-pointer hover:bg-gray-100"
+                        onClick={() =>
+                          handlePaymentSelect("Bank Transfer", "bank")
+                        }
+                      >
+                        <img src="/bank.svg" alt="Bank Icon" />
+                        <p className="font-semibold text-[13px] lg:text-[16px]">
+                          Bank Transfer • CAD
+                        </p>
+                      </div>
+                      <div
+                        className="flex items-center space-x-2 lg:space-x-4 p-2 cursor-pointer hover:bg-gray-100"
+                        onClick={() => handlePaymentSelect("PayPal", "Paypal")}
+                      >
+                        <img src="/Paypal.svg" alt="PayPal Icon" />
+                        <p className="font-semibold text-[13px] lg:text-[16px]">
+                          PayPal • CAD
+                        </p>
+                      </div>
+                      <div
+                        className="flex items-center space-x-2 lg:space-x-4 p-2 cursor-pointer hover:bg-gray-100"
+                        onClick={() => handlePaymentSelect("Wise", "wise icon")}
+                      >
+                        <img src="/wise icon.svg" alt="Wise Icon" />
+                        <p className="font-semibold text-[13px] lg:text-[16px]">
+                          Wise • CAD
+                        </p>
+                      </div>
+                    </div>
+                  )}
                 </div>
+
                 <p className="text-[13px] lg:text-sm text-gray-600 mt-4">
                   Use them to withdraw your funds from Neobox once a payment is
                   received. Click on each method to customize or view details.

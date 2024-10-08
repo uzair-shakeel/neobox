@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import Sidebar from "../../components/Sidebar";
 import { useParams } from "react-router-dom";
 import {
@@ -12,6 +12,8 @@ import { HiOutlineInbox } from "react-icons/hi";
 import orders from "../../assets/OrdersData";
 
 export default function Order() {
+  const [isShipped, setIsShipped] = useState(false);
+
   const { id } = useParams();
   const orderId = parseInt(id, 10);
   const order = orders.find((order) => order.id === orderId);
@@ -26,7 +28,10 @@ export default function Order() {
 
       {/* Main Content */}
       <main className="flex-1 overflow-y-auto lg:px-[32px] md:px-[24px] px-[16px] py-[27px]">
-        <a href="/orders" className="md:text-[24px] text-[20px] leading-[36px] font-[500] pt-[5px] pb-[32px] flex items-center gap-[16px]">
+        <a
+          href="/orders"
+          className="md:text-[24px] text-[20px] leading-[36px] font-[500] pt-[5px] pb-[32px] flex items-center gap-[16px]"
+        >
           <span className="min-h-[20px] min-w-[20px]">
             <RiArrowLeftLine size={20} />
           </span>
@@ -61,7 +66,11 @@ export default function Order() {
                 <div className="flex flex-col items-center">
                   <div className="w-[40px] h-[40px] rounded-full flex items-center justify-center border border-[#E4E4E7] bg-white">
                     <div className="flex items-center justify-center text-[#71717A]">
-                      <RiCaravanLine size={20} />
+                      {isShipped === false ? (
+                        <RiCaravanLine size={20} />
+                      ) : (
+                        <img src="/shipped.svg" alt="" />
+                      )}
                     </div>
                   </div>
                   <p className="text-[#3F3F46] text-[14px] font-[400] mt-[8px] mb-[4px]">
@@ -182,8 +191,16 @@ export default function Order() {
                   </div>
                 </div>
               </div>
-              <button className="bg-[#151515] text-white md:text-[16px] text-[14px] font-[500] md:px-[16px] px-[12px] md:py-[11px] py-[9px] rounded-[10px] flex items-center ms-auto gap-[8px]">
-                <RiInboxFill className="md:w-[20px] w-[17px] md:h-[20px] h-[17px]" />{" "}
+              <button
+                onClick={() => setIsShipped(true)}
+                disabled={isShipped}
+                className={`md:text-[16px] text-white text-[14px] font-[500] md:px-[16px] px-[12px] md:py-[11px] py-[9px] rounded-[10px] flex items-center ms-auto gap-[8px] ${
+                  isShipped === true
+                    ? "bg-[#1515151A]/10  cursor-not-allowed"
+                    : "bg-black "
+                }`}
+              >
+                <RiInboxFill className="md:w-[20px] w-[17px] md:h-[20px] h-[17px]" />
                 Mark as shipped
               </button>
             </div>

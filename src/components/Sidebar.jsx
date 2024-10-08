@@ -21,6 +21,17 @@ const Sidebar = () => {
   const financesRef = useRef(null);
   const [isExpanded, setIsExpanded] = useState(false);
   const sidebarRef = useRef(null);
+  const [expanded2, setExpanded2] = useState(false); // Using expanded2 for dropdown visibility
+  const [selectedShop, setSelectedShop] = useState("Mob Shop");
+
+  const toggleDropdown2 = () => {
+    setExpanded2((prev) => !prev); // Toggle the dropdown state
+  };
+
+  const handleShopSelect = (shop) => {
+    setSelectedShop(shop);
+    setExpanded2(false); // Close dropdown after selection
+  };
 
   const checkWidth = () => {
     if (window.innerWidth >= 1024) {
@@ -143,13 +154,36 @@ const Sidebar = () => {
               />
             </span>
           </div>
-          <div className={`mt-[30px] ${!isExpanded && "hidden"}`}>
-            <div className="px-[13px] py-[14px] bg-white flex items-center justify-between border border-[#E4E4E7] rounded-[8px]">
-              <span className="flex items-center gap-[8px]">
-                <RiStoreLine size={20} color="#52525B" /> Mob Shop
-              </span>
-              <LuChevronsUpDown size={20} color="#71717A" />
+
+          <div className="relative">
+            <div
+              onClick={() => setExpanded2(!expanded2)}
+              className={`mt-[30px] ${!isExpanded && "hidden"}`}
+            >
+              <div className="px-[13px] py-[14px] bg-white flex items-center justify-between border border-[#E4E4E7] rounded-[8px]">
+                <span className="flex items-center gap-[8px]">
+                  <RiStoreLine size={20} color="#52525B" /> {selectedShop}
+                </span>
+                <LuChevronsUpDown size={20} color="#71717A" />
+              </div>
             </div>
+            {/* Dropdown options */}
+            {expanded2 && ( // Check if expanded2 is true
+              <div className="absolute z-10 mt-2 w-full bg-white border border-[#E4E4E7] rounded-[8px] shadow-md">
+                <div
+                  className="px-[13px] py-[10px] cursor-pointer hover:bg-gray-100"
+                  onClick={() => handleShopSelect("Tab Shop")}
+                >
+                  Tab Shop
+                </div>
+                <div
+                  className="px-[13px] py-[10px] cursor-pointer hover:bg-gray-100"
+                  onClick={() => handleShopSelect("Sys Shop")}
+                >
+                  Sys Shop
+                </div>
+              </div>
+            )}
           </div>
           <div className="flex items-center bg-[#EBEBEB] py-[9px] pe-[4px] rounded-[8px] w-full mt-[16px] relative">
             <span
@@ -369,7 +403,9 @@ const Sidebar = () => {
                 >
                   <span>
                     <MdArrowBackIos
-                      className={`transform transition ${
+                      className={`transform ${
+                        !isExpanded && "ml-4"
+                      } transition ${
                         isSalesChannelsVisible
                           ? "mt-[7px] rotate-90"
                           : "mt-[-4px] rotate-[-90deg]"

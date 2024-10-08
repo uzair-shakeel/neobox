@@ -1,16 +1,46 @@
-import React from "react";
+import React, { useState } from "react";
 import Sidebar from "../../components/Sidebar";
 import { IoIosMore } from "react-icons/io";
 
 const Wallet = () => {
+  // Dropdown states for both buttons
+  const [isPeriodDropdownOpen, setIsPeriodDropdownOpen] = useState(false);
+  const [isPeriodDropdown2Open, setIsPeriodDropdown2Open] = useState(false);
+  const [selectedPeriod, setSelectedPeriod] = useState("Last Year");
+  const [selectedPeriod2, setSelectedPeriod2] = useState("Last Year");
+
+  const [isCategoryDropdownOpen, setIsCategoryDropdownOpen] = useState(false);
+  const [selectedCategory, setSelectedCategory] = useState("Sales");
+
+  const togglePeriodDropdown = () =>
+    setIsPeriodDropdownOpen(!isPeriodDropdownOpen);
+
+  const togglePeriodDropdown2 = () =>
+    setIsPeriodDropdown2Open(!isPeriodDropdown2Open);
+
+  const toggleCategoryDropdown = () =>
+    setIsCategoryDropdownOpen(!isCategoryDropdownOpen);
+
+  const handleSelectPeriod = (period) => {
+    setSelectedPeriod(period);
+    setIsPeriodDropdownOpen(false);
+  };
+
+  const handleSelectPeriod2 = (period) => {
+    setSelectedPeriod2(period);
+    setIsPeriodDropdown2Open(false);
+  };
+
+  const handleSelectCategory = (category) => {
+    setSelectedCategory(category);
+    setIsCategoryDropdownOpen(false);
+  };
+
   return (
     <div className="min-h-screen flex bg-white">
-      {/* Sidebar Component (Assumed already implemented) */}
       <Sidebar />
 
-      {/* Main Content */}
-      <div className="w-[30%]  flex-grow py-6 p-3 lg:p-8">
-        {/* Header */}
+      <div className="w-[30%] flex-grow py-6 p-3 lg:p-8">
         <div className="flex justify-between w-full items-center mb-8">
           <h2 className="text-[18px] lg:text-[24px] font-semibold">Wallet</h2>
           <button className="bg-black text-white p-[10px] lg:p-[16px] rounded-md flex gap-2 items-center text-sm">
@@ -19,8 +49,8 @@ const Wallet = () => {
           </button>
         </div>
 
-        {/* Amount Due Section */}
         <div className="grid lg:grid-cols-2 gap-6 mb-10">
+          {/* Amount Due Section */}
           <div>
             <p className="text-gray-900 text-[16px] lg:text-[20px] font-[500]">
               Amount due for March
@@ -56,51 +86,91 @@ const Wallet = () => {
         </div>
 
         {/* Activity Summary */}
-        <div className=" mb-10 text-[14px] text-gray-900">
+        <div className="mb-10 text-[14px] text-gray-900">
           <div className="flex items-center justify-between">
             <h4 className="text-[16px] lg:text-[20px] font-medium mb-4">
               Activity Summary
             </h4>
-            {/* Dropdown */}
-            <button className="text-gray-600 text-sm font-medium border border-gray-300 rounded-lg py-2 px-4 bg-white shadow-sm">
-              Last Year ▾
-            </button>
+
+            {/* Dropdown 1: Period */}
+            <div className="relative">
+              <button
+                onClick={togglePeriodDropdown}
+                className="text-gray-600 text-sm font-medium border border-gray-300 rounded-lg py-2 px-4 bg-white shadow-sm"
+              >
+                {selectedPeriod} ▾
+              </button>
+
+              {isPeriodDropdownOpen && (
+                <div className="absolute mt-2 py-2 w-full bg-white rounded-lg shadow-lg border border-gray-300">
+                  <button
+                    className="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100 w-full text-left"
+                    onClick={() => handleSelectPeriod("Last Month")}
+                  >
+                    Last Month
+                  </button>
+                  <button
+                    className="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100 w-full text-left"
+                    onClick={() => handleSelectPeriod("Last Year")}
+                  >
+                    Last Year
+                  </button>
+                  <button
+                    className="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100 w-full text-left"
+                    onClick={() => handleSelectPeriod("All Time")}
+                  >
+                    All Time
+                  </button>
+                </div>
+              )}
+            </div>
           </div>
+
           <div className="flex flex-col lg:flex-row justify-between gap-3 lg:items-center bg-white p-2 py-4 lg:p-4 shadow-sm rounded-lg border border-gray-200">
-            {/* Sales Section */}
-            <div className="flex space-x-4 items-center justify-between lg:w-1/3  lg:px-3 lg:border-r border-gray-200">
-              <button className="flex items-center py-2 px-4 border border-gray-300 rounded-full bg-white shadow-sm">
-                <img src="/sales.svg" alt="Sales" className="h-5 w-5 mr-2" />
-                <span className="text-gray-600 font-semibold">Sales</span>
+            {/* Dropdown 2: Category */}
+            <div className="flex space-x-4 items-center justify-between lg:w-1/3  lg:px-3 lg:border-r border-gray-200 relative">
+              <button
+                onClick={toggleCategoryDropdown}
+                className="flex items-center py-2 px-4 border border-gray-300 rounded-full bg-white shadow-sm w-full"
+              >
+                <img
+                  src={`/${selectedCategory.toLowerCase()}.svg`}
+                  alt={selectedCategory}
+                  className="h-5 w-5 mr-2"
+                />
+                <span className="text-gray-600 font-semibold">
+                  {selectedCategory}
+                </span>
               </button>
-              <span className="font-semibold text-lg text-gray-800">
-                CAD 829.00
-              </span>
+
+              {isCategoryDropdownOpen && (
+                <div className="absolute mt-2 py-2 w-full bg-white rounded-lg shadow-lg border border-gray-300">
+                  <button
+                    className="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100 w-full text-left"
+                    onClick={() => handleSelectCategory("Sales")}
+                  >
+                    Sales
+                  </button>
+                  <button
+                    className="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100 w-full text-left"
+                    onClick={() => handleSelectCategory("Fees")}
+                  >
+                    Fees
+                  </button>
+                  <button
+                    className="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100 w-full text-left"
+                    onClick={() => handleSelectCategory("Deposit")}
+                  >
+                    Deposit
+                  </button>
+                </div>
+              )}
             </div>
 
-            {/* Fees Section */}
-            <div className="flex space-x-4 items-center justify-between lg:w-1/3  lg:px-3 lg:border-r border-gray-200">
-              <button className="flex items-center py-2 px-4 border border-gray-300 rounded-full shadow-sm">
-                <img src="/fees.svg" alt="Sales" className="h-5 w-5 mr-2" />
-
-                <span className="text-gray-600 font-semibold">Fees</span>
-              </button>
-              <span className="font-semibold text-lg text-gray-800">
-                USD 57.00
-              </span>
-            </div>
-
-            {/* Deposit Section */}
-            <div className="flex space-x-4 items-center justify-between lg:w-1/3  lg:px-3 ">
-              <button className="flex items-center py-2 px-4 border border-gray-300 rounded-full bg-white shadow-sm">
-                <img src="/deposit.svg" alt="Sales" className="h-5 w-5 mr-2" />
-
-                <span className="text-gray-600 font-semibold">Deposit</span>
-              </button>
-              <span className="font-semibold text-lg text-gray-800">
-                USD 323.00
-              </span>
-            </div>
+            {/* Displayed Amount */}
+            <span className="font-semibold text-lg text-gray-800 lg:w-1/3">
+              CAD 829.00
+            </span>
           </div>
         </div>
 
@@ -111,15 +181,41 @@ const Wallet = () => {
               Recent Activity
             </h4>
             <div className="flex gap-3 items-center">
-              <button className="text-gray-600 text-sm font-medium border border-gray-300 rounded-lg px-2 py-2 lg:px-4 bg-white shadow-sm">
-                Last Year ▾
-              </button>
-              <button className="text-gray-600 text-sm font-medium border border-gray-300 rounded-full p-2 bg-white shadow-sm">
-                <IoIosMore />
-              </button>
+              <div className="relative">
+                <button
+                  onClick={togglePeriodDropdown2}
+                  className="text-gray-600 text-sm font-medium border border-gray-300 rounded-lg py-2 px-4 bg-white shadow-sm"
+                >
+                  {selectedPeriod2} ▾
+                </button>
+
+                {isPeriodDropdown2Open && (
+                  <div className="absolute mt-2 py-2 w-full bg-white rounded-lg shadow-lg border border-gray-300">
+                    <button
+                      className="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100 w-full text-left"
+                      onClick={() => handleSelectPeriod2("Last Month")}
+                    >
+                      Last Month
+                    </button>
+                    <button
+                      className="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100 w-full text-left"
+                      onClick={() => handleSelectPeriod2("Last Year")}
+                    >
+                      Last Year
+                    </button>
+                    <button
+                      className="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100 w-full text-left"
+                      onClick={() => handleSelectPeriod2("All Time")}
+                    >
+                      All Time
+                    </button>
+                  </div>
+                )}
+              </div>
             </div>
           </div>
-          <div className=" overflow-x-auto">
+
+          <div className="overflow-x-auto">
             <table className="w-full bg-white border border-gray-300 rounded-[8px]">
               <thead>
                 <tr className="text-left text-gray-900 text-[16px] font-[500] border-b">
@@ -131,7 +227,6 @@ const Wallet = () => {
                 </tr>
               </thead>
               <tbody>
-                {/* Repeat for each row */}
                 <tr className="text-sm text-[16px] text-gray-900 border-b">
                   <td className="py-4 px-6">1001</td>
                   <td className="py-4 px-6 text-gray-500">09 May 2024</td>
@@ -145,8 +240,8 @@ const Wallet = () => {
                 </tr>
                 <tr className="text-sm text-gray-800 border-b">
                   <td className="py-4 px-6">1002</td>
-                  <td className="py-4 px-6 text-gray-500">22 Apr 2024</td>
-                  <td className="py-4 px-6 font-[500]">1212131212</td>
+                  <td className="py-4 px-6 text-gray-500">07 May 2024</td>
+                  <td className="py-4 px-6 font-[500]">1212</td>
                   <td className="py-4 px-6 font-[500]">$1,053,099</td>
                   <td className="py-4 px-6">
                     <span className="bg-red-100 text-red-600 px-2 py-1 rounded-full">
@@ -165,7 +260,6 @@ const Wallet = () => {
                     </span>
                   </td>
                 </tr>
-                {/* Add more rows as necessary */}
               </tbody>
             </table>
           </div>

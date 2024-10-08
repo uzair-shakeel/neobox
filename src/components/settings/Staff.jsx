@@ -1,95 +1,12 @@
 import React, { useState } from "react";
-import PhoneInput from "react-phone-input-2";
-import "react-phone-input-2/lib/style.css"; // Import styles for phone input
-
-const AddStaffModal = ({ isOpen, onClose }) => {
-  const [phone, setPhone] = useState("");
-
-  if (!isOpen) return null;
-
-  return (
-    <div className="fixed inset-0 z-50 flex items-center justify-center bg-black bg-opacity-50">
-      <div className="bg-white rounded-lg shadow-lg w-[90%] md:w-[400px] p-6">
-        {/* Modal Header */}
-        <div className="flex justify-between items-center mb-4">
-          <h2 className="text-[18px] font-semibold">Add Staff</h2>
-          <button
-            onClick={onClose}
-            className="text-gray-400 hover:text-gray-600"
-          >
-            ✕
-          </button>
-        </div>
-
-        {/* Modal Content */}
-        <form className="space-y-4">
-          <div>
-            <label className="block text-sm font-medium text-gray-700">
-              Full Name
-            </label>
-            <input
-              type="text"
-              className="mt-1 block w-full border border-gray-300 rounded-md shadow-sm py-2 px-3 focus:outline-none focus:ring focus:border-blue-300"
-              placeholder="Marc"
-            />
-          </div>
-
-          <div>
-            <label className="block text-sm font-medium text-gray-700">
-              Phone numbers
-            </label>
-            <PhoneInput
-              country={"us"}
-              placeholder="+1 Phone number"
-              value={phone}
-              onChange={setPhone}
-              className="!w-full"
-              inputClass="!w-full px-4 py-2 bg-gray-100 border border-gray-300 rounded-lg shadow-sm placeholder-gray-400 focus:ring-indigo-500 focus:border-indigo-500"
-            />
-
-          </div>
-
-          <div>
-            <label className="block text-sm font-medium text-gray-700">
-              Email
-            </label>
-            <input
-              type="email"
-              className="mt-1 block w-full border border-gray-300 rounded-md shadow-sm py-2 px-3 focus:outline-none focus:ring focus:border-blue-300"
-              placeholder="marcmarquez@gmail.com"
-            />
-          </div>
-
-          <div>
-            <label className="block text-sm font-medium text-gray-700">
-              Roles
-            </label>
-            <select className="mt-1 block w-full border border-gray-300 rounded-md shadow-sm py-2 px-3 focus:outline-none focus:ring focus:border-blue-300">
-              <option>Admin</option>
-              <option>Super Admin</option>
-              <option>Member</option>
-            </select>
-          </div>
-
-          <div>
-            <button
-              type="button"
-              className="w-full py-2 px-4 bg-gray-300 text-white rounded-lg cursor-not-allowed"
-              disabled
-            >
-              Send Invitation
-            </button>
-          </div>
-        </form>
-      </div>
-    </div>
-  );
-};
+import AddStaffModal from "./AddStaffModal";
+import EditStuffModal from "./EditStuffModal";
 
 const StaffSettings = () => {
-  const [isModalOpen, setIsModalOpen] = useState(false);
-
-  const staffData = [
+  const [isAddModalOpen, setIsAddModalOpen] = useState(false);
+  const [isEditModalOpen, setIsEditModalOpen] = useState(false);
+  const [selectedStaff, setSelectedStaff] = useState(null);
+  const [staffData, setStaffData] = useState([
     {
       id: 1,
       fullName: "Iva Ryan",
@@ -101,7 +18,7 @@ const StaffSettings = () => {
       id: 2,
       fullName: "Ricky Smith",
       email: "k.p.allen@aol.com",
-      role: "Members",
+      role: "Member",
       status: "Inactive",
     },
     {
@@ -111,15 +28,23 @@ const StaffSettings = () => {
       role: "Admin",
       status: "Active",
     },
-    // Add more staff members as needed
-  ];
+  ]);
+
+  const handleRowClick = (staff) => {
+    setSelectedStaff(staff);
+    setIsEditModalOpen(true);
+  };
+
+  const handleAddStaff = (newStaff) => {
+    setStaffData((prevData) => [...prevData, newStaff]);
+  };
 
   return (
     <div className="w-full">
       <div className="flex justify-between items-center flex-wrap w-full">
         <h3 className="md:text-[20px] text-[18px] font-[500]">Staff</h3>
         <button
-          onClick={() => setIsModalOpen(true)}
+          onClick={() => setIsAddModalOpen(true)}
           className="md:px-4 px-3 py-2 md:text-[16px] text-[14px] font-medium border border-[#E4E4E7] rounded-lg"
         >
           + Add Staff
@@ -148,7 +73,11 @@ const StaffSettings = () => {
             </thead>
             <tbody className="divide-y">
               {staffData.map((staff) => (
-                <tr key={staff.id} className="hover:bg-gray-50">
+                <tr
+                  key={staff.id}
+                  className="hover:bg-gray-50 cursor-pointer"
+                  onClick={() => handleRowClick(staff)}
+                >
                   <td className="px-[16px] py-[14px] text-[#09090B] font-[500] md:text-[16px] text-[14px]">
                     {staff.fullName}
                   </td>
@@ -177,8 +106,16 @@ const StaffSettings = () => {
 
       {/* Add Staff Modal */}
       <AddStaffModal
-        isOpen={isModalOpen}
-        onClose={() => setIsModalOpen(false)}
+        isOpen={isAddModalOpen}
+        onClose={() => setIsAddModalOpen(false)}
+        onAddStaff={handleAddStaff} // Pass the add staff function
+      />
+
+      {/* Edit Staff Modal */}
+      <EditStuffModal
+        isOpen={isEditModalOpen}
+        onClose={() => setIsEditModalOpen(false)}
+        staff={selectedStaff} // Pass the selected staff to the modal
       />
     </div>
   );
